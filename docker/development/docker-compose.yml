@@ -1,0 +1,13 @@
+version: '3.5'
+
+services:
+  example-website:
+    container_name: example.test
+    build:
+      context: ../../
+      dockerfile: docker/development/Dockerfile
+    volumes:
+      - ../../:/var/www/example.ca
+    command: python manage.py runserver 0.0.0.0:80
+    ports:
+      - "80:8080"
