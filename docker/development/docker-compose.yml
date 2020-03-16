@@ -10,4 +10,4 @@ services:
       - ../../:/var/www/example.ca
     command: python manage.py runserver 0.0.0.0:80
     ports:
-      - "80:8080"
+      - "8080:80"
