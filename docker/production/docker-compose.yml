@@ -1,0 +1,38 @@
+version: '3.5'
+
+services:
+
+  web:
+    container_name: example.ca
+    build:
+      context: ../../
+      dockerfile: docker/production/Dockerfile
+    volumes:
+      - static_volume:/var/www/example.ca/staticfiles
+    command: gunicorn -c config/gunicorn/gunicorn.production.conf
+      --env DJANGO_SETTINGS_MODULE=django_website_template.settings.production
+      --bind 0.0.0.0:8000 django_website_template.wsgi
+    expose:
+      - 8000
+    networks:
+      eos_net:
+
+  nginx:
+    container_name: nginx-example.ca
+    depends_on:
+      - web
+    build:
+      context: ../../
+      dockerfile: docker/production/nginx.Dockerfile
+    volumes:
+      - static_volume:/var/www/example.ca/staticfiles
+    ports:
+    - "8000:80"
+    networks:
+      eos_net:
+
+networks:
+  eos_net:
+
+volumes:
+  static_volume:
