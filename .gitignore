@@ -1,4 +1,4 @@
 ENV
 .idea
 .env
-database/data/*
+database/data/
