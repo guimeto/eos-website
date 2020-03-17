@@ -26,7 +26,7 @@ RUN pip install --upgrade pip \
 ENV PYTHONPATH "${PYTHONPATH}:${WORKPATH}/apps"
 RUN python manage.py migrate --noinput
 RUN python manage.py collectstatic -c --noinput
-
+RUN python manage.py compress --force
 # Create log files
 #RUN mkdir /usr/share/logs
 #RUN touch /usr/share/logs/access.log
