@@ -1,5 +1,5 @@
 """
-WSGI config for django_website_template project.
+WSGI config for eos_website project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_website_template.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'eos_website.settings')
 
 application = get_wsgi_application()

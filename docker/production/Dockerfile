@@ -4,7 +4,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 #RUN apt-get update
 #RUN apt-get install -y software-properties-common vim
 ENV PYTHONUNBUFFERED 1
-ENV WORKPATH "/var/www/example.ca"
+ENV WORKPATH "/var/www/eos-website"
 
 # set working directory
 WORKDIR $WORKPATH

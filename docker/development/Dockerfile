@@ -5,7 +5,7 @@ FROM python:3.6
 #RUN apt-get install -y software-properties-common vim
 
 ENV PYTHONUNBUFFERED 1
-ENV WORKPATH "/var/www/example.ca"
+ENV WORKPATH "/var/www/eos-website"
 
 # set working directory
 WORKDIR $WORKPATH

@@ -6,7 +6,7 @@ from os.path import abspath, dirname, join
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_website_template.settings.development')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'eos_website.settings.development')
     project_root = abspath(dirname(__file__))
     sys.path.append(join(project_root, 'apps'))
     try:
