@@ -21,7 +21,7 @@ ROOT_DIR = os.path.dirname(BASE_DIR)
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&d3xg_eud0c$w)x9f5+dje!=$8y8pr(#if2&^6nrq32pseq+38'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 ALLOWED_HOSTS = []
 
@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'compressor',
-    'example.apps.ExampleConfig'
+    'station.apps.StationConfig'
 ]
 
 MIDDLEWARE = [
@@ -75,8 +75,11 @@ WSGI_APPLICATION = 'eos_website.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ['MYSQL_DATABASE'],
+        'HOST': os.environ['EOS_DB_HOST'],
+        'USER': os.environ['EOS_DB_USER'],
+        'PASSWORD': os.environ['EOS_DB_PASSWORD']
     }
 }
 

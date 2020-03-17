@@ -1,13 +1,35 @@
 version: '3.5'
 
 services:
+  database:
+    container_name: eos-db-dev
+    image: 'mariadb:latest'
+    volumes:
+      - '../../database/data:/var/lib/mysql'
+    env_file:
+      - ../../.env
+    expose:
+      - '3306'
+    networks:
+      eos_net:
+
   website:
     container_name: eos-website-dev
+    depends_on:
+      - database
+    env_file:
+      - ../../.env
     build:
       context: ../../
       dockerfile: docker/development/Dockerfile
+
     volumes:
       - ../../:/var/www/eos-website
-    command: python manage.py runserver 0.0.0.0:80
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:80"
     ports:
       - "8000:80"
+    networks:
+      eos_net:
+
+networks:
+  eos_net:
