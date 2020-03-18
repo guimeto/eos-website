@@ -8,19 +8,20 @@
     <title>{{ title }}</title>
     <meta charset="UTF-8">
     {% compress css %}
-        <link type="text/x-scss" href="{% static 'theme.scss' %}" rel="stylesheet" media="screen">
+    <link type="text/x-scss" href="{% static 'theme.scss' %}" rel="stylesheet" media="screen">
     {% endcompress %}
     {% block head %}
     {% endblock %}
 </head>
 <body>
+
 <nav class="navbar navbar-dark navbar-expand-lg">
     <div class="container">
         <a class="navbar-brand" href="#">EOS WEBSITE DEV</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-links">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="nav-links">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item ">
                     <a class="nav-link" href="#">Home</a>
@@ -37,9 +38,7 @@
                         <li><a class="dropdown-item" href="#">Sentinel 7</a></li>
                     </ul>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="#">Instrumentation</a>
-                </li>
+
             </ul>
         </div>
     </div>

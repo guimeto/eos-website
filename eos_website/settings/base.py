@@ -129,8 +129,12 @@ COMPRESS_PRECOMPILERS = (
 )
 
 STATICFILES_DIRS = [
-    os.path.join(ROOT_DIR, "utils"),
+    os.path.join(ROOT_DIR, 'utils'),
 ]
 
 STATIC_ROOT = os.path.join(ROOT_DIR, 'static')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(ROOT_DIR, 'media')
+
 

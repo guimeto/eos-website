@@ -10,7 +10,6 @@ WORKDIR $WORKPATH
 
 # Add requirements to Docker container
 ADD ./requirements/development.pip $WORKPATH
-
 # add source files to PYTHONPATH
 ENV PYTHONPATH "${PYTHONPATH}:${WORKPATH}"
 
