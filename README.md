@@ -17,8 +17,12 @@ Requis: make, docker et docker-compose et le fichier .env (disponible dans le r�
 **IMPORTANT: s'assurer d'avoir la base de données lancée avant de démarrer le serveur, tout se trouve dans le dossier database sur le répertoire Google Drive 5.5 Site Web RIISQ/Documentation du site/database et le serveur du SITEL /var/www/html/riisq.ca/nginx.conf**
 
 Depuis la racine du projet:
-- Démarrer le serveur:  <code>sudo make dev</code>
-- Arrêter le serveur: <code>sudo make stop-dev</code>
+- Démarrer le stack de développement:  <code>sudo make dev</code>
+- Arrêter le stack de développement: <code>sudo make stop-dev</code>
+- Démarrer le stack de production:  <code>sudo make prod</code>
+- Arrêter le stack de production: <code>sudo make stop-prod</code>
 
-
+Pour administrer la base de données, se connecter sur le WebGUI de phpmyadmin (localhost:8001), les identifiants sont 
+les mêmes que pour le compte de la BD (voir .env)
 D'autres commandes sont disponibles pour afficher les logs, supprimer les images des containers etc. Voir le makefile.
+
