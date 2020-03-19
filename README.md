@@ -12,15 +12,15 @@ IDE utilisé : Pycharm avec un environnement virtuel créé manuellement avec re
 ## Serveur de développement, base de données et phpmyadmin
 Requis: make, docker et docker-compose et le fichier .env (disponible dans le répertoire Google Drive 5.5 Site Web RIISQ là **Documentation du site/config/.env/backend/.env**) 
 
-**IMPORTANT: les containers du riisq (client, serveur et base de données) sont dans un réseau virtuel à créer séparément comme suit:** <code>sudo docker network create riisq --driver bridge --subnet 172.23.0.0/16</code>
 **IMPORTANT: s'assurer que le fichier .env soit à la racine du projet, sinon le serveur ne démarrera pas**
-**IMPORTANT: s'assurer d'avoir la base de données lancée avant de démarrer le serveur, tout se trouve dans le dossier database sur le répertoire Google Drive 5.5 Site Web RIISQ/Documentation du site/database et le serveur du SITEL /var/www/html/riisq.ca/nginx.conf**
 
 Depuis la racine du projet:
 - Démarrer le stack de développement:  <code>sudo make dev</code>
 - Arrêter le stack de développement: <code>sudo make stop-dev</code>
 - Démarrer le stack de production:  <code>sudo make prod</code>
 - Arrêter le stack de production: <code>sudo make stop-prod</code>
+
+*Si le site web ne se démarre pas au premier lancement, il faut juste le redémarrer. En exécutant make dev par exemple*
 
 Pour administrer la base de données, se connecter sur le WebGUI de phpmyadmin (localhost:8001), les identifiants sont 
 les mêmes que pour le compte de la BD (voir .env)
