@@ -12,7 +12,6 @@ services:
       - '3306:3306'
     networks:
       eos_net:
-
   website:
     container_name: eos-website-dev
     depends_on:
@@ -28,6 +27,15 @@ services:
     command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:80"
     ports:
       - "8000:80"
+    networks:
+      eos_net:
+  pma:
+    container_name: eos-pma-dev
+    image: 'phpmyadmin/phpmyadmin:latest'
+    env_file:
+      - ../../.env
+    ports:
+      - '8001:80'
     networks:
       eos_net:
 
