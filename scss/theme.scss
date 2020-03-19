@@ -1,0 +1,13 @@
+@import "utils/variables";
+// Importation de tout les styles de bootstrap
+@import "vendor/bootstrap/bootstrap";
+
+@import "components/navbar";
+@import "components/dropdown";
+@import "base/global";
+@import "components/footer";
+@import "components/forms";
+@import "components/sidebar";
+@import "pages/home";
+
+

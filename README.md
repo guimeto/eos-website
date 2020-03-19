@@ -22,6 +22,7 @@ Depuis la racine du projet:
 
 *Si le site web ne se démarre pas au premier lancement, il faut juste le redémarrer. En exécutant make dev par exemple*
 
+
 Pour administrer la base de données, se connecter sur le WebGUI de phpmyadmin (localhost:8001), les identifiants sont 
 les mêmes que pour le compte de la BD (voir .env)
 D'autres commandes sont disponibles pour afficher les logs, supprimer les images des containers etc. Voir le makefile.

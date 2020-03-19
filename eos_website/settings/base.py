@@ -131,7 +131,7 @@ COMPRESS_PRECOMPILERS = (
 )
 
 STATICFILES_DIRS = [
-    os.path.join(ROOT_DIR, 'utils'),
+    os.path.join(ROOT_DIR, 'scss'),
 ]
 
 STATIC_ROOT = os.path.join(ROOT_DIR, 'static')
