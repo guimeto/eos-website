@@ -1,2 +1,5 @@
 ENV
 .idea
+**__pycache__
+**CACHE
+database/data
