@@ -10,7 +10,7 @@ IDE utilisé : Pycharm avec un environnement virtuel créé manuellement avec re
 
 
 ## Serveur de développement, base de données et phpmyadmin
-Requis: make, docker et docker-compose et le fichier .env (disponible dans le répertoire Google Drive 5.5 Site Web RIISQ là **Documentation du site/config/.env/backend/.env**) 
+Requis: make, docker et docker-compose et le fichier .env (disponible sur demande) 
 
 **IMPORTANT: s'assurer que le fichier .env soit à la racine du projet, sinon le serveur ne démarrera pas**
 
