@@ -1,13 +1,13 @@
-@import "scss/variables";
+@import "scss/utils/variables";
 // Importation de tout les styles de bootstrap
 @import "bootstrap/bootstrap";
 
-
-// Importation du style de parties de page
-@import "scss/navbar";
-@import "scss/dropdown";
-@import "scss/global";
-@import "scss/footer";
-@import "scss/forms";
+@import "scss/components/navbar";
+@import "scss/components/dropdown";
+@import "scss/base/global";
+@import "scss/components/footer";
+@import "scss/components/forms";
+@import "scss/components/sidebar";
+@import "scss/pages/home";
 
 

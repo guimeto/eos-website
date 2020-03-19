@@ -1,37 +1,26 @@
 # base image
-FROM python:3.6
-
-#RUN apt-get update
-#RUN apt-get install -y software-properties-common vim
-
+FROM python:3.6-slim
+ARG DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED 1
 ENV WORKPATH "/var/www/eos-website"
 
 # set working directory
 WORKDIR $WORKPATH
-# Add the project folder to Docker container
-ADD . .
 
+
+# Add requirements to Docker container
+ADD ./requirements/development.pip $WORKPATH
+# add source files to PYTHONPATH
 ENV PYTHONPATH "${PYTHONPATH}:${WORKPATH}"
 
 
-# install server requirements
-RUN pip install --upgrade pip
-RUN pip install -r requirements/development.pip
+RUN apt-get update \
+    && apt-get --no-install-recommends -y install  apt-utils \
+    && apt-get --no-install-recommends -y install build-essential \
+        default-libmysqlclient-dev python3-dev \
+	&& apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
-## Apply database migrations
-#RUN python manage.py migrate
 
-#Add apps directory to python path
-ENV PYTHONPATH "${PYTHONPATH}:${WORKPATH}/apps"
-
-# Create log files
-#RUN mkdir /usr/share/logs
-#RUN touch /usr/share/logs/access.log
-#RUN touch /usr/share/logs/error.log
-#RUN chmod 777 /usr/share/logs/access.log
-#RUN chmod 777 /usr/share/logs/error.log
-
-# expose the port 80
-EXPOSE 80
+# Install server requirements
+RUN pip install --upgrade pip && pip install -r development.pip
 

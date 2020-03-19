@@ -1,0 +1,50 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+{% block sidebar %}
+    <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading">{{ station.name }}</div>
+        <div class="list-group list-group-flush">
+            {% if station.meteograms %}
+                <a href="/stations/{{ station.id }}/meteograms"
+                   class="list-group-item list-group-item-action bg-light active">
+                    Meteograms
+                </a>
+            {% endif %}
+            {% if station.radar %}
+                <a href="/stations/{{ station.id }}/radar"
+                   class="list-group-item list-group-item-action bg-light">
+                    Radar
+                </a>
+            {% endif %}
+            {% if station.disdrometer %}
+                <a href="/stations/{{ station.id }}/disdrometer"
+                   class="list-group-item list-group-item-action bg-light">
+                    Disdrometer
+                </a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <h1 class="text-center"> - Météogrammes des dernières 24 heures - </h1>
+    <hr class="my-4">
+    <p class="lead text-center">(Dernière mise à jour: {% now  "j/m/Y à H" %}h - UTC)</p>
+    <div id="graphdiv" class="graph"></div>
+    <div id="graphdiv2" class="graph"></div>
+    <div id="graphdiv3" class="graph"></div>
+    <div id="graphdiv4" class="graph"></div>
+    <p><b>Réalisation: Guillaume Dueymes</b></p>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        let media_url = "{{ MEDIA_URL }}";
+        let dir_name = "{{ station.dir_name }}";
+    </script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/windbarb.js"></script>
+    <script src="{% static 'station/js/daily_meteograms.js' %}"></script>
+{% endblock %}

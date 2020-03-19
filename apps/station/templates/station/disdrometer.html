@@ -1,0 +1,56 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+
+{% block sidebar %}
+    <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading">{{ station.name }}</div>
+        <div class="list-group list-group-flush">
+            {% if station.meteograms %}
+                <a href="/stations/{{ station.id }}/meteograms"
+                   class="list-group-item list-group-item-action bg-light">
+                    Meteograms
+                </a>
+            {% endif %}
+            {% if station.radar %}
+                <a href="/stations/{{ station.id }}/radar"
+                   class="list-group-item list-group-item-action bg-light">
+                    Radar
+                </a>
+            {% endif %}
+            {% if station.disdrometer %}
+                <a href="/stations/{{ station.id }}/disdrometer"
+                   class="list-group-item list-group-item-action bg-light active">
+                    Disdrometer
+                </a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <h1 class="text-center"> - Observations du disdromètre - </h1>
+    <hr class="my-4">
+    <p>Le disdromètre permet de faire la distinction entre la pluie et la neige. Une équipe de recherche sous la
+        direction de la Professeure Julie Thériault développe des méthodes diagnostiques pour distinguer les différentes
+        types de précipitation : la bruine, la pluie, la neige mouillée, la neige, le grésil, la pluie verglaçante et la
+        grêle.</p>
+    <hr class="my-4">
+    <p class="lead text-center"> (Évolution aux 10 minutes pour la journée du: {% now "j/m/Y" %})</p>
+    <div id="graphdiv" class="graph"></div>
+    <div id="graphdiv2" class="graph"></div>
+    <hr class="my-4">
+    <img src="{{ MEDIA_URL }}data/{{ station.dir_name }}/parsivel.png" class="img-fluid" alt="Station UQAM">
+    <p><b>Réalisation: Guillaume Dueymes</b></p>
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript">
+        let media_url = "{{ MEDIA_URL }}";
+        let dir_name = "{{ station.dir_name }}";
+    </script>
+    <!-- Highchart -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/map.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/offline-exporting.js"></script>
+    <script type='text/javascript' src="{% static 'station/js/disdrometer.js' %}"></script>
+{% endblock %}
