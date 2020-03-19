@@ -11,10 +11,6 @@ from django.views.generic import TemplateView
 from station.models import Station
 
 
-def index(request):
-    return render(request, 'home/home.html', {'title': 'Home'})
-
-
 class HomeView(TemplateView):
     template_name = "home/home.html"
 
