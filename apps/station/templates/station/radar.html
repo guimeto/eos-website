@@ -1,29 +1,7 @@
 {% extends 'dashboard.html' %}
 {% load static %}
 {% block sidebar %}
-    <div class="bg-light border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading">{{ station.name }}</div>
-        <div class="list-group list-group-flush">
-            {% if station.meteograms %}
-                <a href="/stations/{{ station.id }}/meteograms"
-                   class="list-group-item list-group-item-action bg-light">
-                    Meteograms
-                </a>
-            {% endif %}
-            {% if station.radar %}
-                <a href="/stations/{{ station.id }}/radar"
-                   class="list-group-item list-group-item-action bg-light active">
-                    Radar
-                </a>
-            {% endif %}
-            {% if station.disdrometer %}
-                <a href="/stations/{{ station.id }}/disdrometer"
-                   class="list-group-item list-group-item-action bg-light">
-                    Disdrometer
-                </a>
-            {% endif %}
-        </div>
-    </div>
+    {% include "station/station_sidebar.html" with active="radar" %}
 {% endblock %}
 {% block content %}
     <div class="text-center">

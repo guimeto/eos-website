@@ -9,6 +9,7 @@ class Station(models.Model):
     meteograms = special_models.Bit1BooleanField()
     radar = special_models.Bit1BooleanField()
     disdrometer = special_models.Bit1BooleanField()
+    ceilometer = special_models.Bit1BooleanField()
 
     class Meta:
         managed = False
