@@ -35,7 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'compressor',
     'home.apps.HomeConfig',
-    'station.apps.StationConfig'
+    'station.apps.StationConfig',
+    'contact.apps.ContactConfig',
+
 ]
 
 MIDDLEWARE = [

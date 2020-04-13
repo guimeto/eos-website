@@ -5,7 +5,7 @@ var today2 = today - today.getTimezoneOffset() * 60000;
 var todaymin = today.setMonth(5);
 var todaymax = today.setMonth(10);
 
-///Panneau sur les températures 
+///Panneau sur les températures
 var options1 = {
 
     chart: {
