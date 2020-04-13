@@ -16,8 +16,16 @@
                 {% endfor %}
             </ul>
         </li>
-        <li class="nav-item ">
-            <a class="nav-link" href="#">Instrumentation</a>
+        <li class="nav-item dropdown">
+            <div class="nav-link dropdown-toggle" data-toggle="dropdown">Instrumentation</div>
+            <ul class="dropdown-menu">
+                <li class="nav-item ">
+                    <a class="nav-link" href={% url "anemometer" %}>Anemometer</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href={% url "datalogger" %}>Datalogger</a>
+                </li>
+            </ul>
         </li>
         <li class="nav-item dropdown">
             <div class="nav-link dropdown-toggle" data-toggle="dropdown">About</div>

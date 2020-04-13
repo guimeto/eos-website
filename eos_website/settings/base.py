@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'station.apps.StationConfig',
     'about.apps.AboutConfig',
     'contact.apps.ContactConfig',
+    'instrumentation.apps.InstrumentationConfig',
 
 ]
 

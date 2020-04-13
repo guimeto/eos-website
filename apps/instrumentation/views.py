@@ -1,25 +1,28 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView
+    # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 
+from django.views.generic import TemplateView
 from station.models import Station
 
 
-class HistoricView(TemplateView):
-    template_name = "about/historic.html"
+# Create your views here.
+class AnemometerView(TemplateView):
+    template_name = "instrumentation/anemometer.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['stations'] = Station.objects.all().values('id', 'name')
-        context['title'] = 'Historic'
+        context['title'] = 'Anemometer'
         return context
 
 
-class TeamView(TemplateView):
-    template_name = "about/team.html"
+class DataloggerView(TemplateView):
+    template_name = "instrumentation/datalogger.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['stations'] = Station.objects.all().values('id', 'name')
-        context['title'] = 'Team'
+        context['title'] = 'Datalogger'
         return context
+
 

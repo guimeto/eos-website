@@ -25,6 +25,7 @@ urlpatterns = [
     path('stations/', include('station.urls')),
     path('about/', include('about.urls')),
     path('contact/', include('contact.urls')),
+    path('instrumentation/', include('instrumentation.urls')),
 ]
 
 if settings.DEBUG is True:
