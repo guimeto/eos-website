@@ -1,11 +1,11 @@
-{% extends 'dashboard.html' %}
+{% extends 'layouts/dashboard.html' %}
 {% load static %}
 
 {% block sidebar %}
   {% include "station/station_sidebar.html" with active="live_data" %}
 {% endblock %}
 {% block content %}
-    <div id="home">
+    <div id="live_data">
         <h1 class="display-4 mb-2 text-center">{{ station.name }}</h1>
         <h3 class="text-center mb-3 font-italic" id="lastUpdateText">Dernière mise-à-jour</h3>
         <div class="container mb-3 pt-3 pb-3 border">
@@ -28,8 +28,6 @@
             (<a class="font-italic" href="https://meteo.gc.ca/city/pages/qc-147_metric_f.html">source</a>)
             <div class="row mt-4" id="forecast"></div>
         </div>
-        <div id="map"></div>
-
     </div>
 
 {% endblock %}

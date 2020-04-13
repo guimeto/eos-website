@@ -1,50 +1,9 @@
-{% extends 'base.html' %}
+{% extends 'layouts/classic.html' %}
 {% load static %}
 
-{% block head %}
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-          crossorigin=""/>
 
-
-{% endblock %}
 {% block content %}
-    <div id="home">
-        <h1 class="display-4 mb-2 text-center">Station météorologique de l'UQÀM</h1>
-        <h3 class="text-center mb-3 font-italic" id="lastUpdateText">Dernière mise-à-jour</h3>
-        <div class="container mb-3 pt-3 pb-3 border">
-            <h3 class="mb-4">Station UQÀM</h3>
-            <div id="stationCurrent" class="row ml-0 mr-0"></div>
-        </div>
-        <div class="container mb-3 pt-3 pb-3 border">
-            <h3 class="d-inline">Environnement Canada </h3>
-            (<a class="font-italic" href="https://meteo.gc.ca/city/pages/qc-147_metric_f.html">source</a>)
-            <h6 class="font-italic mt-2 mb-2">Enregistré à Aéroport int. de Montréal-Trudeau</h6>
-            <div class="media">
-                <img src="{{ MEDIA_URL }}images/0.gif" class="mr-3" alt="conditions météo actuelles"/>
-                <div class="media-body">
-                    <div id="ecCurrent" class="row ml-0 mr-0"></div>
-                </div>
-            </div>
-        </div>
-        <div class="container mb-3 pt-3 border">
-            <h3 class="d-inline">Prévisions</h3>
-            (<a class="font-italic" href="https://meteo.gc.ca/city/pages/qc-147_metric_f.html">source</a>)
-            <div class="row mt-4" id="forecast"></div>
-        </div>
-        <div id="map"></div>
-
-    </div>
-
+    <h1>CECI EST UN TITRE</h1>
+    <div class="my-4">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis et ex vel tincidunt. In eu ex dapibus, consequat lacus quis, tincidunt est. Phasellus eget vestibulum urna, id pretium urna. Aliquam eget consequat libero, convallis sagittis magna. Aenean pellentesque volutpat risus non euismod. Sed fringilla, turpis quis posuere malesuada, magna nibh laoreet velit, sed rutrum elit quam vel diam. Ut dignissim metus sit amet nisi consequat placerat. Phasellus vel metus euismod, consectetur mi ut, euismod metus. Maecenas fringilla tincidunt nibh, sed tempor elit interdum non. Aenean facilisis justo ut neque consectetur euismod. Cras sed malesuada erat. Donec ornare massa elit, id iaculis nisl molestie in. Etiam ligula mauris, elementum et ultrices quis, aliquet sit amet lacus. Aenean lobortis mauris nec odio rhoncus pellentesque. Nullam sit amet ex sit amet nibh luctus porta.</p>
 {% endblock %}
-{% block scripts %}
-    <script type="text/javascript">
-        let media_url = "{{ MEDIA_URL }}";
-    </script>
-    <script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
-    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-            integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-            crossorigin=""></script>
-    <script src="{% static 'home/js/home.js' %}"></script>
-{% endblock %}
-

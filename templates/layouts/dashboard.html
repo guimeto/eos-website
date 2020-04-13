@@ -18,7 +18,9 @@
     {% block sidebar %}{% endblock %}
     <div id="page-content-wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-            <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
+            <button class="btn btn-primary mr-4" id="menu-toggle">Toggle Menu</button>
+            <a class="navbar-brand" href={% url "home" %}>EOS WEBSITE DEV</a>
+
             {% include "components/navigation.html" %}
         </nav>
 
