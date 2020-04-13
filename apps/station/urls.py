@@ -6,4 +6,5 @@ urlpatterns = [
     path('<int:station_id>/meteograms', StationMeteogramsView.as_view()),
     path('<int:station_id>/radar', StationRadarView.as_view()),
     path('<int:station_id>/disdrometer', StationDisdrometerView.as_view()),
+    path('<int:station_id>/ceilometer', StationCeilometerView.as_view()),
 ]

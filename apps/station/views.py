@@ -10,7 +10,6 @@ class StationMeteogramsView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['station'] = Station.objects.get(pk=self.kwargs['station_id'])
         context['stations'] = Station.objects.all().values('id', 'name')
-        context['active_sidebar_tab'] = "meteograms"
         return context
 
 
@@ -21,7 +20,16 @@ class StationDisdrometerView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['station'] = Station.objects.get(pk=self.kwargs['station_id'])
         context['stations'] = Station.objects.all().values('id', 'name')
-        context['active_sidebar_tab'] = "disdrometer"
+        return context
+
+
+class StationCeilometerView(TemplateView):
+    template_name = "station/ceilometer.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['station'] = Station.objects.get(pk=self.kwargs['station_id'])
+        context['stations'] = Station.objects.all().values('id', 'name')
         return context
 
 
@@ -32,5 +40,4 @@ class StationRadarView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['station'] = Station.objects.get(pk=self.kwargs['station_id'])
         context['stations'] = Station.objects.all().values('id', 'name')
-        context['active_sidebar_tab'] = "radar"
         return context
