@@ -34,8 +34,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'compressor',
+    'email_obfuscator',
     'home.apps.HomeConfig',
     'station.apps.StationConfig',
+    'about.apps.AboutConfig',
     'contact.apps.ContactConfig',
 
 ]
