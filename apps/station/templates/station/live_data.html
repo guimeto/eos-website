@@ -1,19 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'dashboard.html' %}
 {% load static %}
 
-{% block head %}
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-          crossorigin=""/>
-
-
+{% block sidebar %}
+  {% include "station/station_sidebar.html" with active="live_data" %}
 {% endblock %}
 {% block content %}
     <div id="home">
-        <h1 class="display-4 mb-2 text-center">Station météorologique de l'UQÀM</h1>
+        <h1 class="display-4 mb-2 text-center">{{ station.name }}</h1>
         <h3 class="text-center mb-3 font-italic" id="lastUpdateText">Dernière mise-à-jour</h3>
         <div class="container mb-3 pt-3 pb-3 border">
-            <h3 class="mb-4">Station UQÀM</h3>
+            <h3 class="mb-4">{{ station.name }}</h3>
             <div id="stationCurrent" class="row ml-0 mr-0"></div>
         </div>
         <div class="container mb-3 pt-3 pb-3 border">
@@ -40,11 +36,12 @@
 {% block scripts %}
     <script type="text/javascript">
         let media_url = "{{ MEDIA_URL }}";
+        let dir_name = "{{ station.dir_name }}"
     </script>
     <script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
             integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
             crossorigin=""></script>
-    <script src="{% static 'home/js/home.js' %}"></script>
+    <script src="{% static 'station/js/live_data.js' %}"></script>
 {% endblock %}
 

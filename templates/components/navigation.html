@@ -10,7 +10,7 @@
             <div class="nav-link dropdown-toggle" data-toggle="dropdown">Stations</div>
             <ul class="dropdown-menu">
                 {% for station in stations %}
-                    <li><a class="dropdown-item" href="/stations/{{ station.id }}/meteograms">
+                    <li><a class="dropdown-item" href="/stations/{{ station.id }}/live-data">
                         {{ station.name }}
                     </a></li>
                 {% endfor %}

@@ -1,28 +1,3 @@
-let map = L.map('map', {
-    center: [45.508582, -73.568797],
-    minZoom: 2,
-    zoom: 13
-});
-L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    subdomains: ['a', 'b', 'c']
-}).addTo(map);
-L.marker([45.508582, -73.568797]).addTo(map);
-let uqam_station = {
-    "Name": "Station UQAM",
-    "lat": 45.508582,
-    "lng": -73.568797,
-    "Elevation": 80.0,
-    "Year_ini": 2014,
-    "Year_fin": 2018
-};
-let popup = "<br> <b>Nom de la station: </b>" + uqam_station.Name
-    + "<br> <b>Élévation: </b>" + uqam_station.Elevation + " m"
-    + "<br> <b>Début d'enregistrement: </b>" + uqam_station.Year_ini;
-L.marker([uqam_station.lat, uqam_station.lng])
-    .bindPopup(popup)
-    .addTo(map);
-
 function addRow(row, name, value) {
     let cell = row.insertCell().innerHTML = `${name} :`;
     row.insertCell().innerHTML = `<b>${value}</b>`;
@@ -57,10 +32,12 @@ function displayEcCurrentData(data) {
     // document.getElementById("date").innerHTML = `${today.getDay()}-${today.getMonth()}-${today.getFullYear()} ${data.Temps.split("-")[0]}:${data.Temps.split("-")[1]}`;
 
 }
+
 function getLastUpdateDate(value) {
     let today = new Date();
     return `${value.split("-")[0]}:${value.split("-")[1]} ${today.toLocaleDateString()}`
 }
+
 function displayStationCurrentData(data) {
     document.getElementById("lastUpdateText").innerHTML = `Dernière mise-à-jour: ${getLastUpdateDate(data.Temps)}`;
     let div = document.getElementById("stationCurrent");
@@ -91,6 +68,7 @@ function displayStationCurrentData(data) {
 
 
 }
+
 function formatDayString(value) {
     let weekDay = value.substr(0, 3);
     let day = value.substr(3).split(" ")[0];
@@ -98,10 +76,9 @@ function formatDayString(value) {
     month = month.charAt(0).toUpperCase() + month.slice(1);
     return `${weekDay} ${day} ${month}`;
 }
+
 function displayForecast(data) {
     let forecast = document.getElementById("forecast");
-    data.splice(data.length - 1);
-    data.shift();
     data.map((day, index) => {
         forecast.innerHTML += `<div class="col-md-4 col-sm-12 border container-forecast">
                 <h5 class="text-center">${formatDayString(day.Period)}</h5>
@@ -116,19 +93,19 @@ function displayForecast(data) {
     })
 }
 
-Papa.parse(`${media_url}data/home/current.csv`, {
+Papa.parse(`${media_url}data/${dir_name}/current.csv`, {
     download: true,
     header: true,
     complete: (result) => displayEcCurrentData(result.data[0])
 });
 
-Papa.parse(`${media_url}data/home/station_last_data.csv`, {
+Papa.parse(`${media_url}data/${dir_name}/station_last_data.csv`, {
     download: true,
     header: true,
     complete: (result) => displayStationCurrentData(result.data[0])
 });
 
-Papa.parse(`${media_url}data/home/forecast.csv`, {
+Papa.parse(`${media_url}data/${dir_name}/forecast.csv`, {
     download: true,
     header: true,
     complete: (result) => displayForecast(result.data)

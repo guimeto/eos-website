@@ -1,6 +1,11 @@
 <div class="bg-light border-right" id="sidebar-wrapper">
     <div class="sidebar-heading">{{ station.name }}</div>
     <div class="list-group list-group-flush">
+        <a href="/stations/{{ station.id }}/live-data"
+           class="list-group-item list-group-item-action bg-light
+               {% if active == "live_data" %}active{% endif %}">
+            Live data
+        </a>
         {% if station.meteograms %}
             <a href="/stations/{{ station.id }}/meteograms"
                class="list-group-item list-group-item-action bg-light
