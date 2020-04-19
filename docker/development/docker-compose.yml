@@ -5,13 +5,16 @@ services:
     container_name: eos-db-dev
     image: 'mariadb:latest'
     volumes:
-      - '../../database/data:/var/lib/mysql'
+      - eos_data_container:/var/lib/mysql
+      - ../../database/sql_scripts/eos_website.sql:/docker-entrypoint-initdb.d/dump.sql
     env_file:
       - ../../.env
     ports:
       - '3306:3306'
     networks:
       eos_net:
+
+
   website:
     container_name: eos-website-dev
     depends_on:
@@ -41,3 +44,6 @@ services:
 
 networks:
   eos_net:
+
+volumes:
+  eos_data_container:
