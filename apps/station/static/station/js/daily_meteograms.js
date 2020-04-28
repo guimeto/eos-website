@@ -1,84 +1,124 @@
+
 var today = new Date();
 today.setMinutes(0);
-var yesterday = today.setDate(today.getDate() - 1) - today.getTimezoneOffset() * 60000;
-var today2 = today - today.getTimezoneOffset() * 60000;
-var todaymin = today.setMonth(5);
-var todaymax = today.setMonth(10);
-
+var yesterday = today.setDate(today.getMonth() - 3) - today.getTimezoneOffset() * 60000;
 ///Panneau sur les températures
+var c = []
+var c2 = []
+var start = []
 var options1 = {
 
     chart: {
         renderTo: 'graphdiv',
         zoomType: 'xy',
+        plotWidth: 10,
     },
     title: {
-        text: ' '
+        text: '15 minutes temperature ',
+        style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'20px'
+            }
     },
     subtitle: {
         text: ' '
     },
-    xAxis: [{
-        type: 'datetime',
-        tickInterval: 3600 * 1000 * 2,
+        rangeSelector: {
+            selected: 1,
+            buttons: [{
+                type: 'day',
+                count: 1,
+                text: '1d'
+            }, {
+                type: 'month',
+                count: 1,
+                text: '1m'
+            }, {
+                type: 'month',
+                count: 3,
+                text: '3m'
+            }]
+        },
+    xAxis:{
+    gridLineWidth: 1,
+    title: {
+        text: 'UTC',
+        style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
+            }
+       },
+      type: 'datetime',
+      //categories: c,
+     //categories: []
+     //reversed: true
+         crosshair: true,
+                 labels: {
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
+            }
+        },
+       },
+
+    yAxis: [{
+    gridLineWidth: 1,
+    // Primary yAxis
         labels: {
-            formatter: function () {
-                return Highcharts.dateFormat('%H h', this.value);
+            format: '{value}',
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
+            }
+        },
+        title: {
+            text: 'Temperature [degC]',
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                 fontSize:'15px'
 
-            },
-
+            }
+        },
+         crosshair: true
         }
-
-    }],
-
-    yAxis: [{ // Primary yAxis
-        labels: {
-            format: '{value}',
-            style: {
-                color: Highcharts.getOptions().colors[1]
+        ,{
+                linkedTo:0,
+                opposite:true,
+                labels: {
+                format: '{value}',
+                style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
+                       }
+                 },
+                title: {
+                    text: 'Temperature [degC]',
+                style: {
+                     color: Highcharts.getOptions().colors[1],
+                     fontSize:'15px'
+                 }
+                }
             }
-        },
-        title: {
-            text: 'Température [°C]',
-            style: {
-                color: Highcharts.getOptions().colors[1]
-            }
-        },
-    }, { // Secondary yAxis
-        gridLineWidth: 0,
-        title: {
-            text: 'Humidex',
-            style: {
-                color: Highcharts.getOptions().colors[0]
-            }
-        },
-        labels: {
-            format: '{value}',
-            style: {
-                color: Highcharts.getOptions().colors[0]
-            }
-        },
-        opposite: true
-    }
     ]
     ,
     plotOptions: {
-        series: {
-            pointStart: yesterday,
-            pointInterval: 3600 * 1000  // one hour
-        },
         spline: {
             marker: {
                 enabled: false
             }
         }
-    }
-    ,
-    tooltip: {
-
-        xDateFormat: '%e %b - %H h',
-        shared: true
     },
+     tooltip: {xDateFormat: '%e %b - %H:%M',
+        shared: true,
+        useHTML: true,
+        style: {fontSize: '15px'},
+        headerFormat: '<strong>{point.key}</strong><table style="border-spacing: 5px 10px;"><br><hr style="height:2px;border-width:0;color:black;background-color:gray">',
+        pointFormat: '<tr><td style="color: {series.color}">{series.name}: </td>' +
+            '<td style="text-align: right"><b>{point.y}</b></td></tr>',
+        footerFormat: '</table>',
+        valueDecimals: 2
+    },
+
     legend: {
         layout: 'horizontal',
         align: 'center',
@@ -86,57 +126,88 @@ var options1 = {
         backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
         shadow: true
     },
+
     series: [{
-        name: 'Humidex',
+        name: 'T1',
         type: 'spline',
-        yAxis: 1,
         data: [],
         tooltip: {
-            valueSuffix: ' '
+            valueSuffix: ' °C'
         },
-        color: Highcharts.getOptions().colors[0]
+        color: '#000075'
     },
         {
-            name: 'Température point de rosée',
+            name: 'T2',
             type: 'spline',
             data: [],
             tooltip: {
                 valueSuffix: ' °C'
             },
-            color: '#70db70'
-
         },
         {
-            name: 'Température',
+            name: 'T3',
             type: 'spline',
             data: [],
             tooltip: {
                 valueSuffix: ' °C'
             },
-            color: '#ff3333'
+            color: '#ffe119'
 
         }
         ,
         {
-            name: 'Refroidissement éolien',
+            name: 'T4',
             type: 'spline',
             data: [],
             tooltip: {
                 valueSuffix: ' °C'
             },
-            color: '#8000FF'
+            color: '#f58231'
+
+        }
+        ,
+        {
+            name: 'T5',
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' °C'
+            },
+            color: '#e6194B'
+
+        }
+        ,
+        {
+            name: 'T6',
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' °C'
+            },
+            color: '#911eb4'
+
+        }
+        ,
+        {
+            name: 'T7',
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' °C'
+            },
+            color: '#f032e6'
 
         }
     ],
     credits: {
         enabled: false
     },
-    //disable the nav export button
-    navigation: {
-        buttonOptions: {
-            enabled: false
-        }
-    }
+    exporting: {
+    csv: {
+      itemDelimiter: ';'
+    },
+    filename: 'Temperature'
+  },
 };
 
 
@@ -151,7 +222,11 @@ var options2 = {
         zoomType: 'xy'
     },
     title: {
-        text: ' '
+        text: '15 minutes humidity time serie',
+          style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'20px'
+            }
     },
     subtitle: {
         text: ' '
@@ -160,62 +235,89 @@ var options2 = {
         enabled: false
     }
     ,
-    xAxis: [{
-        type: 'datetime',
-        tickInterval: 3600 * 1000 * 2,
-        labels: {
-            formatter: function () {
-                return Highcharts.dateFormat('%H h', this.value);
-
-            },
-
-        }
-
-    }],
-    yAxis: [{ // Primary yAxis
+    xAxis:{
+    gridLineWidth: 1,
+    title: {
+        text: 'UTC',
+         style: {
+                     color: Highcharts.getOptions().colors[1],
+                     fontSize:'15px'
+                 }
+       },
+      type: 'datetime',
+      //categories: c,
+     //categories: []
+     //reversed: true
+         crosshair: true,
+                 labels: {
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
+            }
+        },
+       },
+    yAxis: [{
+    gridLineWidth: 1,
+    // Primary yAxis on right
         labels: {
             format: '{value}',
             style: {
-                color: Highcharts.getOptions().colors[1]
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
             }
         },
         max: 100,
-        min: 25,
+        min: 0,
         tickInterval: 5,
         title: {
-            text: 'Humidité relative [%]',
+            text: 'Relative humidity [%]',
             style: {
-                color: Highcharts.getOptions().colors[1]
+                color: Highcharts.getOptions().colors[1],
+                fontSize: '15px'
             }
         },
-        opposite: true
+        opposite: true,
+        crosshair: true
 
-    }, { // Secondary yAxis
-        gridLineWidth: 0,
+    }, { // Secondary yAxis on left
+        gridLineWidth: 1,
         title: {
             text: 'Précipitation [mm]',
             style: {
-                color: Highcharts.getOptions().colors[0]
+                color: Highcharts.getOptions().colors[1],
+                fontSize: '15px'
             }
         },
         labels: {
             format: '{value}',
             style: {
-                color: Highcharts.getOptions().colors[0]
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
             }
         }
 
     }
     ],
-    tooltip: {
+   // tooltip: {
+  //      shared: true,
+ //       xDateFormat: '%e %b - %H h'
+//    },
+
+     tooltip: {xDateFormat: '%e %b - %H:%M',
         shared: true,
-        xDateFormat: '%e %b - %H h'
+        useHTML: true,
+        style: {fontSize: '15px'},
+        headerFormat: '<strong>{point.key}</strong><table style="border-spacing: 5px 10px;"><br><hr style="height:2px;border-width:0;color:black;background-color:gray">',
+        pointFormat: '<tr><td style="color: {series.color}">{series.name}: </td>' +
+            '<td style="text-align: right"><b>{point.y}</b></td></tr>',
+        footerFormat: '</table>',
+        valueDecimals: 2
     },
+
+
+
+
     plotOptions: {
-        series: {
-            pointStart: yesterday,
-            pointInterval: 3600000 // one hour
-        },
         spline: {
             marker: {
                 enabled: false
@@ -231,29 +333,98 @@ var options2 = {
         shadow: true
     },
     series: [{
-        name: 'Précipitation totale',
+        name: 'Total precipitation',
         type: 'column',
         yAxis: 1,
         data: [],
         tooltip: {
             valueSuffix: ' mm'
-        }
+        },
+            color: '#000075'
 
     },
         {
-            name: 'Humidité relative',
+            name: 'H1',
             type: 'spline',
             data: [],
             tooltip: {
                 valueSuffix: ' %'
-            }
-        }],
-    //disable the nav export button
-    navigation: {
-        buttonOptions: {
-            enabled: false
+            },
+            color: '#000075'
+        },
+        {
+            name: 'H2',
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' %'
+            },
+            color: '#3cb44b'
+
+        },
+        {
+            name: 'H3',
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' %'
+            },
+            color: '#ffe119'
+
         }
-    }
+        ,
+        {
+            name: 'H4',
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' %'
+            },
+            color: '#f58231'
+
+        }
+        ,
+        {
+            name: 'H5',
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' %'
+            },
+            color: '#e6194B'
+
+        }
+        ,
+        {
+            name: 'H6',
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' %'
+            },
+            color: '#911eb4'
+
+        }
+        ,
+        {
+            name: 'H7',
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' %'
+            },
+            color: '#f032e6'
+
+        }
+
+        ],
+
+        exporting: {
+    csv: {
+      itemDelimiter: ';'
+    },
+    filename: 'Humidity'
+  }
 };
 
 
@@ -266,7 +437,11 @@ var options3 = {
         zoomType: 'xy'
     },
     title: {
-        text: ' '
+        text: '15 minutes pressure time serie',
+          style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'20px'
+            }
     },
     subtitle: {
         text: ' '
@@ -275,44 +450,79 @@ var options3 = {
         enabled: false
     }
     ,
-    xAxis: [{
-        type: 'datetime',
-        tickInterval: 3600 * 1000 * 2,
-        labels: {
-            formatter: function () {
-                return Highcharts.dateFormat('%H h', this.value);
-
-            },
-
-        }
-
-    }],
-    yAxis: [{ // Primary yAxis
+    xAxis:{
+    gridLineWidth: 1,
+    title: {
+        text: 'UTC',
+         style: {
+                     color: Highcharts.getOptions().colors[1],
+                     fontSize:'15px'
+                 }
+       },
+      type: 'datetime',
+      //categories: c,
+     //categories: []
+     //reversed: true
+         crosshair: true,
+                 labels: {
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
+            }
+        },
+       },
+    yAxis: [{
+    gridLineWidth: 1,
+    // Primary yAxis
         min: 980,
         labels: {
             format: '{value}',
             style: {
-                color: Highcharts.getOptions().colors[3]
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
             }
         },
         title: {
-            text: 'Pression [hPa]',
+            text: 'Pressure [hPa]',
             style: {
-                color: Highcharts.getOptions().colors[3]
+                color: Highcharts.getOptions().colors[1],
+                fontSize: '15px'
             }
-        }
+        },
+        crosshair: true
 
-    }
+        }
+        ,{
+                linkedTo:0,
+                opposite:true,
+                labels: {
+                format: '{value}',
+                style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
+                       }
+                 },
+                title: {
+                    text: 'Pressure [hPa]',
+                style: {
+                     color: Highcharts.getOptions().colors[1],
+                     fontSize: '15px'
+                 }
+                }
+            }
     ],
-    tooltip: {
+     tooltip: {xDateFormat: '%e %b - %H:%M',
         shared: true,
-        xDateFormat: '%e %b - %H h'
+        useHTML: true,
+        style: {fontSize: '15px'},
+        headerFormat: '<strong>{point.key}</strong><table style="border-spacing: 5px 10px;"><br><hr style="height:2px;border-width:0;color:black;background-color:gray">',
+        pointFormat: '<tr><td style="color: {series.color}">{series.name}: </td>' +
+            '<td style="text-align: right"><b>{point.y}</b></td></tr>',
+        footerFormat: '</table>',
+        valueDecimals: 2
     },
     plotOptions: {
-        series: {
-            pointStart: yesterday,
-            pointInterval: 3600000 // one hour
-        },
+
         area: {
             marker: {
                 enabled: false
@@ -329,7 +539,7 @@ var options3 = {
     },
 
     series: [{
-        name: 'Pression',
+        name: 'Pressure',
         type: 'area',
         data: [],
         tooltip: {
@@ -350,15 +560,13 @@ var options3 = {
 
     }
     ],
-    //disable the nav export button
-    navigation: {
-        buttonOptions: {
-            enabled: false
-        }
-    }
+    exporting: {
+    csv: {
+      itemDelimiter: ';'
+    },
+    filename: 'Pressure'
+  },
 };
-
-
 
 ///Panneau sur la direction du vent et le module
 var options4 = {
@@ -368,7 +576,11 @@ var options4 = {
         zoomType: 'xy'
     },
     title: {
-        text: ' '
+        text: '30 minutes wind module and direction',
+          style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'20px'
+            }
     },
     subtitle: {
         text: ' '
@@ -377,34 +589,53 @@ var options4 = {
         enabled: false
     }
     ,
-    xAxis: [{
-        type: 'datetime',
-        tickInterval: 3600 * 1000 * 2,
-        labels: {
-            formatter: function () {
-                return Highcharts.dateFormat('%H h', this.value);
-
-            },
-
-        }
-
-    }],
-    yAxis: [{ // Primary yAxis
+    xAxis:{
+    gridLineWidth: 1,
+    title: {
+        text: 'UTC',
+         style: {
+                     color: Highcharts.getOptions().colors[1],
+                     fontSize:'15px'
+                 }
+       },
+      type: 'datetime',
+      //categories: c,
+     //categories: []
+     //reversed: true
+         crosshair: true,
+                 labels: {
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
+            }
+        },
+       },
+    yAxis: [{
+     gridLineWidth: 1,
+     // Primary yAxis
         labels: {
             format: '{value}',
+             style: {
+                fontSize:'15px'
+            }
         },
         title: {
-            text: 'Vitesse du vent [km.h-1]'
-        }
+            text: 'Wind speed [m.s-1]',
+             style: {
+                     color: Highcharts.getOptions().colors[1],
+                     fontSize:'15px'
+                 }
+        },
+        crosshair: true
 
     }
     ],
 
     plotOptions: {
-        series: {
-            pointStart: yesterday,
-            pointInterval: 3600000 // one hour
-        },
+        //series: {
+         //   pointStart: yesterday,
+        //    pointInterval: 3600000 // one hour
+       // },
 
         area: {
             marker: {
@@ -416,14 +647,14 @@ var options4 = {
     series: [{
         type: 'windbarb',
         data: [],
-        name: 'Direction du vent',
+        name: 'Wind direction',
         color: Highcharts.getOptions().colors[1],
         tooltip: {
             valueSuffix: ' km/h'
         }
     }, {
         type: 'area',
-        keys: ['y', 'rotation'], // rotation is not used here
+        keys: ['x','y', 'rotation'], // rotation is not used here
         data: [],
         color: Highcharts.getOptions().colors[0],
         fillColor: {
@@ -437,77 +668,718 @@ var options4 = {
                 ]
             ]
         },
-        name: 'Vitesse du vent',
+        name: 'Wind speed',
         tooltip: {
-            valueSuffix: ' km/h',
-            xDateFormat: '%e %b - %H h'
-        }
+           valueSuffix: ' m.s-1',
+           xDateFormat: '%e %b - %H:%M'
+       }
     }],
-    //disable the nav export button
-    navigation: {
-        buttonOptions: {
-            enabled: false
+    exporting: {
+    csv: {
+      itemDelimiter: ';'
+    },
+    filename: 'Wind'
+  }
+};
+
+///Panneau sur la radiation net
+var options5 = {
+
+    chart: {
+        plotAreaWidth: 10,
+        plotAreaHeight: 100,
+        renderTo: 'graphdiv5',
+        zoomType: 'xy'
+    },
+    title: {
+        text: '30 minutes Net Radiation',
+        style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'20px'
+            }
+    },
+    subtitle: {
+        text: ' '
+    },
+    credits: {
+        enabled: false
+    }
+    ,
+     xAxis:{
+    gridLineWidth: 1,
+    title: {
+        text: 'UTC',
+         style: {
+                     color: Highcharts.getOptions().colors[1],
+                     fontSize:'15px'
+                 }
+       },
+      type: 'datetime',
+      //categories: c,
+     //categories: []
+     //reversed: true
+         crosshair: true,
+                 labels: {
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
+            }
+        },
+       },
+    yAxis: [{
+     gridLineWidth: 1,
+    // Primary yAxis
+        labels: {
+            format: '{value}',
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
+            }
+        },
+        max: 600,
+        min: 200,
+        title: {
+            text: 'Longwave [W.m-2]',
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize: '15px'
+            }
+        },
+        opposite: true,
+        crosshair: true
+
+    }, { // Secondary yAxis
+        gridLineWidth: 1,
+        max: 1000,
+        min: -250,
+        title: {
+            text: 'Shortwave [W.m-2]',
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize: '15px'
+            }
+        },
+        labels: {
+            format: '{value}',
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
+            }
         }
 
     }
+    ],
+
+    tooltip: {xDateFormat: '%e %b - %H:%M',
+        shared: true,
+        useHTML: true,
+        style: {fontSize: '15px'},
+        headerFormat: '<strong>{point.key}</strong><table style="border-spacing: 5px 10px;"><br><hr style="height:2px;border-width:0;color:black;background-color:gray">',
+        pointFormat: '<tr><td style="color: {series.color}">{series.name}: </td>' +
+            '<td style="text-align: right"><b>{point.y}</b></td></tr>',
+        footerFormat: '</table>',
+        valueDecimals: 2
+    },
+
+    plotOptions: {
+        spline: {
+            marker: {
+                enabled: false
+            }
+        }
+    }
+    ,
+    legend: {
+        layout: 'horizontal',
+        align: 'center',
+        floating: false,
+        backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+        shadow: true
+    },
+    series: [{
+        name: 'SW IN',
+        type: 'spline',
+        dashStyle: 'ShortDash',
+        yAxis: 1,
+        data: [],
+        tooltip: {
+            valueSuffix: ' W.m-2'
+        },
+            color: '#FF0000'
+
+    },{
+        name: 'SW OUT',
+        type: 'spline',
+        dashStyle: 'ShortDash',
+        yAxis: 1,
+        data: [],
+        tooltip: {
+            valueSuffix: ' W.m-2'
+        },
+            color: '#0000FF'
+    },
+        {
+            name: 'LW IN',
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' W.m-2'
+            },
+            color: '#ff4000'
+        },
+        {
+            name: 'LW OUT',
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' W.m-2'
+            },
+            color: '#00ffec'
+
+        },
+        {
+            name: 'NETRAD',
+            type: 'spline',
+            yAxis: 1,
+            data: [],
+            tooltip: {
+                valueSuffix: ' W.m-2'
+            },
+            color: '#000000'
+
+        }
+
+        ],
+        exporting: {
+    csv: {
+      itemDelimiter: ';'
+    },
+    filename: 'SW_LW_Flux'
+  },
+    //disable the nav export button
+   // navigation: {
+    //    buttonOptions: {
+     //       enabled: false
+      //  }
+    //}
 };
-jQuery.get(`${media_url}data/${dir_name}/station_data.csv`, function (data) {
+
+
+///Panneau sur les temperatures du sol
+var options6 = {
+
+    chart: {
+        plotAreaWidth: 10,
+        plotAreaHeight: 100,
+        renderTo: 'graphdiv6',
+        zoomType: 'xy'
+    },
+    title: {
+        text: 'CS65x soil probes',
+          style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'20px'
+            }
+    },
+    subtitle: {
+        text: ' '
+    },
+    credits: {
+        enabled: false
+    }
+    ,
+      xAxis:{
+    gridLineWidth: 1,
+    title: {
+        text: 'UTC',
+        style: {
+                     color: Highcharts.getOptions().colors[1],
+                     fontSize:'15px'
+                 }
+       },
+      type: 'datetime',
+      //categories: c,
+     //categories: []
+     //reversed: true
+         crosshair: true,
+                 labels: {
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
+            }
+        },
+       },
+    yAxis: [{
+     gridLineWidth: 1,
+     // Primary yAxis
+        labels: {
+            format: '{value}',
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
+            }
+        },
+        //max: 600,
+        //min: 200,
+        title: {
+            text: 'Humidity [%]',
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize: '15px'
+            }
+        },
+        opposite: true,
+        crosshair: true
+
+    }, { // Secondary yAxis
+        gridLineWidth: 0,
+        //max: 1000,
+        //min: -250,
+        title: {
+            text: 'Temperature [degC]',
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize: '15px'
+            }
+        },
+        labels: {
+            format: '{value}',
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                 fontSize:'15px'
+            }
+        }
+
+    }
+    ],
+    tooltip: {xDateFormat: '%e %b - %H:%M',
+        shared: true,
+        useHTML: true,
+        style: {fontSize: '15px'},
+        headerFormat: '<strong>{point.key}</strong><table style="border-spacing: 5px 10px;"><br><hr style="height:2px;border-width:0;color:black;background-color:gray">',
+        pointFormat: '<tr><td style="color: {series.color}">{series.name}: </td>' +
+            '<td style="text-align: right"><b>{point.y}</b></td></tr>',
+        footerFormat: '</table>',
+        valueDecimals: 2
+    },
+    plotOptions: {
+        spline: {
+            marker: {
+                enabled: false
+            }
+        }
+    }
+    ,
+    legend: {
+        layout: 'horizontal',
+        align: 'center',
+        floating: false,
+        backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+        shadow: true
+    },
+    series: [{
+        name: 'TS_1_1_1',
+        type: 'spline',
+        dashStyle: 'ShortDash',
+        yAxis: 1,
+        data: [],
+        tooltip: {
+            valueSuffix: ' degC'
+        },
+            color: '#FF0000'
+
+    },{
+        name: 'TS_2_1_1',
+        type: 'spline',
+        dashStyle: 'ShortDash',
+        yAxis: 1,
+        data: [],
+        tooltip: {
+            valueSuffix: ' degC'
+        },
+            color: '#0000FF'
+    },
+        {
+            name: 'SWC_1_1_1',
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' %'
+            },
+            color: '#ff4000'
+        }
+        ],
+
+        exporting: {
+    csv: {
+      itemDelimiter: ';'
+    },
+    filename: 'TS_SWC'
+  },
+    //disable the nav export button
+    //navigation: {
+     //   buttonOptions: {
+    //        enabled: false
+   //     }
+  //  }
+};
+///Panneau sur les heat flux
+var options7 = {
+
+    chart: {
+        plotAreaWidth: 10,
+        plotAreaHeight: 50,
+        renderTo: 'graphdiv7',
+        zoomType: 'xy'
+    },
+    title: {
+        text: 'Latente and heat flux are measured by an IRGASON',
+        style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'20px'
+            }
+    },
+    subtitle: {
+        text: ' '
+    },
+    credits: {
+        enabled: false
+    }
+    ,
+    xAxis:{
+    gridLineWidth: 1,
+    title: {
+        text: 'UTC',
+         style: {
+                     color: Highcharts.getOptions().colors[1],
+                     fontSize:'15px'
+                 }
+       },
+      type: 'datetime',
+      //categories: c,
+     //categories: []
+     //reversed: true
+         crosshair: true,
+                 labels: {
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
+            }
+        },
+       },
+         yAxis: [{
+     gridLineWidth: 1,
+     // Primary yAxis
+        labels: {
+            format: '{value}',
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
+            }
+        },
+        //max: 600,
+        //min: 200,
+        title: {
+            text: '[W.m-2]',
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize: '15px'
+            }
+        },
+        crosshair: true
+    }
+    ,{
+                linkedTo:0,
+                opposite:true,
+                labels: {
+                format: '{value}',
+                style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
+                       }
+                 },
+                title: {
+                    text: '[W.m-2]',
+                style: {
+                     color: Highcharts.getOptions().colors[1],
+                     fontSize: '15px'
+                 }
+                }
+            }
+    ],
+    tooltip: {xDateFormat: '%e %b - %H:%M',
+        shared: true,
+        useHTML: true,
+        style: {fontSize: '15px'},
+        headerFormat: '<strong>{point.key}</strong><table style="border-spacing: 5px 10px;"><br><hr style="height:2px;border-width:0;color:black;background-color:gray">',
+        pointFormat: '<tr><td style="color: {series.color}">{series.name}: </td>' +
+            '<td style="text-align: right"><b>{point.y}</b></td></tr>',
+        footerFormat: '</table>',
+        valueDecimals: 2
+    },
+    plotOptions: {
+        spline: {
+            marker: {
+                enabled: false
+            }
+        }
+    }
+    ,
+    legend: {
+        layout: 'horizontal',
+        align: 'center',
+        floating: false,
+        backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+        shadow: true
+    },
+    series: [{
+        name: 'Latent Heat Flux (LE)',
+        type: 'spline',
+        dashStyle: 'ShortDash',
+        data: [],
+        tooltip: {
+            valueSuffix: ' W.m-2'
+        },
+            color: '#FF0000'
+
+    },{
+        name: 'Sensible Heat Flux',
+        type: 'spline',
+        dashStyle: 'ShortDash',
+        data: [],
+        tooltip: {
+            valueSuffix: ' W.m-2'
+        },
+            color: '#0000FF'
+    }
+        ],
+    exporting: {
+    csv: {
+      itemDelimiter: ';'
+    },
+    filename: 'Heat_Flux'
+  },
+    //disable the nav export button
+    //navigation: {
+     //   buttonOptions: {
+    //       enabled: false
+     //   }
+  // }
+};
+jQuery.get(`${media_url}data/${dir_name}/station_Metdata.csv`, function (data) {
     // Split the lines
     var lines = data.split('\n');
 
     // Push column data into data list
-    for (var i = 1; i < lines.length; i++) {
-        var cat = lines[i].split(",")[0]
-        var firCol = lines[i].split(",")[3];
-        var secCol = lines[i].split(",")[4];
-        var thirdCol = lines[i].split(",")[5];
-        var fourCol = lines[i].split(",")[6];
-        if (today2 < todaymax & today2 > todaymin) {
+    for (var i = 1; i < lines.length-1; i++) {
+        //var cat = lines[i].split(",")[0]
+        var firCol = lines[i].split(",")[2];
+        var secCol = lines[i].split(",")[3];
+        var thirdCol = lines[i].split(",")[4];
+        var fourCol = lines[i].split(",")[5];
+        var fifCol = lines[i].split(",")[6];
+        var sixCol = lines[i].split(",")[7];
+        var sevCol = lines[i].split(",")[8];
 
-            options1.series[0].data.push(parseFloat(firCol))
-        }
-        options1.series[1].data.push(parseFloat(secCol))
-        options1.series[2].data.push(parseFloat(thirdCol))
-        options1.series[3].data.push(parseFloat(fourCol))
+        var tab_date = lines[i].split(",")[0]
+        var y = tab_date.split(' ')[0].split('-')[0]
+        var m = tab_date.split(' ')[0].split('-')[1]
+        var d = tab_date.split(' ')[0].split('-')[2]
+        var hh = tab_date.split(' ')[1].split(':')[0]
+        var mm = tab_date.split(' ')[1].split(':')[1]
+        var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d), parseInt(hh),parseInt(mm))
+       // console.log(tab_date)
+        //c.push(cat)
 
+        options1.series[0].data.push([date_utc,parseFloat(firCol)])
+        options1.series[1].data.push([date_utc,parseFloat(secCol)])
+        options1.series[2].data.push([date_utc,parseFloat(thirdCol)])
+        options1.series[3].data.push([date_utc,parseFloat(fourCol)])
+        options1.series[4].data.push([date_utc,parseFloat(fifCol)])
+        options1.series[5].data.push([date_utc,parseFloat(sixCol)])
+        options1.series[6].data.push([date_utc,parseFloat(sevCol)])
     }
 
     // Create the chart
+   // chart = new Highcharts.StockChart(options1);
     chart = new Highcharts.Chart(options1);
 
     // Push column data into data list
-    for (var i = 1; i < lines.length; i++) {
-        var cat = lines[i].split(",")[0]
-        var firCol = lines[i].split(",")[1];
-        var secCol = lines[i].split(",")[7];
-        options2.series[0].data.push(parseFloat(firCol))
-        options2.series[1].data.push(parseFloat(secCol))
+    for (var i = 1; i < lines.length-1; i++) {
+      //  var cat = lines[i].split(",")[0]
+        var firCol = lines[i].split(",")[33];
+        var secCol = lines[i].split(",")[10];
+        var thirdCol = lines[i].split(",")[11];
+        var fourCol = lines[i].split(",")[12];
+        var fifCol = lines[i].split(",")[13];
+        var sixCol = lines[i].split(",")[14];
+        var sevCol = lines[i].split(",")[15];
+        var heiCol = lines[i].split(",")[16];
+        var tab_date = lines[i].split(",")[0]
+        var y = tab_date.split(' ')[0].split('-')[0]
+        var m = tab_date.split(' ')[0].split('-')[1]
+        var d = tab_date.split(' ')[0].split('-')[2]
+        var hh = tab_date.split(' ')[1].split(':')[0]
+        var mm = tab_date.split(' ')[1].split(':')[1]
+        var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d), parseInt(hh),parseInt(mm))
+
+       // c.push(cat)
+        options2.series[0].data.push([date_utc,parseFloat(firCol)])
+        options2.series[1].data.push([date_utc,parseFloat(secCol)])
+        options2.series[2].data.push([date_utc,parseFloat(thirdCol)])
+        options2.series[3].data.push([date_utc,parseFloat(fourCol)])
+        options2.series[4].data.push([date_utc,parseFloat(fifCol)])
+        options2.series[5].data.push([date_utc,parseFloat(sixCol)])
+        options2.series[6].data.push([date_utc,parseFloat(sevCol)])
+        options2.series[7].data.push([date_utc,parseFloat(heiCol)])
+
     }
 
     // Create the chart
     chart = new Highcharts.Chart(options2);
 
 
-    for (var i = 1; i < lines.length; i++) {
-        var cat = lines[i].split(",")[0]
-        var Col = lines[i].split(",")[2];
-        options3.series[0].data.push(parseFloat(Col))
+    for (var i = 1; i < lines.length-1; i++) {
+        //var cat = lines[i].split(",")[0]
+        var Col = lines[i].split(",")[39];
+        var tab_date = lines[i].split(",")[0]
+        var y = tab_date.split(' ')[0].split('-')[0]
+        var m = tab_date.split(' ')[0].split('-')[1]
+        var d = tab_date.split(' ')[0].split('-')[2]
+        var hh = tab_date.split(' ')[1].split(':')[0]
+        var mm = tab_date.split(' ')[1].split(':')[1]
+        var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d), parseInt(hh),parseInt(mm))
+
+        options3.series[0].data.push([date_utc,parseFloat(Col)])
+        //c.push(cat)
+       //console.log(Col)
     }
 
     // Create the chart
     chart = new Highcharts.Chart(options3);
+});
 
+jQuery.get(`${media_url}data/${dir_name}/station_flux_data.csv`, function (data) {
+    // Split the lines
+    var lines = data.split('\n');
+    var tab_date = lines[1].split(',')[0]
+    var y = tab_date.split(' ')[0].split('-')[0]
+    var m = tab_date.split(' ')[0].split('-')[1]
+    var d = tab_date.split(' ')[0].split('-')[2]
+
+   // console.log(tab_date)
+
+
+   // var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d))
+
+    // var date_utc = Date.UTC(parseInt(tab_date.split(' ')[0].split('-')[0]), parseInt(tab_date.split(' ')[0].split('-')[1])-1,parseInt(tab_date.split(' ')[0].split('-')[2]))
 
     // Push column data into data list
-    for (var i = 1; i < lines.length; i++) {
-        var cat = lines[i].split(",")[0]
-        var firCol = lines[i].split(",")[9];
-        var secCol = lines[i].split(",")[8];
-        options4.series[0].data.push([parseFloat(firCol), parseFloat(secCol)])
-        options4.series[1].data.push([parseFloat(firCol), parseFloat(secCol)])
+    for (var i = 1; i < lines.length-1; i++) {
+        var tab_date = lines[i].split(",")[0]
+        var y = tab_date.split(' ')[0].split('-')[0]
+        var m = tab_date.split(' ')[0].split('-')[1]
+        var d = tab_date.split(' ')[0].split('-')[2]
+        var hh = tab_date.split(' ')[1].split(':')[0]
+        var mm = tab_date.split(' ')[1].split(':')[1]
+        var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d), parseInt(hh),parseInt(mm))
 
+        var firCol = lines[i].split(",")[5]; // wind direction
+        var secCol = lines[i].split(",")[6]; // wind speed
+        options4.series[0].data.push([date_utc,  parseFloat(firCol), parseFloat(secCol)])
+        options4.series[1].data.push([date_utc,  parseFloat(firCol), parseFloat(secCol)])
+      //  c2.push(cat)
+     //   console.log([parseFloat(firCol), parseFloat(secCol)])
     }
 
     // Create the chart
     chart = new Highcharts.Chart(options4);
+
+    // Push column data into data list
+    for (var i = 1; i < lines.length-1; i++) {
+        var tab_date = lines[i].split(",")[0]
+        var y = tab_date.split(' ')[0].split('-')[0]
+        var m = tab_date.split(' ')[0].split('-')[1]
+        var d = tab_date.split(' ')[0].split('-')[2]
+        var hh = tab_date.split(' ')[1].split(':')[0]
+        var mm = tab_date.split(' ')[1].split(':')[1]
+        var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d), parseInt(hh),parseInt(mm))
+
+        var firCol = lines[i].split(",")[1]; // SW_IN
+        var secCol = lines[i].split(",")[2]; //  SW_OUT
+        var fourCol = lines[i].split(",")[3]; // LW_IN
+        var fifCol = lines[i].split(",")[4]; //  LW_OUT
+        var sixCol = lines[i].split(",")[11]; //  LW_OUT
+        options5.series[0].data.push([date_utc,parseFloat(firCol)])
+        options5.series[1].data.push([date_utc,parseFloat(secCol)])
+        options5.series[2].data.push([date_utc,parseFloat(fourCol)])
+        options5.series[3].data.push([date_utc,parseFloat(fifCol)])
+        options5.series[4].data.push([date_utc,parseFloat(sixCol)])
+        //c2.push(cat)
+     //   console.log([parseFloat(firCol), parseFloat(secCol)])
+
+    }
+    // Create the chart
+    chart = new Highcharts.Chart(options5);
+ // Push column data into data list
+    for (var i = 1; i < lines.length-1; i++) {
+        var tab_date = lines[i].split(",")[0]
+        var y = tab_date.split(' ')[0].split('-')[0]
+        var m = tab_date.split(' ')[0].split('-')[1]
+        var d = tab_date.split(' ')[0].split('-')[2]
+        var hh = tab_date.split(' ')[1].split(':')[0]
+        var mm = tab_date.split(' ')[1].split(':')[1]
+        var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d), parseInt(hh),parseInt(mm))
+
+        var firCol = lines[i].split(",")[7]; // TS_1_1_1
+        var secCol = lines[i].split(",")[8]; //  TS_2_1_1
+        var thirdCol = lines[i].split(",")[9]; // SWC_1_1_1
+
+        options6.series[0].data.push([date_utc,parseFloat(firCol)])
+        options6.series[1].data.push([date_utc,parseFloat(secCol)])
+        options6.series[2].data.push([date_utc,parseFloat(thirdCol)])
+
+     //   console.log([parseFloat(firCol), parseFloat(secCol)])
+
+    }
+
+    // Create the chart
+    chart = new Highcharts.Chart(options6);
+// Push column data into data list
+    for (var i = 1; i < lines.length-1; i++) {
+
+        var tab_date = lines[i].split(",")[0]
+        var y = tab_date.split(' ')[0].split('-')[0]
+        var m = tab_date.split(' ')[0].split('-')[1]
+        var d = tab_date.split(' ')[0].split('-')[2]
+        var hh = tab_date.split(' ')[1].split(':')[0]
+        var mm = tab_date.split(' ')[1].split(':')[1]
+        var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d), parseInt(hh),parseInt(mm))
+        var firCol = lines[i].split(",")[17]; // LE Latente Heat Flux
+        var secCol = lines[i].split(",")[18]; //  H Sensible Heat Flux
+
+        options7.series[0].data.push([date_utc,parseFloat(firCol)])
+        options7.series[1].data.push([date_utc,parseFloat(secCol)])
+
+
+
+
+     //   c2.push(cat)
+     //   console.log([parseFloat(firCol), parseFloat(secCol)])
+
+    }
+   // options7.series[0].pointStart.push(date_utc)
+    // Create the chart
+    chart = new Highcharts.Chart(options7);
 });
+
+
+$(".my-check").change(function() {
+var inputValue = $(this).attr("value");
+    if ( $(this).is(':checked') ) {
+        $("." + inputValue).show();
+    } else {
+        $("." + inputValue).hide();
+    }
+});
+

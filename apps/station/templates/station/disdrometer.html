@@ -5,14 +5,10 @@
   {% include "station/station_sidebar.html" with active="disdrometer" %}
 {% endblock %}
 {% block content %}
-    <h1 class="text-center"> - Observations du disdromètre - </h1>
+    <h1 class="text-center"> - Optical Disdrometer (OTT Parsivel 2)- </h1>
     <hr class="my-4">
-    <p>Le disdromètre permet de faire la distinction entre la pluie et la neige. Une équipe de recherche sous la
-        direction de la Professeure Julie Thériault développe des méthodes diagnostiques pour distinguer les différentes
-        types de précipitation : la bruine, la pluie, la neige mouillée, la neige, le grésil, la pluie verglaçante et la
-        grêle.</p>
-    <hr class="my-4">
-    <p class="lead text-center"> (Évolution aux 10 minutes pour la journée du: {% now "j/m/Y" %})</p>
+    <p class="lead text-center">(Last update {% now  "j/m/Y à H" %}h - UTC)</p>
+
     <div id="graphdiv" class="graph"></div>
     <div id="graphdiv2" class="graph"></div>
     <hr class="my-4">

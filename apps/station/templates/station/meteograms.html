@@ -4,24 +4,66 @@
       {% include "station/station_sidebar.html" with active="meteograms" %}
 {% endblock %}
 {% block content %}
-    <h1 class="text-center"> - Météogrammes des dernières 48 heures - </h1>
-    <hr class="my-4">
-    <p class="lead text-center">(Dernière mise à jour: {% now  "j/m/Y à H" %}h - UTC)</p>
-    <div id="graphdiv" class="graph"></div>
-    <div id="graphdiv2" class="graph"></div>
-    <div id="graphdiv3" class="graph"></div>
-    <div id="graphdiv4" class="graph"></div>
-    <p><b>Réalisation: Guillaume Dueymes</b></p>
+    <h1 class="display-4 mb-2 text-center">{{ station.name }}</h1>
+    <div class="container mb-3 pt-3 pb-3 border">
+        <h6 class="font-italic mt-2 mb-2">Select items to show or hide plots</h6>
+
+        <table id="data-table" class="table table-striped table-bordered nowrap" width="50%">
+
+    <tbody>
+      <tr class="odd gradeX">
+        <td>Temperature time serie</td>
+          <td><label><input class="my-check" type="checkbox" name="plotCheckbox" checked value="graph1"></label></td>
+          <td>Humidity and precipitation</td>
+        <td><label><input class="my-check" type="checkbox" name="plotCheckbox" checked value="graph2"></label></td>
+      </tr>
+      <tr class="odd gradeX">
+        <td>Pressure</td>
+        <td><label><input class="my-check" type="checkbox" name="plotCheckbox" checked value="graph3"></label></td>
+          <td>Wind speed and direction</td>
+        <td><label><input class="my-check" type="checkbox" name="plotCheckbox" checked value="graph4"></label></td>
+      </tr>
+
+      <tr class="odd gradeX">
+        <td>Net radiation</td>
+        <td><label><input class="my-check" type="checkbox" name="plotCheckbox" checked value="graph5"></label></td>
+            <td>Soil temperature and humidity</td>
+        <td><label><input class="my-check" type="checkbox" name="plotCheckbox" checked value="graph6"></label></td>
+      </tr>
+      <tr class="odd gradeX">
+        <td>Latente and heat flux</td>
+        <td><label><input class="my-check" type="checkbox" name="plotCheckbox" checked value="graph7"></label></td>
+      </tr>
+    </tbody>
+  </table>
+
+    </div>
+
+    <div id="graphdiv" class="graph1" style="height: 270px"></div>
+    <div id="graphdiv2" class="graph2" style="height: 270px"></div>
+    <div id="graphdiv3" class="graph3" style="height: 270px"></div>
+    <div id="graphdiv4" class="graph4" style="height: 270px"></div>
+    <div id="graphdiv5" class="graph5" style="height: 270px"></div>
+    <div id="graphdiv6" class="graph6" style="height: 270px"></div>
+    <div id="graphdiv7" class="graph7" style="height: 270px"></div>
+    <p><b>Created by Guillaume Dueymes</b></p>
 {% endblock %}
 
 {% block scripts %}
     <script type="text/javascript">
         let dir_name = "{{ station.dir_name }}";
     </script>
+
+
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
     <script src="https://code.highcharts.com/modules/data.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/windbarb.js"></script>
+    <script src="https://code.highcharts.com/modules/data.src.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.src.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+
     <script src="{% static 'station/js/daily_meteograms.js' %}"></script>
 {% endblock %}

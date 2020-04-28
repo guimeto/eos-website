@@ -5,16 +5,17 @@
 {% endblock %}
 {% block content %}
     <div class="text-center">
-        <h1> - Observations du Radar - </h1>
+        <h1> - Micro Rain Radar measurements - </h1>
         <hr class="my-4">
     </div>
-    <p class="lead text-center">(Dernière mise à jour: {% now  "j/m/Y à H" %}h - UTC)</p>
+    <p class="lead text-center">(Last update {% now  "j/m/Y à H" %}h - UTC)</p>
 
-    <div id="graphdiv" class="graph"></div>
     <div id="graphdiv2" class="graph"></div>
-    <p class="lead text-center">Observations sur les 30 dernières minutes aux 10 secondes</p>
-    <div id="graphdiv3" class="graph"></div>
+    <div id="graphdiv" class="graph"></div>
+
+    <p class="lead text-center">Last 30 minutes with 10 s timestep</p>
     <div id="graphdiv4" class="graph"></div>
+    <div id="graphdiv3" class="graph"></div>
     <p><b>Réalisation: Guillaume Dueymes</b></p>
 {% endblock %}
 {% block scripts %}

@@ -7,6 +7,7 @@ $(function () {
         return proceed.apply(this, Array.prototype.slice.call(arguments, 1)); // Normal coloring
     });
   }(Highcharts));
+    let today = new Date().toISOString().slice(0, 10)
 
   ///premier tracé pour le diamètre
   var options1 = {
@@ -20,69 +21,111 @@ $(function () {
 
 
     title: {
-      text: 'Diamètre des particules [mm]'
+      text: 'Diameter [mm]',
+      style: {
+                color: Highcharts.getOptions().colors[1],
+                 fontSize:'20px'
+
+            }
+
     },
 
     tooltip: {
-      formatter: function () {
+            shared: true,
+            useHTML: true,
+            formatter: function () {
+                return '<p style = "font-size: 15px"> <b>'+today+'</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
+                    + '<p style = "font-size: 15px">' + 'Number of particules: <b>' + this.point.value + '</b> </p>'
+                    + '<p style = "font-size: 15px">' + 'Recorded between <b>' + secondsTimeSpanToHMS((this.point.x * 10 * 60)) + '</b> and <b>' + secondsTimeSpanToHMS((this.point.x * 10 * 60) + (10*60)) + '</b></p>'
+                    + '<p style = "font-size: 15px">' + 'Diameter: <b>' + this.series.yAxis.categories[this.point.y] + '</b> mm</p>';
+            },
+        },
+            xAxis: {
+               title: {
+                   enabled: true,
+                   text: 'Timestep [nb]',
+                   style: {
+                       color: Highcharts.getOptions().colors[1],
+                       fontSize:'15px'
 
-        return '<b>Nombre de particules: </b>' + this.point.value + ' <br><b>Diamètre: </b>' + this.series.yAxis.categories[this.point.y] + '<b>  mm <br></b>'
-          + 'Mesure faite entre <b>' + secondsTimeSpanToHMS((this.point.x * 600) - 600) + '</b> et <b>' + secondsTimeSpanToHMS(this.point.x * 600) + '</b>';
+                          }
+                       },
+            min: 1,
+            max: 143,
+            tickInterval: 6,
+            labels: {
+                step: 1,
+                style: {
+                    fontSize: '15px'
+                }
+            },
+            crosshair: true,
+        },
 
-      }
-    },
-
-
-    xAxis: {
-      min: 1,
-      max: 144,
-      tickInterval: 6,
-      labels: {
-        step: 1,
-        style: {
-          fontSize: '8px'
-        }
-      }
-    }
-    ,
     yAxis: {
       title: {
-        enabled: true,
-        text: 'Diamètre: mm'
+        text: 'Diameter: mm',
+        style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
+            }
       },
 
       categories: ['', 0.06, 0.19, 0.31, 0.44, 0.56, 0.69, 0.81, 0.94, 1.06, 1.19, 1.37, 1.62, 1.87, 2.12, 2.37, 2.75, 3.25, 3.75, 4.25, 4.75, 5.50, 6.50, 7.50, 8.50, 9.50, 11.00, 13.00, 15.00, 17.00, 19.00, 21.50, 24.00, ''],
       min: 0,
       max: 32,
-
-
-    }
-    ,
-    colorAxis: {
-      min: [],
-      max: [],
-      startOnTick: true,
-      endOnTick: true,
+      crosshair: true,
       labels: {
-        format: '{value}'
-      },
-      stops: [
-        [0, '#00007F'],
-        [0.125, 'blue'],
-        [0.25, '#007FFF'],
-        [0.375, 'cyan'],
-        [0.5, '#7FFF7F'],
-        [0.625, 'yellow'],
-        [0.75, '#FF7F00'],
-        [0.875, 'red'],
-        [1, '#7F0000']
-      ]
-    },
+                style: {
+                    color: Highcharts.getOptions().colors[1],
+                    fontSize:'15px'
+                        }
+                    },
+        }
+    ,
+        colorAxis: {
+            reversed: false,
+            stops: [
+                [0, '#3060cf'],
+                [0.1, '#66aee2'],
+                [0.2, '#8ec5ed'],
+                [0.3, '#4ee8b4'],
+                [0.4, '#7ee567'],
+                [0.5, '#fffbbc'],
+                [0.6, '#f2c05e'],
+                [0.7, '#ed9549'],
+                [0.8, '#ed7031'],
+                [0.9, '#ed4d21'],
+                [1, '#c4463a']
+            ],
+            min: [],
+            max: [],
+            startOnTick: true,
+            endOnTick: true,
+            labels: {
+                format: '{value}',
+                style: {
+                     color: Highcharts.getOptions().colors[1],
+                      fontSize:'15px'
+
+                   }
+            }
+        },
     series: [{
       nullColor: '#EFEFEF',
       data: [],
       borderWidth: 0
     }],
+    legend: {
+            align: 'right',
+            layout: 'vertical',
+            margin: 20,
+
+            verticalAlign: 'top',
+            y: 25,
+            symbolHeight: 320,
+        },
+
     credits: {
       enabled: false
     }
@@ -120,69 +163,110 @@ $(function () {
 
 
     title: {
-      text: 'Vitesse de chute des particules [m.s-1]'
+      text: 'Fall Speed [m.s-1]',
+      style: {
+                color: Highcharts.getOptions().colors[1],
+                 fontSize:'20px'
+
+            }
     },
     tooltip: {
-      formatter: function () {
+            shared: true,
+            useHTML: true,
+            formatter: function () {
+                return '<p style = "font-size: 15px"> <b>'+today+'</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
+                    + '<p style = "font-size: 15px">' + 'Number of particules: <b>' + this.point.value + '</b> </p>'
+                    + '<p style = "font-size: 15px">' + 'Recorded between <b>' + secondsTimeSpanToHMS((this.point.x * 10 * 60)) + '</b> and <b>' + secondsTimeSpanToHMS((this.point.x * 10 * 60) + (10*60)) + '</b></p>'
+                    + '<p style = "font-size: 15px">' + 'Fall Speed: <b>' + this.series.yAxis.categories[this.point.y]+ '</b> m.s-1</p>';
+            },
+        },
 
-        return '<b>Nombre de particules: </b>' + this.point.value + ' <br><b>Vitesse de chute: </b>' + this.series.yAxis.categories[this.point.y] + '<b>  m.s-1 <br></b>'
-          + 'Mesure faite entre <b>' + secondsTimeSpanToHMS((this.point.x * 600) - 600) + '</b> et <b>' + secondsTimeSpanToHMS(this.point.x * 600) + '</b>';
+            xAxis: {
+               title: {
+                   enabled: true,
+                   text: 'Timestep [nb]',
+                   style: {
+                       color: Highcharts.getOptions().colors[1],
+                       fontSize:'15px'
 
-      }
-    },
+                          }
+                       },
+            min: 1,
+            max: 143,
+            tickInterval: 6,
+            labels: {
+                step: 1,
+                style: {
+                    fontSize: '15px'
+                }
+            },
+            crosshair: true,
+        },
 
-
-    xAxis: {
-
-      min: 1,
-      max: 144,
-      tickInterval: 6,
-      labels: {
-        step: 1,
-        style: {
-          fontSize: '8px'
-        }
-      }
-    }
-    ,
     yAxis: {
       title: {
-        enabled: true,
-        text: 'Vitesse de chute: m.s-1'
+        text: 'Fall speed: m.s-1',
+        style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
+            }
       },
 
       categories: ['', 0.05, 0.15, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 0.85, 0.95, 1.10, 1.30, 1.5, 1.7, 1.9, 2.2, 2.6, 3, 3.4, 3.8, 4.4, 5.2, 6, 6.8, 7.6, 8.8, 10.4, 12, 13.6, 15.2, 17.6, 20.80, ''],
       min: 0,
-      max: 32
-
+      max: 32,
+      crosshair: true,
+      labels: {
+                style: {
+                    color: Highcharts.getOptions().colors[1],
+                    fontSize:'15px'
+                        }
+                    },
     }
     ,
-    colorAxis: {
-      min: [],
-      max: [],
-      startOnTick: true,
-      endOnTick: true,
-      labels: {
-        format: '{value}'
-      },
-      stops: [
-        [0, '#00007F'],
-        [0.125, 'blue'],
-        [0.25, '#007FFF'],
-        [0.375, 'cyan'],
-        [0.5, '#7FFF7F'],
-        [0.625, 'yellow'],
-        [0.75, '#FF7F00'],
-        [0.875, 'red'],
-        [1, '#7F0000']
-      ]
-    },
+          colorAxis: {
+            reversed: false,
+            stops: [
+                [0, '#3060cf'],
+                [0.1, '#66aee2'],
+                [0.2, '#8ec5ed'],
+                [0.3, '#4ee8b4'],
+                [0.4, '#7ee567'],
+                [0.5, '#fffbbc'],
+                [0.6, '#f2c05e'],
+                [0.7, '#ed9549'],
+                [0.8, '#ed7031'],
+                [0.9, '#ed4d21'],
+                [1, '#c4463a']
+            ],
+            min: [],
+            max: [],
+            startOnTick: true,
+            endOnTick: true,
+            labels: {
+                format: '{value}',
+                style: {
+                     color: Highcharts.getOptions().colors[1],
+                      fontSize:'15px'
+
+                   }
+            }
+        },
     series: [{
       nullColor: '#EFEFEF',
       data: [],
       borderWidth: 0
     }]
     ,
+    legend: {
+            align: 'right',
+            layout: 'vertical',
+            margin: 20,
+
+            verticalAlign: 'top',
+            y: 25,
+            symbolHeight: 320,
+        },
     credits: {
       enabled: false
     }

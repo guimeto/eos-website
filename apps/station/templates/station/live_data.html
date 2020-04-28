@@ -5,29 +5,57 @@
   {% include "station/station_sidebar.html" with active="live_data" %}
 {% endblock %}
 {% block content %}
+
     <div id="live_data">
         <h1 class="display-4 mb-2 text-center">{{ station.name }}</h1>
-        <h3 class="text-center mb-3 font-italic" id="lastUpdateText">Dernière mise-à-jour</h3>
-        <div class="container mb-3 pt-3 pb-3 border">
-            <h3 class="mb-4">{{ station.name }}</h3>
-            <div id="stationCurrent" class="row ml-0 mr-0"></div>
-        </div>
-        <div class="container mb-3 pt-3 pb-3 border">
-            <h3 class="d-inline">Environnement Canada </h3>
-            (<a class="font-italic" href="https://meteo.gc.ca/city/pages/qc-147_metric_f.html">source</a>)
-            <h6 class="font-italic mt-2 mb-2">Enregistré à Aéroport int. de Montréal-Trudeau</h6>
+
+           <div class="container mb-3 pt-3 pb-3 border">
+                 <h3 class="d-inline">Environnement Canada </h3>
+                     (<a class="font-italic" href="https://meteo.gc.ca/city/pages/qc-92_metric_e.html">source</a>)
+                 <h6 class="font-italic mt-2 mb-2">Observed at: Saint-Hubert Airport</h6>
             <div class="media">
-                <img src="{{ MEDIA_URL }}images/0.gif" class="mr-3" alt="conditions météo actuelles"/>
+                <img src="{{ MEDIA_URL }}data/{{ station.dir_name }}/0.gif" class="mr-3" alt="conditions météo actuelles"/>
                 <div class="media-body">
                     <div id="ecCurrent" class="row ml-0 mr-0"></div>
                 </div>
             </div>
+            </div>
+
+                     <!-- add small current conditions -->
+           <div class="container mb-3 pt-3 border">
+                 <h3 class="d-inline">Gault Station </h3>
+                   <h4 class="text-center mb-3 font-italic" id="lastUpdateTextS">Last update</h4>
+                 <div id="stationCurrentS" class="row ml-0 mr-0"></div>
+           </div>
+
+            <div class="container mb-3 pt-3 border">
+                <h3 class="d-inline">Forecast</h3>
+                (<a class="font-italic" href="https://meteo.gc.ca/city/pages/qc-92_metric_e.html">source</a>)
+                <div class="row mt-4" id="forecast"></div>
+            </div>
+
+
+        <!-- add webcam pic-->
+         <div class="text-center mb-3">
+            <img class="img-fluid" src="{{ MEDIA_URL }}data/{{ station.dir_name }}/webcam.jpg" alt="webcam">
         </div>
-        <div class="container mb-3 pt-3 border">
-            <h3 class="d-inline">Prévisions</h3>
-            (<a class="font-italic" href="https://meteo.gc.ca/city/pages/qc-147_metric_f.html">source</a>)
-            <div class="row mt-4" id="forecast"></div>
+
+        <!-- <h3 class="text-center mb-3 font-italic" id="lastUpdateText">Last update</h3>-->
+        <div class="container mb-3 pt-3 pb-3 border">
+         <!--   <h3 class="mb-4">{{ station.name }}</h3>-->
+            <h4 class="text-center mb-3 font-italic" id="lastUpdateText">Last update</h4>
+            <div id="stationCurrent" class="row ml-0 mr-0"></div>
         </div>
+        <div class="container mb-3 pt-3 pb-3 border">
+            <h4 class="text-center mb-3 font-italic" id="lastUpdateFlux">Last update</h4>
+            <div id="stationFlux" class="row ml-0 mr-0"></div>
+        </div>
+        <div class="container mb-3 pt-3 pb-3 border">
+            <h4 class="text-center mb-3 font-italic" id="lastUpdateSWE">Last update</h4>
+            <div id="stationSwe" class="row ml-0 mr-0"></div>
+        </div>
+
+
     </div>
 
 {% endblock %}
