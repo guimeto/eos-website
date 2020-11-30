@@ -13,7 +13,7 @@
     {% block head %}
     {% endblock %}
 </head>
-<body>
+<body class="classic-template">
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
     <a class="navbar-brand" href={% url "home" %}>EOS WEBSITE DEV</a>
     {% include "components/navigation.html" %}
@@ -31,6 +31,9 @@
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
 <script src="{% static 'vendor/bootstrap/js/bootstrap.js' %}"></script>
+<script type="text/javascript">
+    const media_url = "{{ MEDIA_URL }}";
+</script>
 {% block scripts %}
 {% endblock %}
 </body>

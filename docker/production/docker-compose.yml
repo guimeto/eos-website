@@ -6,7 +6,7 @@ services:
     container_name: eos-db-prod
     image: 'mariadb:latest'
     volumes:
-      - '../../database/data:/var/lib/mysql'
+      - ../../database/sql_scripts/eos_website.sql:/docker-entrypoint-initdb.d/dump.sql
     env_file:
       - ../../.env
     ports:
@@ -25,7 +25,7 @@ services:
       - static_volume:/var/www/eos-website/static
     env_file:
       - ../../.env
-    command: bash -c "python manage.py migrate --noinput && python manage.py collectstatic -c --noinput && python manage.py compress --force && gunicorn -c config/gunicorn/gunicorn.production.conf --env DJANGO_SETTINGS_MODULE=eos_website.settings.production --bind 0.0.0.0:8000 eos_website.wsgi"
+    command: bash -c "./scripts/wait-for database:3306 -- python manage.py migrate --noinput && python manage.py collectstatic -c --noinput && python manage.py compress --force && gunicorn -c config/gunicorn/gunicorn.production.conf --env DJANGO_SETTINGS_MODULE=eos_website.settings.production --bind 0.0.0.0:8000 eos_website.wsgi"
     expose:
       - 8000
     networks:

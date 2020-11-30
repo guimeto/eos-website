@@ -20,10 +20,10 @@
             <div class="nav-link dropdown-toggle" data-toggle="dropdown">Instrumentation</div>
             <ul class="dropdown-menu">
                 <li class="nav-item ">
-                    <a class="nav-link" href={% url "anemometer" %}>Anemometer</a>
+                    <a class="dropdown-item" href={% url "sentinel1_instrumentation" %}>Sentinel 1</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href={% url "datalogger" %}>Datalogger</a>
+                    <a class="dropdown-item" href={% url "sentinel2_instrumentation" %}>Sentinel 2</a>
                 </li>
             </ul>
         </li>
@@ -31,10 +31,10 @@
             <div class="nav-link dropdown-toggle" data-toggle="dropdown">About</div>
             <ul class="dropdown-menu">
                 <li class="nav-item ">
-                    <a class="nav-link" href={% url "historic" %}>Historic</a>
+                    <a class="dropdown-item" href={% url "historic" %}>Historic</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href={% url "team" %}>Team</a>
+                    <a class="dropdown-item" href={% url "team" %}>Team</a>
                 </li>
             </ul>
         </li>

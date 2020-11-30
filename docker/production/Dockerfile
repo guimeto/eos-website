@@ -16,7 +16,7 @@ ENV PYTHONPATH "${PYTHONPATH}:${WORKPATH}"
 RUN apt-get update \
     && apt-get --no-install-recommends -y install  apt-utils \
     && apt-get --no-install-recommends -y install build-essential \
-        default-libmysqlclient-dev \
+        default-libmysqlclient-dev netcat\
     && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 # install server requirements
 RUN pip install --upgrade pip \

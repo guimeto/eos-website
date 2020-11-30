@@ -4,7 +4,8 @@ nav {
   //background-color: $navbar-background-color;
   .nav-link {
         font-weight: 700;
-
+          }
+  .nav-item {
+  	cursor: pointer;
   }
-  margin-bottom: auto;
 }

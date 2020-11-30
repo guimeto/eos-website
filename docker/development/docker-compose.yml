@@ -5,7 +5,6 @@ services:
     container_name: eos-db-dev
     image: 'mariadb:latest'
     volumes:
-      - eos_data_container:/var/lib/mysql
       - ../../database/sql_scripts/eos_website.sql:/docker-entrypoint-initdb.d/dump.sql
     env_file:
       - ../../.env
@@ -27,7 +26,7 @@ services:
 
     volumes:
       - ../../:/var/www/eos-website
-    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:80"
+    command: bash -c "./scripts/wait-for database:3306 -- python manage.py migrate && python manage.py runserver 0.0.0.0:80"
     ports:
       - "8000:80"
     networks:
@@ -44,6 +43,3 @@ services:
 
 networks:
   eos_net:
-
-volumes:
-  eos_data_container:

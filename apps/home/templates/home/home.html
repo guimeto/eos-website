@@ -1,9 +1,26 @@
 {% extends 'layouts/classic.html' %}
 {% load static %}
+{% block head %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+crossorigin=""/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/
+MarkerCluster.css"/>
 
+{% endblock %}
 
 {% block content %}
-    <h1>CECI EST UN TITRE</h1>
-    <div class="my-4">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis et ex vel tincidunt. In eu ex dapibus, consequat lacus quis, tincidunt est. Phasellus eget vestibulum urna, id pretium urna. Aliquam eget consequat libero, convallis sagittis magna. Aenean pellentesque volutpat risus non euismod. Sed fringilla, turpis quis posuere malesuada, magna nibh laoreet velit, sed rutrum elit quam vel diam. Ut dignissim metus sit amet nisi consequat placerat. Phasellus vel metus euismod, consectetur mi ut, euismod metus. Maecenas fringilla tincidunt nibh, sed tempor elit interdum non. Aenean facilisis justo ut neque consectetur euismod. Cras sed malesuada erat. Donec ornare massa elit, id iaculis nisl molestie in. Etiam ligula mauris, elementum et ultrices quis, aliquet sit amet lacus. Aenean lobortis mauris nec odio rhoncus pellentesque. Nullam sit amet ex sit amet nibh luctus porta.</p>
+    <h1>Prototype visualisation report hydrologic avec une belle map WOW</h1>
+    <div class="my-4"></div>
+    <div id="map"></div>
+{% endblock %}
+
+{% block scripts %}
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+  <script type='text/javascript' src="{{ MEDIA_URL }}data/home/station_last_Metdata.js"></script>
+  <script type='text/javascript' src="{% static 'home/js/leaflet_map.js' %}"></script>
+
 {% endblock %}

@@ -1,0 +1,498 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"recor",
+				"recordingUI\tabc"
+			],
+			[
+				"recordin",
+				"recordingSplit\tabc"
+			],
+			[
+				"perfo",
+				"performanceUI\tabc"
+			],
+			[
+				"per",
+				"performanceSplit\tabc"
+			],
+			[
+				"Rigt",
+				"RightSplitState\tabc"
+			],
+			[
+				"cop",
+				"copyrightSplit\tabc"
+			],
+			[
+				"ri",
+				"RightSplitStates/"
+			],
+			[
+				"r",
+				"RightSplitStates/"
+			],
+			[
+				"Rig",
+				"RightSplitStates/"
+			],
+			[
+				"Right",
+				"RightSplitState\tabc"
+			],
+			[
+				"spli",
+				"splitShare\tabc"
+			],
+			[
+				"spl",
+				"splitShare\tabc"
+			],
+			[
+				"Split",
+				"SplitRecordingModel\tabc"
+			],
+			[
+				"Spli",
+				"SplitCopyrightModel\tabc"
+			],
+			[
+				"Cop",
+				"SplitCopyrightModel"
+			],
+			[
+				"S",
+				"SplitCopyrightModel\tabc"
+			]
+		]
+	},
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"view",
+				"View In Browser"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"impo",
+				"Import Helper: Update source modules"
+			],
+			[
+				"list",
+				"Import Helper: List imports"
+			],
+			[
+				"theme",
+				"UI: Select Theme"
+			],
+			[
+				"mat",
+				"Material Theme: Configuration"
+			],
+			[
+				"lint",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"sub",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"jsx",
+				"Set Syntax: JSX"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"lower",
+				"Convert Case: Lower Case"
+			],
+			[
+				"upper",
+				"Convert Case: Upper Case"
+			],
+			[
+				"comment",
+				"Toggle Comment"
+			],
+			[
+				"sublimeLinter",
+				"Preferences: SublimeLinter Settings"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"su",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"gut",
+				"GutterColor: Fix Current Color Scheme"
+			],
+			[
+				"mater",
+				"Material Theme: Activate theme"
+			],
+			[
+				"fix",
+				"GutterColor: Fix Current Color Scheme"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"bra",
+				"BracketHighlighter: Settings"
+			],
+			[
+				"gu",
+				"GutterColor: Fix Current Color Scheme"
+			],
+			[
+				"ma",
+				"Material Theme: Activate theme"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"ui",
+				"UI: Select Color Scheme"
+			],
+			[
+				"the",
+				"UI: Select Theme"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 711.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/saig/.config/sublime-text-3/Packages/User/View In Browser.sublime-settings",
+		"/home/saig/projects/eos-website/scss/components/_dropdown.scss",
+		"/home/saig/projects/eos-website/scss/components/_navbar.scss",
+		"/home/saig/projects/eos-website/eos_website/urls.py",
+		"/home/saig/projects/eos-website/docker/development/docker-compose.yml",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/RightSplitStates/UIStates/RecordingSplit.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/RightSplitStates/UIStates/SplitUIState.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/RightSplitStates/DomainStates/PerformanceSplit.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/RightSplitStates/DomainStates/RecordingSplit.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/index.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/RightsSplits.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/RightSplitStates/UIStates/CopyrightSplit.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/hooks.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/RightSplitStates/UIStates/PerformanceSplit.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/RightSplitStates/RightSplitState.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/RightSplitStates/DomainStates/SplitDomainState.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/RightSplitStates/DomainStates/CopyrightSplit.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/models/workpieces/rights-splits/CopyrightSplitModel.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/SplitStates/DomainStates/RecordingSplit.js",
+		"/home/saig/projects/smartsplit-client/src/pages/workpieces/rights-splits/index.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/SplitStates/DomainStates/PerformanceSplit.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/SplitStates/DomainStates/CopyrightSplit.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/SplitStates/SplitState.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/SplitStates/UIStates/index.js",
+		"/home/saig/projects/smartsplit-client/src/pages/workpieces/rights-splits/performance.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/SplitStates/RecordingSplit.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/SplitStates/UIStates/SplitUIState.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/SplitStates/UIStates/CopyrightSplit.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/SplitStates/UIStates/PerformanceSplit.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/SplitStates/UIStates/SplitsPagesState.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/SplitStates/UIStates/SplitPageState.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/SplitStates/DomainStates/SplitState.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/states/WorkpieceStates/SplitStates/DomainStates/index.js",
+		"/home/saig/projects/smartsplit-client/src/mobX/models/workpieces/rights-splits/RecordingSplitModel.js",
+		"/home/saig/projects/smartsplit-client/src/svg/performance.js",
+		"/home/saig/projects/smartsplit-client/src/smartsplit-client.sublime-project",
+		"/home/saig/Projects/smartsplit-client/src/mobX/states/workpieceStates/Documentation.js",
+		"/home/saig/Projects/smartsplit-client/.eslintrc.js",
+		"/home/saig/Projects/smartsplit-client/src/mobX/models/workpieces/rights-splits/SplitRecordingModel.js",
+		"/home/saig/Projects/smartsplit-client/.eslintrc",
+		"/home/saig/Projects/smartsplit-client/src/mobX/states/workpieceStates/RightSplits.js",
+		"/home/saig/Projects/smartsplit-client/src/mobX/BaseModel/Field.js",
+		"/home/saig/Projects/smartsplit-client/src/svg/copyright.js",
+		"/home/saig/Projects/smartsplit-client/src/svg/recording.js",
+		"/home/saig/Projects/smartsplit-client/src/pages/workpieces/rights-splits/performance.js",
+		"/home/saig/Projects/smartsplit-client/src/mobX/BaseModel/BaseModel.js",
+		"/home/saig/Projects/smartsplit-client/src/mobX/models/workpieces/rights-splits/SplitCopyrightModel.js",
+		"/home/saig/Projects/smartsplit-client/src/pages/workpieces/rights-splits/copyright.js",
+		"/home/saig/Projects/smartsplit-client/.gitignore",
+		"/home/saig/.config/sublime-text-3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/home/saig/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/saig/Projects/smartsplit-client/src/pages/dashboard/collaborators.js",
+		"/home/saig/.config/sublime-text-3/Packages/Material Theme/schemes/Material-Theme.sublime-theme",
+		"/home/saig/Projects/smartsplit-client/src/theme.js",
+		"/home/saig/.config/sublime-text-3/Packages/User/GutterColor.sublime-settings",
+		"/home/saig/Projects/smartsplit-client/api/users.js",
+		"/home/saig/.config/sublime-text-3/Packages/User/Default.sublime-theme",
+		"/home/saig/.config/sublime-text-3/Packages/Alignment/Default (Linux).sublime-keymap",
+		"/home/saig/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap"
+	],
+	"find":
+	{
+		"height": 49.0
+	},
+	"find_in_files":
+	{
+		"height": 182.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"SplitState",
+			"SplitPageState",
+			"initShareData",
+			"rightSplits"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"incremental_find":
+	{
+		"height": 49.0
+	},
+	"input":
+	{
+		"height": 87.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 210.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 513.0
+	},
+	"output.YAMLMacros":
+	{
+		"height": 252.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"replace":
+	{
+		"height": 94.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"copyrightSplitMo",
+				"src/mobX/models/workpieces/rights-splits/CopyrightSplitModel.js"
+			],
+			[
+				"recording",
+				"src/pages/workpieces/rights-splits/recording.js"
+			],
+			[
+				"perfo",
+				"src/pages/workpieces/rights-splits/performance.js"
+			],
+			[
+				"baseMode",
+				"src/mobX/BaseModel/BaseModel.js"
+			],
+			[
+				"splitper",
+				"src/mobX/models/workpieces/rights-splits/SplitPerformanceModel.js"
+			],
+			[
+				"rights",
+				"src/mobX/states/workpieceStates/RightSplits.js"
+			],
+			[
+				"documentation",
+				"src/mobX/states/workpieceStates/Documentation.js"
+			],
+			[
+				"righ",
+				"src/mobX/states/workpieceStates/RightSplits.js"
+			],
+			[
+				"Field",
+				"src/mobX/BaseModel/Field.js"
+			],
+			[
+				"SplitRe",
+				"src/mobX/models/workpieces/rights-splits/SplitRecordingModel.js"
+			],
+			[
+				"workpiece",
+				"src/mobX/states/WorkpieceState.js"
+			],
+			[
+				"DocFil",
+				"src/mobX/models/workpieces/documentation/DocFilesModel.js"
+			],
+			[
+				"SplitCo",
+				"src/mobX/models/workpieces/rights-splits/SplitCopyrightModel.js"
+			],
+			[
+				"copy",
+				"src/svg/copyright.js"
+			],
+			[
+				"reco",
+				"src/svg/recording.js"
+			],
+			[
+				"copyri",
+				"src/svg/copyright.js"
+			],
+			[
+				"BaseModel",
+				"src/mobX/BaseModel/BaseModel.js"
+			],
+			[
+				"confirm ne",
+				"src/pages/dashboard/confirm-new-email.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 442.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
