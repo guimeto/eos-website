@@ -38,9 +38,11 @@ D'autres commandes sont disponibles pour afficher les logs, supprimer les images
 
 ## Faire des modifications 
 ### Ajouter une nouvelle station dans l'onglet *Instrumentation*
-**Se placer dans ./apps/instrumentation**
 
-**Lancer le stack de développement et aller sur https://localhost:8000**. À chaque changement dans les fichiers (css, html etc), il suffit de recharger la page du navigateur (**CTRL + R**) pour voir les changements à l'écran.
+**Lancer le stack de développement (à partir de ROOT_DIR) et aller sur https://localhost:8000**. À chaque changement dans les fichiers (css, html etc), il suffit de recharger la page du navigateur (**CTRL + R**) pour voir les changements à l'écran.
+
+
+**Se placer dans ./apps/instrumentation**
 
 #### 1. Le fichier HTML
 ##### Création
