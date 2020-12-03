@@ -6,6 +6,17 @@ from station.models import Station
 
 
 # Template d'une view
+
+class SentinelGaultView(TemplateView):
+    template_name = "instrumentation/gault.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Le titre dans l\'onglet de la page'
+        return context
+
+
+
 class SentinelXView(TemplateView):
     template_name = "instrumentation/sentinel2.html"
 
