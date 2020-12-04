@@ -16,7 +16,7 @@ ENV PYTHONPATH "${PYTHONPATH}:${WORKPATH}"
 RUN apt-get update \
     && apt-get --no-install-recommends -y install  apt-utils \
     && apt-get --no-install-recommends -y install build-essential \
-        default-libmysqlclient-dev netcat\
+        default-libmysqlclient-dev\
     && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 # install server requirements
 RUN pip install --upgrade pip \
@@ -24,6 +24,12 @@ RUN pip install --upgrade pip \
 
 #Add apps directory to python path
 ENV PYTHONPATH "${PYTHONPATH}:${WORKPATH}/apps"
+
+## Add the wait script to the image
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.7.3/wait ./wait
+RUN chmod +x ./wait
+
+CMD ./wait && python manage.py migrate --noinput && python manage.py collectstatic -c --noinput && python manage.py compress --force && gunicorn -c config/gunicorn/gunicorn.production.conf --env DJANGO_SETTINGS_MODULE=eos_website.settings.production --bind 0.0.0.0:80 eos_website.wsgi
 #RUN python manage.py migrate --noinput
 #RUN python manage.py collectstatic -c --noinput
 #RUN python manage.py compress --force

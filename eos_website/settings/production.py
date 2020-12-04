@@ -13,3 +13,5 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
+
+ALLOWED_HOSTS = ["eos.meteo.mcgill.ca", "localhost"]

@@ -4,3 +4,4 @@ ENV
 database/data/
 **__pycache__
 **CACHE
+*.sublime-*

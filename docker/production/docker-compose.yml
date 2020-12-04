@@ -1,16 +1,16 @@
 version: '3.5'
 
 services:
-
   database:
     container_name: eos-db-prod
     image: 'mariadb:latest'
+    restart: unless-stopped
     volumes:
       - ../../database/sql_scripts/eos_website.sql:/docker-entrypoint-initdb.d/dump.sql
     env_file:
       - ../../.env
-    ports:
-      - '3306:3306'
+    expose:
+      - 3306
     networks:
       eos_net:
 
@@ -18,6 +18,7 @@ services:
     depends_on:
       - database
     container_name: eos-website-prod
+    restart: unless-stopped
     build:
       context: ../../
       dockerfile: docker/production/Dockerfile
@@ -25,23 +26,25 @@ services:
       - static_volume:/var/www/eos-website/static
     env_file:
       - ../../.env
-    command: bash -c "./scripts/wait-for database:3306 -- python manage.py migrate --noinput && python manage.py collectstatic -c --noinput && python manage.py compress --force && gunicorn -c config/gunicorn/gunicorn.production.conf --env DJANGO_SETTINGS_MODULE=eos_website.settings.production --bind 0.0.0.0:8000 eos_website.wsgi"
+    environment: 
+      WAIT_HOSTS: database:3306
     expose:
-      - 8000
+      - 80
     networks:
       eos_net:
-
+  
   nginx:
     container_name: nginx-eos-website
     depends_on:
       - website
+    restart: unless-stopped
     build:
       context: ../../
       dockerfile: docker/production/nginx.Dockerfile
     volumes:
       - static_volume:/var/www/eos-website/static
     ports:
-    - "8000:80"
+      - "80:80"
     networks:
       eos_net:
   pma:
@@ -49,8 +52,9 @@ services:
     image: 'phpmyadmin/phpmyadmin:latest'
     env_file:
       - ../../.env
-    ports:
-      - '8001:80'
+    restart: unless-stopped
+    expose: 
+      - 80
     networks:
       eos_net:
 

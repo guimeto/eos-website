@@ -32,7 +32,11 @@ stop-dev:  ## Stops the development environment on port 80
 	@docker-compose -f docker/development/docker-compose.yml stop
 
 rm-dev:  ## Stops and remove development environment
+	@docker-compose -f docker/development/docker-compose.yml down 
+
+rmi-dev:  ## Stops and remove development environment including its images
 	@docker-compose -f docker/development/docker-compose.yml down --rmi all
+
 
 prod: ## Run a production environment on port 80
 	@docker-compose -f docker/production/docker-compose.yml up --build -d
@@ -40,5 +44,8 @@ prod: ## Run a production environment on port 80
 stop-prod:  ## Stops the production environment on port 80
 	@docker-compose -f docker/production/docker-compose.yml stop
 
-rm-prod:  ## Stops and remove development environment
+rm-prod:  ## Stops and remove production environment
+	@docker-compose -f docker/production/docker-compose.yml down 
+
+rmi-prod:  ## Stops and remove production environment including images
 	@docker-compose -f docker/production/docker-compose.yml down --rmi all

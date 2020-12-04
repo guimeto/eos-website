@@ -29,9 +29,9 @@ Depuis la racine du projet:
 * Démarrer le stack de production:  <code>sudo make prod</code>
 * Arrêter le stack de production: <code>sudo make stop-prod</code>
 
-Le site est accessible en dev et prod mode sur *localhost:8000*
-Pour administrer la base de données, se connecter sur le WebGUI de phpmyadmin *localhost:8001*, les identifiants sont 
-les mêmes que pour le compte de la BD (voir .env)
+Sur le *stack DEV*, le site est accessible à *http://localhost:8000* et l'interface d'administration de la BD à *http://localhost:8001*
+Sur le *stack PROD*, le site est accessible à *http://172.29.29.2* et l'interface d'administration de la BD à *http://172.29.29.3*
+Pour administrer la base de données et se connecter sur le WebGUI de phpmyadmin, les identifiants sont les mêmes que pour le compte de la BD (voir .env)
 D'autres commandes sont disponibles pour afficher les logs, supprimer les images des containers etc. Voir le makefile.
 
 **IMPORTANT: La base de données est peuplée automatiquement lorsque que la base de données est instanciée à partir du fichier sql ./database/sql_scripts/eos_website.sql**
