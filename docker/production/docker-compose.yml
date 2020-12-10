@@ -24,6 +24,7 @@ services:
       dockerfile: docker/production/Dockerfile
     volumes:
       - static_volume:/var/www/eos-website/static
+      - ../../media:/var/www/eos-website/media
     env_file:
       - ../../.env
     environment: 
