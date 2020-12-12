@@ -20,17 +20,18 @@ services:
       - database
     env_file:
       - ../../.env
+    environment: 
+      WAIT_HOSTS: database:3306
     build:
       context: ../../
       dockerfile: docker/development/Dockerfile
-
     volumes:
-      - ../../:/var/www/eos-website
-    command: bash -c "./scripts/wait-for database:3306 -- python manage.py migrate && python manage.py runserver 0.0.0.0:80"
+      - ../../media:/var/www/eos-website/media
     ports:
       - "8000:80"
     networks:
       eos_net:
+
   pma:
     container_name: eos-pma-dev
     image: 'phpmyadmin/phpmyadmin:latest'
