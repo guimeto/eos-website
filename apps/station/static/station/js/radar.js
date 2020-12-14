@@ -10,10 +10,8 @@ $(function () {
     }(Highcharts));
 
     let today = new Date().toISOString().slice(0, 10)
-
-    let s = new Date(new Date().setMinutes(new Date().getMinutes() - (30))).toLocaleString();
-    let last_r = ((s.split(",")[1]).split(":")[0]) + 'h' + ((s.split(",")[1]).split(":")[1])
-
+ ///   let s = new Date(new Date().setMinutes(new Date().getMinutes() - (30))).toLocaleString()
+ ///   let last_r = ((s.split(",")[1]).split(":")[0]) + 'h' + ((s.split(",")[1]).split(":")[1])
     ///tracé pour la vitesse de chute
     var options1 = {
 
@@ -341,7 +339,7 @@ $(function () {
             shared: true,
             useHTML: true,
             formatter: function () {
-                return '<p style = "font-size: 15px"> Start record time: <b> '+ today + ' at ' + last_r + '</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
+                return '<p style = "font-size: 15px"> Start record time: <b> '+ today + '</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
                     + '<p style = "font-size: 15px">' + 'Reflectivity: <b>' + this.point.value + '</b> dBZ</p>'
                     + '<p style = "font-size: 15px">' + 'Recorded between <b>' + secondsTimeSpanToMS((this.point.x * 10 - 10)) + '</b> and <b>' + secondsTimeSpanToMS(this.point.x * 10) + '</b></p>'
                     + '<p style = "font-size: 15px">' + 'Altitude: <b>' + this.point.y*200 + '</b> meters</p>';
@@ -496,7 +494,7 @@ $(function () {
             shared: true,
             useHTML: true,
             formatter: function () {
-                return '<p style = "font-size: 15px"> Start record time: <b> '+ today + ' at ' + last_r + '</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
+                return '<p style = "font-size: 15px"> Start record time: <b> '+ today + '</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
                     + '<p style = "font-size: 15px">' + 'Reflectivity: <b>' + this.point.value + '</b> dBZ</p>'
                     + '<p style = "font-size: 15px">' + 'Recorded between <b>' + secondsTimeSpanToMS((this.point.x * 10 - 10)) + '</b> and <b>' + secondsTimeSpanToMS(this.point.x * 10) + '</b></p>'
                     + '<p style = "font-size: 15px">' + 'Altitude: <b>' + this.point.y*200 + '</b> meters</p>';
