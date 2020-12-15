@@ -55,7 +55,7 @@ $(function () {
             tickInterval: 6,
             labels: {
                 step: 1,
-                style: {tito
+                style: {
                     fontSize: '15px'
                 }
             },
