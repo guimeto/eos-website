@@ -37,7 +37,7 @@ $(function () {
             formatter: function () {
                 return '<p style = "font-size: 15px"> <b>'+today+'</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
                     + '<p style = "font-size: 15px">' + 'Speed: <b>' + this.point.value + '</b> m.s-1</p>'
-                    + '<p style = "font-size: 15px">' + 'Recorded between <b>' + secondsTimeSpanToHMS((this.point.x * 5 * 60)) + '</b> and <b>' + secondsTimeSpanToHMS((this.point.x * 5 * 60) + (5*60)) + '</b></p>'
+                    + '<p style = "font-size: 15px">' + 'Recorded between <b>' + secondsTimeSpanToHMS((this.point.x * 10 * 60)) + '</b> and <b>' + secondsTimeSpanToHMS((this.point.x * 10 * 60) + (10*60)) + '</b></p>'
                     + '<p style = "font-size: 15px">' + 'Altitude: <b>' + this.point.y*200 + '</b> meters</p>';
             },
         }
@@ -62,8 +62,8 @@ $(function () {
                           }
                        },
             min: 1,
-            max: 280,
-            tickInterval: 10,
+            max: 143,
+            tickInterval: 6,
             labels: {
                 step: 1,
                 style: {
@@ -192,7 +192,7 @@ $(function () {
             formatter: function () {
                 return '<p style = "font-size: 15px"> <b>'+today+'</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
                     + '<p style = "font-size: 15px">' + 'Reflectivity: <b>' + this.point.value + '</b> dBZ</p>'
-                    + '<p style = "font-size: 15px">' + 'Recorded between <b>' + secondsTimeSpanToHMS((this.point.x * 5 * 60)) + '</b> and <b>' + secondsTimeSpanToHMS((this.point.x * 5 * 60) + (5*60)) + '</b></p>'
+                    + '<p style = "font-size: 15px">' + 'Recorded between <b>' + secondsTimeSpanToHMS((this.point.x * 10 * 60)) + '</b> and <b>' + secondsTimeSpanToHMS((this.point.x * 10 * 60) + (10*60)) + '</b></p>'
                     + '<p style = "font-size: 15px">' + 'Altitude: <b>' + this.point.y*200 + '</b> meters</p>';
             },
         }
@@ -212,8 +212,8 @@ $(function () {
                        },
 
             min: 1,
-            max: 290,
-            tickInterval: 10,
+            max: 143,
+            tickInterval: 6,
             labels: {
                 step: 1,
                 style: {
