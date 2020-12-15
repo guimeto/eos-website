@@ -10,15 +10,8 @@ $(function () {
     }(Highcharts));
 
     let today = new Date().toISOString().slice(0, 10)
-<<<<<<< Updated upstream
  ///   let s = new Date(new Date().setMinutes(new Date().getMinutes() - (30))).toLocaleString()
  ///   let last_r = ((s.split(",")[1]).split(":")[0]) + 'h' + ((s.split(",")[1]).split(":")[1])
-=======
-   
-    let s = new Date(new Date().setMinutes(new Date().getMinutes() - (30))).toLocaleString();
-    let last_r = ((s.split(",")[1]).split(":")[0]) + 'h' + ((s.split(",")[1]).split(":")[1])
-
->>>>>>> Stashed changes
     ///tracé pour la vitesse de chute
     var options1 = {
 
