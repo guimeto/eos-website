@@ -45,29 +45,29 @@ function displayStationCurrentDataS(data) {
     let table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
-    addRow(table.insertRow(), "Temp1", `${data.Temp1_Avg} °C`);
-    addRow(table.insertRow(), "RH1", `${data.RH1} %`);
+    addRow(table.insertRow(), "Temperature (1m)", `${data.Temp1_Avg} °C`);
+    addRow(table.insertRow(), "Humidity (1m)", `${data.RH1} %`);
 
     div.appendChild(table);
 
     table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
-    addRow(table.insertRow(), "TPS_Air_Temp", `${data.TPS_Air_Temp_C} °C`);
-    addRow(table.insertRow(), "TPS_Wind_Spd_ms", `${data.TPS_Wind_Spd_ms} m.s-1`);
-    addRow(table.insertRow(), "WS_ms", `${data.WS_ms} m.s-1`);
-    addRow(table.insertRow(), "Mean_WindDir", `${data.Mean_WindDir} deg`);
+    addRow(table.insertRow(), "Hotplate temperature", `${data.TPS_Air_Temp_C} °C`);
+    addRow(table.insertRow(), "Hotplate wind speed", `${data.TPS_Wind_Spd_ms} m/s`);
+    addRow(table.insertRow(), "Anemometer wind speed", `${data.WS_ms} m/s`);
+    addRow(table.insertRow(), "Anemometer wind direction", `${data.Mean_WindDir} deg`);
     div.appendChild(table);
 
     table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
 
-    addRow(table.insertRow(), "TPS_Total_Accum_mm", `${data.TPS_Total_Accum_mm}`);
-    addRow(table.insertRow(), "WS_ms_Max", `${data.WS_ms_Max} m.s-1`);
-    addRow(table.insertRow(), "WindDir_Max", `${data.WindDir_Max} deg`);
-    addRow(table.insertRow(), "WindDir_SD", `${data.WindDir_SD}`);
-    addRow(table.insertRow(), "TPS_Baro_Press", `${data.TPS_Baro_Press_mbar_Corrected} mbar`);
+    addRow(table.insertRow(), "Hotplate total accumulation", `${data.TPS_Total_Accum_mm} mm`);
+    addRow(table.insertRow(), "Wind gust speed", `${data.WS_ms_Max} m/s`);
+    addRow(table.insertRow(), "Wind gust direction", `${data.WindDir_Max} deg`);
+    addRow(table.insertRow(), "WindDir_SD", `${data.WindDir_SD} deg`);
+    addRow(table.insertRow(), "Hotplate pressure", `${data.TPS_Baro_Press_mbar_Corrected} mbar`);
     div.appendChild(table);
 }
 
@@ -77,54 +77,56 @@ function displayStationCurrentData(data) {
     let table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
-    addRow(table.insertRow(), "Temp1", `${data.Temp1_Avg} °C`);
-    addRow(table.insertRow(), "Temp2", `${data.Temp2_Avg} °C`);
-    addRow(table.insertRow(), "Temp3", `${data.Temp3_Avg} °C`);
-    addRow(table.insertRow(), "Temp4", `${data.Temp4_Avg} °C`);
-    addRow(table.insertRow(), "Temp5", `${data.Temp5_Avg} °C`);
-    addRow(table.insertRow(), "Temp6", `${data.Temp6_Avg} °C`);
-    addRow(table.insertRow(), "Temp7", `${data.Temp7_Avg} °C`);
-    addRow(table.insertRow(), "RH1", `${data.RH1} %`);
-    addRow(table.insertRow(), "RH2", `${data.RH2} %`);
-    addRow(table.insertRow(), "RH3", `${data.RH3} %`);
-    addRow(table.insertRow(), "RH4", `${data.RH4} %`);
-    addRow(table.insertRow(), "RH5", `${data.RH5} %`);
-    addRow(table.insertRow(), "RH6", `${data.RH6} %`);
-    addRow(table.insertRow(), "RH7", `${data.RH7} %`);
+    addRow(table.insertRow(), "Temperature (1.00 m)", `${data.Temp1_Avg} °C`);
+    addRow(table.insertRow(), "Temperature (1.50 m)", `${data.Temp2_Avg} °C`);
+    addRow(table.insertRow(), "Temperature (2.00 m)", `${data.Temp3_Avg} °C`);
+    addRow(table.insertRow(), "Temperature (3.50 m)", `${data.Temp4_Avg} °C`);
+    addRow(table.insertRow(), "Temperature (4.35 m)", `${data.Temp5_Avg} °C`);
+    addRow(table.insertRow(), "Temperature (5.00 m)", `${data.Temp6_Avg} °C`);
+    addRow(table.insertRow(), "Temperature (7.10 m)", `${data.Temp7_Avg} °C`);
+    addRow(table.insertRow(), "Temperature (10.0 m)", `${data.Temp8_Avg} °C`);
+    addRow(table.insertRow(), "Relative humidity (1.00 m)", `${data.RH1} %`);
+    addRow(table.insertRow(), "Relative humidity (1.50 m)", `${data.RH2} %`);
+    addRow(table.insertRow(), "Relative humidity (2.00 m)", `${data.RH3} %`);
+    addRow(table.insertRow(), "Relative humidity (3.50 m)", `${data.RH4} %`);
+    addRow(table.insertRow(), "Relative humidity (4.35 m)", `${data.RH5} %`);
+    addRow(table.insertRow(), "Relative humidity (5.00 m)", `${data.RH6} %`);
+    addRow(table.insertRow(), "Relative humidity (7.10 m)", `${data.RH7} %`);
+    addRow(table.insertRow(), "Relative humidity (10.0 m)", `${data.RH8} %`);
     div.appendChild(table);
 
     table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
-    addRow(table.insertRow(), "TPS_Air_Temp", `${data.TPS_Air_Temp_C} °C`);
-    addRow(table.insertRow(), "TPS_Wind_Spd_ms", `${data.TPS_Wind_Spd_ms} m.s-1`);
-    addRow(table.insertRow(), "WS_ms", `${data.WS_ms} m.s-1`);
-    addRow(table.insertRow(), "Mean_WindDir", `${data.Mean_WindDir} deg`);
-    addRow(table.insertRow(), "SDMS40_Depth_Avg", `${data.SDMS40_Depth_Avg} mm`);
-    addRow(table.insertRow(), "SR50A_SnowDepth", `${data.SR50A_SnowDepth} mm`);
-    addRow(table.insertRow(), "SR50A_QualityVal", `${data.SR50A_QualityVal} nb`);
-    addRow(table.insertRow(), "LF1_Ice_Output", `${data.LF1_Ice_Output} `);
-    addRow(table.insertRow(), "Ice_mm", `${data.Ice_mm} mm`);
-    addRow(table.insertRow(), "Ice_Inch", `${data.Ice_Inch} inches`);
-    addRow(table.insertRow(), "LWMDry_Tot", `${data.LWMDry_Tot} minutes`);
-    addRow(table.insertRow(), "LWMWet_Tot", `${data.LWMWet_Tot} minutes`);
-    addRow(table.insertRow(), "LWMCon_Tot", `${data.LWMCon_Tot} minutes`);
-    addRow(table.insertRow(), "Visibilitystr", `${data.Visibilitystr}`);
+    addRow(table.insertRow(), "Hotplate temperature", `${data.TPS_Air_Temp_C} °C`);
+    addRow(table.insertRow(), "Hotplate wind speed", `${data.TPS_Wind_Spd_ms} m/s`);
+    addRow(table.insertRow(), "Anemometer wind speed", `${data.WS_ms} m/s`);
+    addRow(table.insertRow(), "Anemometer wind direction", `${data.Mean_WindDir} deg`);
+    addRow(table.insertRow(), "SDMS40 Snow Depth", `${data.SDMS40_Depth_Avg} mm`);
+    addRow(table.insertRow(), "SR50A  Snow Depth", `${data.SR50A_SnowDepth} mm`);
+    addRow(table.insertRow(), "SR50A quality", `${data.SR50A_QualityVal} nb`);
+    addRow(table.insertRow(), "Ice accumulation (LF1)", `${data.LF1_Ice_Output} nb`);
+    addRow(table.insertRow(), "Ice accumulation (LF1)", `${data.Ice_mm} mm`);
+    addRow(table.insertRow(), "Ice accumulation (LF1)", `${data.Ice_Inch} inches`);
+    addRow(table.insertRow(), "Leaflet Dry", `${data.LWMDry_Tot} min`);
+    addRow(table.insertRow(), "Leaflet Wet", `${data.LWMWet_Tot} min`);
+    addRow(table.insertRow(), "Leaflet Contaminated", `${data.LWMCon_Tot} min`);
+    addRow(table.insertRow(), "Visibility (CS120A)", `${data.Visibilitystr}`);
     div.appendChild(table);
 
     table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
 
-    addRow(table.insertRow(), "TPS_Precip_1minAvg_mmHr", `${data.TPS_Raw_Precip_Rate_1minAvg_mmHr}`);
-    addRow(table.insertRow(), "TPS_Precip_5minAvg_mmHr", `${data.TPS_Raw_Precip_Rate_5minAvg_mmHr}`);
-    addRow(table.insertRow(), "TPS_Total_Accum_mm", `${data.TPS_Total_Accum_mm}`);
-    addRow(table.insertRow(), "TPS_Pwr_Sensor_W", `${data.TPS_Pwr_Sensor_W} W`);
-    addRow(table.insertRow(), "TPS_Pwr_Ref_W", `${data.TPS_Pwr_Ref_W} W`);
-    addRow(table.insertRow(), "WS_ms_Max", `${data.WS_ms_Max} m.s-1`);
-    addRow(table.insertRow(), "WindDir_Max", `${data.WindDir_Max} deg`);
-    addRow(table.insertRow(), "WindDir_SD", `${data.WindDir_SD}`);
-    addRow(table.insertRow(), "TPS_Baro_Press", `${data.TPS_Baro_Press_mbar_Corrected} mbar`);
+    addRow(table.insertRow(), "Hotplate precipitation 1minAvg", `${data.TPS_Raw_Precip_Rate_1minAvg_mmHr} mm/h`);
+    addRow(table.insertRow(), "Hotplate precipitation 5minAvg", `${data.TPS_Raw_Precip_Rate_5minAvg_mmHr} mm/h`);
+    addRow(table.insertRow(), "Hotplate total accumulation", `${data.TPS_Total_Accum_mm} mm`);
+    addRow(table.insertRow(), "Hotplate power sensor", `${data.TPS_Pwr_Sensor_W} W`);
+    addRow(table.insertRow(), "Hotplate power reference", `${data.TPS_Pwr_Ref_W} W`);
+    addRow(table.insertRow(), "Wind gust maximum speed", `${data.WS_ms_Max} m/s`);
+    addRow(table.insertRow(), "Wind gust maximum direction", `${data.WindDir_Max} deg`);
+    addRow(table.insertRow(), "Wind gust standard deviation", `${data.WindDir_SD} deg`);
+    addRow(table.insertRow(), "Hotplate pressure", `${data.TPS_Baro_Press_mbar_Corrected} mbar`);
     div.appendChild(table);
 
 
@@ -135,35 +137,35 @@ function displayStationFluxData(data) {
     let table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
-    addRow(table.insertRow(), "SW_IN", `${data.SW_IN} W.m-2`);
-    addRow(table.insertRow(), "SW_OUT", `${data.SW_OUT} W.m-2`);
-    addRow(table.insertRow(), "LW_IN", `${data.LW_IN} W.m-2`);
-    addRow(table.insertRow(), "LW_OUT", `${data.LW_OUT} W.m-2`);
-    addRow(table.insertRow(), "WS", `${data.WS} m.s-1`);
-    addRow(table.insertRow(), "WD", `${data.WD} deg`);
+    addRow(table.insertRow(), "Short Wave In", `${data.SW_IN} W/m2`);
+    addRow(table.insertRow(), "Short Wave Out", `${data.SW_OUT} W/m2`);
+    addRow(table.insertRow(), "Long Wave In", `${data.LW_IN} W/m2`);
+    addRow(table.insertRow(), "Long Wave Out", `${data.LW_OUT} W/m2`);
+    addRow(table.insertRow(), "Sonic wind speed", `${data.WS} m/s`);
+    addRow(table.insertRow(), "Sonic wind direction", `${data.WD} deg`);
     addRow(table.insertRow(), "TS_1_1_1", `${data.TS_1_1_1} °C`);
     div.appendChild(table);
 
     table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
-    addRow(table.insertRow(), "TS_2_1_1", `${data.TS_2_1_1} °C`);
-    addRow(table.insertRow(), "SWC_1_1_1", `${data.SWC_1_1_1} %`);
-    addRow(table.insertRow(), "PA", `${data.PA} kPa`);
-     addRow(table.insertRow(), "NETRAD", `${data.NETRAD} W.m-2`);
-    addRow(table.insertRow(), "Albedo (ALB)", `${data.ALB} %`);
-    addRow(table.insertRow(), "CO2_Flux (FC)", `${data.FC} umolCO2 m-2.s-1`);
-    addRow(table.insertRow(), "Ground Heat Flux (G)", `${data.G} W.m-2`);
+    addRow(table.insertRow(), "Soil temperature", `${data.TS_2_1_1} °C`);
+    addRow(table.insertRow(), "Soil water content", `${data.SWC_1_1_1} %`);
+    addRow(table.insertRow(), "Pressure", `${data.PA} kPa`);
+    addRow(table.insertRow(), "Net radiation", `${data.NETRAD} W/m2`);
+    addRow(table.insertRow(), "Albedo ", `${data.ALB} %`);
+    addRow(table.insertRow(), "CO2 Flux (Irgason)", `${data.FC} umolCO2/m2.s`);
+    addRow(table.insertRow(), "Ground heat flux (G)", `${data.G} W/m2`);
     div.appendChild(table);
 
     table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
-    addRow(table.insertRow(), "Soil Storage Flux (SG)", `${data.SG} W.m-2`);
-    addRow(table.insertRow(), "Evapotranspiration (ET)", `${data.ET} mm.hr-1`);
-    addRow(table.insertRow(), "Latent Heat Flux (LE)", `${data.LE} W.m-2`);
-    addRow(table.insertRow(), "Sensible Heat Flux (H)", `${data.H} W.m-2`);
-    addRow(table.insertRow(), "Max Flux Fetch Distance (FETCH_MAX)", `${data.FETCH_MAX} m`);
+    addRow(table.insertRow(), "Soil heat storage flux", `${data.SG} W/m2`);
+    addRow(table.insertRow(), "Evapotranspiration", `${data.ET} mm/hr`);
+    addRow(table.insertRow(), "Latent heat flux", `${data.LE} W/m2`);
+    addRow(table.insertRow(), "Sensible heat flux", `${data.H} W/m2`);
+    addRow(table.insertRow(), "Max flux fetch distance", `${data.FETCH_MAX} m`);
     div.appendChild(table);
 
 
@@ -174,8 +176,8 @@ function displayStationSWEData(data) {
     let table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
-    addRow(table.insertRow(), "CS725_SWE_K", `${data.CS725_SWE_K} mm`);
-    addRow(table.insertRow(), "CS725_SWE_TL", `${data.CS725_SWE_TL} mm`);
+    addRow(table.insertRow(), "Snow water equivalent (K)", `${data.CS725_SWE_K} mm`);
+    addRow(table.insertRow(), "Snow water equivalent  (TI)", `${data.CS725_SWE_TL} mm`);
     div.appendChild(table);
 }
 function formatDayString(value) {
