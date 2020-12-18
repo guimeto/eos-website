@@ -33,10 +33,10 @@ for ( var i = 0; i < stations.length; ++i )
     var j = i+1
     var popup = '<div class="stileone" id="ori_date"><h4>'+full_Date+'</h4></div>' 
     + '<br><b>Station:        </b>'+stations[i].name 
-    + '<br><b>Temperature:    </b>'+stations[i].Temp1_Avg + ' Deg Celcius'
+    + '<br><b>Temperature:    </b>'+stations[i].Temp1_Avg + ' °C'
     + '<br><b>Humidity:       </b>'+stations[i].RH1 + ' %'
     + '<br><b>Wind direction:       </b>'+stations[i].Mean_WindDir + ' Deg '
-    + '<br><b>Wind speed:       </b>'+stations[i].WS_ms + ' m.s-1'
+    + '<br><b>Wind speed:       </b>'+stations[i].WS_ms + ' m/s'
     + '<br><b>Pressure:       </b>'+stations[i].TPS_Baro_Press_mbar_Corrected + ' mbar'
     + `<img id='container' src='${media_url}images/sentinel${j}.jpg' width='250' height='250'/><br>` 
     + '</a>'

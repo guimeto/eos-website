@@ -72,7 +72,7 @@ var options1 = {
             }
         },
         title: {
-            text: 'Temperature [degC]',
+            text: 'Temperature [°C]',
             style: {
                 color: Highcharts.getOptions().colors[1],
                  fontSize:'15px'
@@ -92,7 +92,7 @@ var options1 = {
                        }
                  },
                 title: {
-                    text: 'Temperature [degC]',
+                    text: 'Temperature [°C]',
                 style: {
                      color: Highcharts.getOptions().colors[1],
                      fontSize:'15px'
@@ -128,7 +128,7 @@ var options1 = {
     },
 
     series: [{
-        name: 'T1',
+        name: '1 m',
         type: 'spline',
         data: [],
         tooltip: {
@@ -137,7 +137,7 @@ var options1 = {
         color: '#000075'
     },
         {
-            name: 'T2',
+            name: '1.5 m',
             type: 'spline',
             data: [],
             tooltip: {
@@ -145,7 +145,7 @@ var options1 = {
             },
         },
         {
-            name: 'T3',
+            name: '2 m',
             type: 'spline',
             data: [],
             tooltip: {
@@ -156,7 +156,7 @@ var options1 = {
         }
         ,
         {
-            name: 'T4',
+            name: '3.5 m',
             type: 'spline',
             data: [],
             tooltip: {
@@ -167,7 +167,7 @@ var options1 = {
         }
         ,
         {
-            name: 'T5',
+            name: '4.35 m',
             type: 'spline',
             data: [],
             tooltip: {
@@ -178,7 +178,7 @@ var options1 = {
         }
         ,
         {
-            name: 'T6',
+            name: '5 m',
             type: 'spline',
             data: [],
             tooltip: {
@@ -189,7 +189,18 @@ var options1 = {
         }
         ,
         {
-            name: 'T7',
+            name: '7.1 m',
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' °C'
+            },
+            color: '#f032e6'
+
+        }
+         ,
+        {
+            name: '10 m',
             type: 'spline',
             data: [],
             tooltip: {
@@ -282,7 +293,7 @@ var options2 = {
     }, { // Secondary yAxis on left
         gridLineWidth: 1,
         title: {
-            text: 'Précipitation [mm]',
+            text: 'Precipitation [mm]',
             style: {
                 color: Highcharts.getOptions().colors[1],
                 fontSize: '15px'
@@ -344,7 +355,7 @@ var options2 = {
 
     },
         {
-            name: 'H1',
+            name: 'HR 1 m',
             type: 'spline',
             data: [],
             tooltip: {
@@ -353,7 +364,7 @@ var options2 = {
             color: '#000075'
         },
         {
-            name: 'H2',
+            name: 'HR 1.5 m',
             type: 'spline',
             data: [],
             tooltip: {
@@ -363,7 +374,7 @@ var options2 = {
 
         },
         {
-            name: 'H3',
+            name: 'HR 2 m',
             type: 'spline',
             data: [],
             tooltip: {
@@ -374,7 +385,7 @@ var options2 = {
         }
         ,
         {
-            name: 'H4',
+            name: 'HR 3.5 m',
             type: 'spline',
             data: [],
             tooltip: {
@@ -385,7 +396,7 @@ var options2 = {
         }
         ,
         {
-            name: 'H5',
+            name: 'HR 4.35 m',
             type: 'spline',
             data: [],
             tooltip: {
@@ -396,7 +407,7 @@ var options2 = {
         }
         ,
         {
-            name: 'H6',
+            name: 'HR 5 m',
             type: 'spline',
             data: [],
             tooltip: {
@@ -407,7 +418,7 @@ var options2 = {
         }
         ,
         {
-            name: 'H7',
+            name: 'HR 7.1 m',
             type: 'spline',
             data: [],
             tooltip: {
@@ -416,7 +427,17 @@ var options2 = {
             color: '#f032e6'
 
         }
+        ,
+        {
+            name: 'HR 10 m',
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' %'
+            },
+            color: '#f032e6'
 
+        }
         ],
 
         exporting: {
@@ -620,7 +641,7 @@ var options4 = {
             }
         },
         title: {
-            text: 'Wind speed [m.s-1]',
+            text: 'Wind speed [m/s]',
              style: {
                      color: Highcharts.getOptions().colors[1],
                      fontSize:'15px'
@@ -739,7 +760,7 @@ var options5 = {
         max: 600,
         min: 200,
         title: {
-            text: 'Longwave [W.m-2]',
+            text: 'Longwave [W/m2]',
             style: {
                 color: Highcharts.getOptions().colors[1],
                 fontSize: '15px'
@@ -753,7 +774,7 @@ var options5 = {
         max: 1000,
         min: -250,
         title: {
-            text: 'Shortwave [W.m-2]',
+            text: 'Shortwave [W/m2]',
             style: {
                 color: Highcharts.getOptions().colors[1],
                 fontSize: '15px'
@@ -803,7 +824,7 @@ var options5 = {
         yAxis: 1,
         data: [],
         tooltip: {
-            valueSuffix: ' W.m-2'
+            valueSuffix: ' W/m2'
         },
             color: '#FF0000'
 
@@ -814,7 +835,7 @@ var options5 = {
         yAxis: 1,
         data: [],
         tooltip: {
-            valueSuffix: ' W.m-2'
+            valueSuffix: ' W/m2'
         },
             color: '#0000FF'
     },
@@ -823,7 +844,7 @@ var options5 = {
             type: 'spline',
             data: [],
             tooltip: {
-                valueSuffix: ' W.m-2'
+                valueSuffix: ' W/m2'
             },
             color: '#ff4000'
         },
@@ -832,7 +853,7 @@ var options5 = {
             type: 'spline',
             data: [],
             tooltip: {
-                valueSuffix: ' W.m-2'
+                valueSuffix: ' W/m2'
             },
             color: '#00ffec'
 
@@ -843,7 +864,7 @@ var options5 = {
             yAxis: 1,
             data: [],
             tooltip: {
-                valueSuffix: ' W.m-2'
+                valueSuffix: ' W/m2'
             },
             color: '#000000'
 
@@ -922,7 +943,7 @@ var options6 = {
         //max: 600,
         //min: 200,
         title: {
-            text: 'Humidity [%]',
+            text: 'Soil water content [%]',
             style: {
                 color: Highcharts.getOptions().colors[1],
                 fontSize: '15px'
@@ -936,7 +957,7 @@ var options6 = {
         //max: 1000,
         //min: -250,
         title: {
-            text: 'Temperature [degC]',
+            text: 'Temperature [°C]',
             style: {
                 color: Highcharts.getOptions().colors[1],
                 fontSize: '15px'
@@ -984,7 +1005,7 @@ var options6 = {
         yAxis: 1,
         data: [],
         tooltip: {
-            valueSuffix: ' degC'
+            valueSuffix: ' °C'
         },
             color: '#FF0000'
 
@@ -995,7 +1016,7 @@ var options6 = {
         yAxis: 1,
         data: [],
         tooltip: {
-            valueSuffix: ' degC'
+            valueSuffix: ' °C'
         },
             color: '#0000FF'
     },
@@ -1080,7 +1101,7 @@ var options7 = {
         //max: 600,
         //min: 200,
         title: {
-            text: '[W.m-2]',
+            text: '[W/m2]',
             style: {
                 color: Highcharts.getOptions().colors[1],
                 fontSize: '15px'
@@ -1099,7 +1120,7 @@ var options7 = {
                        }
                  },
                 title: {
-                    text: '[W.m-2]',
+                    text: '[W/m2]',
                 style: {
                      color: Highcharts.getOptions().colors[1],
                      fontSize: '15px'
@@ -1138,7 +1159,7 @@ var options7 = {
         dashStyle: 'ShortDash',
         data: [],
         tooltip: {
-            valueSuffix: ' W.m-2'
+            valueSuffix: ' W/m2'
         },
             color: '#FF0000'
 
@@ -1148,7 +1169,7 @@ var options7 = {
         dashStyle: 'ShortDash',
         data: [],
         tooltip: {
-            valueSuffix: ' W.m-2'
+            valueSuffix: ' W/m2'
         },
             color: '#0000FF'
     }
@@ -1180,6 +1201,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata.csv`, function (data) {
         var fifCol = lines[i].split(",")[6];
         var sixCol = lines[i].split(",")[7];
         var sevCol = lines[i].split(",")[8];
+        var eigCol = lines[i].split(",")[9];
 
         var tab_date = lines[i].split(",")[0]
         var y = tab_date.split(' ')[0].split('-')[0]
@@ -1198,6 +1220,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata.csv`, function (data) {
         options1.series[4].data.push([date_utc,parseFloat(fifCol)])
         options1.series[5].data.push([date_utc,parseFloat(sixCol)])
         options1.series[6].data.push([date_utc,parseFloat(sevCol)])
+        options1.series[7].data.push([date_utc,parseFloat(eigCol)])
     }
 
     // Create the chart
@@ -1215,6 +1238,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata.csv`, function (data) {
         var sixCol = lines[i].split(",")[14];
         var sevCol = lines[i].split(",")[15];
         var heiCol = lines[i].split(",")[16];
+        var nineCol = lines[i].split(",")[17];
         var tab_date = lines[i].split(",")[0]
         var y = tab_date.split(' ')[0].split('-')[0]
         var m = tab_date.split(' ')[0].split('-')[1]
@@ -1232,7 +1256,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata.csv`, function (data) {
         options2.series[5].data.push([date_utc,parseFloat(sixCol)])
         options2.series[6].data.push([date_utc,parseFloat(sevCol)])
         options2.series[7].data.push([date_utc,parseFloat(heiCol)])
-
+        options2.series[8].data.push([date_utc,parseFloat(nineCol)])
     }
 
     // Create the chart
