@@ -244,7 +244,6 @@ $(function () {
     //        },
     //        crosshair: true,
     //    }
-        ,
         yAxis: {
             title: {
               //  enabled: true,
@@ -362,7 +361,7 @@ $(function () {
             shared: true,
             useHTML: true,
             formatter: function () {
-                var date = Highcharts.dateFormat('%e. %b %H:%M', this.point.x);
+                var date = Highcharts.dateFormat('%e. %b %H:%M:%S', this.point.x);
                 //return '<p style = "font-size: 15px"> Start record time: <b> '+ today + '</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
                   return '<p style = "font-size: 15px"> Record time: <b> '+ date + '</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
                     + '<p style = "font-size: 15px">' + 'Reflectivity: <b>' + this.point.value + '</b> dBZ</p>'
@@ -532,7 +531,7 @@ $(function () {
             shared: true,
             useHTML: true,
             formatter: function () {
-                var date = Highcharts.dateFormat('%e. %b %H:%M', this.point.x);
+                var date = Highcharts.dateFormat('%e. %b %H:%M:%S', this.point.x);
                 //return '<p style = "font-size: 15px"> Start record time: <b> '+ today + '</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
                 return '<p style = "font-size: 15px"> Record: <b> '+ date + '</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
                     + '<p style = "font-size: 15px">' + 'Reflectivity: <b>' + this.point.value + '</b> dBZ</p>'
