@@ -168,7 +168,7 @@ $(function () {
             var firCol = lines[i].split(",")[1];
             var secCol = lines[i].split(",")[2];
             var thirdCol = lines[i].split(",")[3];
-            options1.series[0].data.push([parseInt(firCol), parseFloat(secCol), parseFloat(thirdCol)])
+            options1.series[0].data.push([parseInt(firCol), parseFloat(secCol), parseFloat(thirdCol).toFixed(2)])
            // options1.series[0].data.push([parseFloat(firCol), parseFloat(secCol), parseFloat(thirdCol)])
         }
 
@@ -208,22 +208,18 @@ $(function () {
                     + '<p style = "font-size: 15px">' + 'Altitude: <b>' + this.point.y*200 + '</b> meters</p>';
             },
         }
-
-
         ,
         xAxis: {
             type: 'datetime',
-            title: {
-                   enabled: true,
-                   text: 'Timestep [nb]',
-                   style: {
-                       color: Highcharts.getOptions().colors[1],
-                       fontSize:'15px'
-
-                          }
-                       },
+            labels: {
+                step: 1,
+                style: {
+                    fontSize: '15px'
+                }
+            },
             crosshair: true,
         }
+        ,
    //  ,
    //     xAxis: {
 
@@ -338,7 +334,7 @@ $(function () {
             var secCol = lines[i].split(",")[2];
             var thirdCol = lines[i].split(",")[3];
            // options2.series[0].data.push([parseFloat(firCol), parseFloat(secCol), parseFloat(thirdCol)])
-            options2.series[0].data.push([parseInt(firCol), parseFloat(secCol), parseFloat(thirdCol)])
+            options2.series[0].data.push([parseInt(firCol), parseFloat(secCol), parseFloat(thirdCol).toFixed(2)])
         }
         // Create the chart
         chart = new Highcharts.Chart(options2);
@@ -366,9 +362,11 @@ $(function () {
             shared: true,
             useHTML: true,
             formatter: function () {
-                return '<p style = "font-size: 15px"> Start record time: <b> '+ today + '</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
+                var date = Highcharts.dateFormat('%e. %b %H:%M', this.point.x);
+                //return '<p style = "font-size: 15px"> Start record time: <b> '+ today + '</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
+                  return '<p style = "font-size: 15px"> Record time: <b> '+ date + '</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
                     + '<p style = "font-size: 15px">' + 'Reflectivity: <b>' + this.point.value + '</b> dBZ</p>'
-                    + '<p style = "font-size: 15px">' + 'Recorded between <b>' + secondsTimeSpanToMS((this.point.x * 10 - 10)) + '</b> and <b>' + secondsTimeSpanToMS(this.point.x * 10) + '</b></p>'
+                   // + '<p style = "font-size: 15px">' + 'Recorded between <b>' + secondsTimeSpanToMS((this.point.x * 10 - 10)) + '</b> and <b>' + secondsTimeSpanToMS(this.point.x * 10) + '</b></p>'
                     + '<p style = "font-size: 15px">' + 'Altitude: <b>' + this.point.y*200 + '</b> meters</p>';
             },
         }
@@ -376,22 +374,8 @@ $(function () {
         boost: {
             useGPUTranslations: true
         },
-
-        xAxis: {
-
-             title: {
-                   enabled: true,
-                   text: 'Timestep [nb]',
-                   style: {
-                       color: Highcharts.getOptions().colors[1],
-                       fontSize:'15px'
-
-                          }
-                       },
-
-            min: 1,
-            max: 180,
-            tickInterval: 10,
+             xAxis: {
+            type: 'datetime',
             labels: {
                 step: 1,
                 style: {
@@ -399,9 +383,34 @@ $(function () {
                 }
             },
             crosshair: true,
-
         }
         ,
+     //   xAxis: {
+
+             //title: {
+               //    enabled: true,
+                 //  text: 'Timestep [nb]',
+                  // style: {
+                    //   color: Highcharts.getOptions().colors[1],
+                      // fontSize:'15px'
+
+                        //  }
+                      // },
+
+        //    min: 1,
+        //    max: 180,
+        //    tickInterval: 10,
+        //    labels: {
+        //        step: 1,
+        //        style: {
+        //            fontSize: '15px'
+         //       }
+         //   },
+         //   crosshair: true,
+
+       // }
+        //,
+
         yAxis: {
             title: {
                 enabled: true,
@@ -460,7 +469,8 @@ $(function () {
         series: [{
             nullColor: '#EFEFEF',
             data: [],
-            borderWidth: 0
+            borderWidth: 0,
+            colsize: 0.1e5 //10 seconds
         }]
         ,
           legend: {
@@ -490,7 +500,8 @@ $(function () {
             var firCol = lines[i].split(",")[1];
             var secCol = lines[i].split(",")[2];
             var thirdCol = lines[i].split(",")[3];
-            options3.series[0].data.push([parseFloat(firCol), parseFloat(secCol), parseFloat(thirdCol).toFixed(2)])
+            //options3.series[0].data.push([parseFloat(firCol), parseFloat(secCol), parseFloat(thirdCol).toFixed(2)])
+            options3.series[0].data.push([parseInt(firCol), parseFloat(secCol), parseFloat(thirdCol).toFixed(2)])
         }
 
         // Create the chart
@@ -521,30 +532,17 @@ $(function () {
             shared: true,
             useHTML: true,
             formatter: function () {
-                return '<p style = "font-size: 15px"> Start record time: <b> '+ today + '</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
+                var date = Highcharts.dateFormat('%e. %b %H:%M', this.point.x);
+                //return '<p style = "font-size: 15px"> Start record time: <b> '+ today + '</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
+                return '<p style = "font-size: 15px"> Record: <b> '+ date + '</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
                     + '<p style = "font-size: 15px">' + 'Reflectivity: <b>' + this.point.value + '</b> dBZ</p>'
-                    + '<p style = "font-size: 15px">' + 'Recorded between <b>' + secondsTimeSpanToMS((this.point.x * 10 - 10)) + '</b> and <b>' + secondsTimeSpanToMS(this.point.x * 10) + '</b></p>'
+                 //   + '<p style = "font-size: 15px">' + 'Recorded between <b>' + secondsTimeSpanToMS((this.point.x * 10 - 10)) + '</b> and <b>' + secondsTimeSpanToMS(this.point.x * 10) + '</b></p>'
                     + '<p style = "font-size: 15px">' + 'Altitude: <b>' + this.point.y*200 + '</b> meters</p>';
             },
-        }
-
-        ,
-
+        },
 
         xAxis: {
-                title: {
-                   enabled: true,
-                   text: 'Timestep [nb]',
-                   style: {
-                       color: Highcharts.getOptions().colors[1],
-                       fontSize:'15px'
-
-                          }
-                       },
-
-            min: 1,
-            max: 180,
-            tickInterval: 10,
+            type: 'datetime',
             labels: {
                 step: 1,
                 style: {
@@ -552,9 +550,33 @@ $(function () {
                 }
             },
             crosshair: true,
-
         }
         ,
+
+//        xAxis: {
+//                title: {
+//                   enabled: true,
+//                   text: 'Timestep [nb]',
+//                   style: {
+//                       color: Highcharts.getOptions().colors[1],
+//                       fontSize:'15px'
+
+//                          }
+//                       },
+
+//            min: 1,
+//            max: 180,
+//            tickInterval: 10,
+//            labels: {
+//                step: 1,
+//                style: {
+//                    fontSize: '15px'
+//                }
+//            },
+//            crosshair: true,
+
+//        }
+//        ,
         yAxis: {
             title: {
                 enabled: true,
@@ -609,7 +631,8 @@ $(function () {
         series: [{
             nullColor: '#EFEFEF',
             data: [],
-            borderWidth: 0
+            borderWidth: 0,
+            colsize: 0.1e5 //10 seconds
         }],
           legend: {
             align: 'right',
@@ -638,7 +661,8 @@ $(function () {
             var firCol = lines[i].split(",")[1];
             var secCol = lines[i].split(",")[2];
             var thirdCol = lines[i].split(",")[3];
-            options4.series[0].data.push([parseFloat(firCol), parseFloat(secCol), parseFloat(thirdCol).toFixed(2)])
+            options4.series[0].data.push([parseInt(firCol), parseFloat(secCol), parseFloat(thirdCol).toFixed(2)])
+         //   options4.series[0].data.push([parseFloat(firCol), parseFloat(secCol), parseFloat(thirdCol).toFixed(2)])
         }
         // Create the chart
         chart = new Highcharts.Chart(options4);
