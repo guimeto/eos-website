@@ -77,7 +77,7 @@ $(function () {
 
     yAxis: {
       title: {
-        text: 'Diameter: mm',
+        text: 'Diameters: mm',
         style: {
                 color: Highcharts.getOptions().colors[1],
                 fontSize:'15px'
@@ -177,7 +177,7 @@ $(function () {
 
 
     title: {
-      text: 'Fall Speed [m.s-1]',
+      text: 'Velocities [m/s]',
       style: {
                 color: Highcharts.getOptions().colors[1],
                  fontSize:'20px'
@@ -193,7 +193,7 @@ $(function () {
                 return '<p style = "font-size: 15px"> <b>'+date+'</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
                     + '<p style = "font-size: 15px">' + 'Number of particules: <b>' + this.point.value + '</b> </p>'
                  //   + '<p style = "font-size: 15px">' + 'Recorded between <b>' + secondsTimeSpanToHMS((this.point.x * 10 * 60)) + '</b> and <b>' + secondsTimeSpanToHMS((this.point.x * 10 * 60) + (10*60)) + '</b></p>'
-                    + '<p style = "font-size: 15px">' + 'Fall Speed: <b>' + this.series.yAxis.categories[this.point.y]+ '</b> m.s-1</p>';
+                    + '<p style = "font-size: 15px">' + 'Velocity: <b>' + this.series.yAxis.categories[this.point.y]+ '</b> m/s</p>';
             },
         },
              xAxis: {
@@ -231,7 +231,7 @@ $(function () {
 
     yAxis: {
       title: {
-        text: 'Fall speed: m.s-1',
+        text: 'Fall speed: m/s',
         style: {
                 color: Highcharts.getOptions().colors[1],
                 fontSize:'15px'

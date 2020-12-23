@@ -24,7 +24,7 @@ $(function () {
 
 
         title: {
-            text: 'Speed [m/s]',
+            text: 'Doppler velocity [m/s]',
             style: {
                 color: Highcharts.getOptions().colors[1],
                  fontSize:'20px'
@@ -38,7 +38,7 @@ $(function () {
                 var date = Highcharts.dateFormat('%e. %b %H:%M', this.point.x);
                 //return '<p style = "font-size: 15px"> <b>'+today+'</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
                   return '<p style = "font-size: 15px"> <b>'+date+'</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
-                    + '<p style = "font-size: 15px">' + 'Speed: <b>' + this.point.value + '</b> m.s-1</p>'
+                    + '<p style = "font-size: 15px">' + 'Doppler velocity: <b>' + this.point.value + '</b> m/s</p>'
                 //    + '<p style = "font-size: 15px">' + 'Recorded between <b>' + secondsTimeSpanToHMS((this.point.x * 10 * 60)) + '</b> and <b>' + secondsTimeSpanToHMS((this.point.x * 10 * 60) + (10*60)) + '</b></p>'
                     + '<p style = "font-size: 15px">' + 'Altitude: <b>' + this.point.y*200 + '</b> meters</p>';
             },
@@ -350,7 +350,7 @@ $(function () {
 
 
         title: {
-            text: 'Speed [m/s]',
+            text: 'Doppler velocity [m/s]',
             style: {
                 color: Highcharts.getOptions().colors[1],
                  fontSize:'20px'
@@ -363,8 +363,8 @@ $(function () {
             formatter: function () {
                 var date = Highcharts.dateFormat('%e. %b %H:%M:%S', this.point.x);
                 //return '<p style = "font-size: 15px"> Start record time: <b> '+ today + '</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
-                  return '<p style = "font-size: 15px"> Record time: <b> '+ date + '</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
-                    + '<p style = "font-size: 15px">' + 'Reflectivity: <b>' + this.point.value + '</b> dBZ</p>'
+                  return '<p style = "font-size: 15px"><b> '+ date + '</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
+                    + '<p style = "font-size: 15px">' + 'Doppler velocity: <b>' + this.point.value + '</b> m/s</p>'
                    // + '<p style = "font-size: 15px">' + 'Recorded between <b>' + secondsTimeSpanToMS((this.point.x * 10 - 10)) + '</b> and <b>' + secondsTimeSpanToMS(this.point.x * 10) + '</b></p>'
                     + '<p style = "font-size: 15px">' + 'Altitude: <b>' + this.point.y*200 + '</b> meters</p>';
             },
@@ -533,7 +533,7 @@ $(function () {
             formatter: function () {
                 var date = Highcharts.dateFormat('%e. %b %H:%M:%S', this.point.x);
                 //return '<p style = "font-size: 15px"> Start record time: <b> '+ today + '</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
-                return '<p style = "font-size: 15px"> Record: <b> '+ date + '</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
+                return '<p style = "font-size: 15px"><b> '+ date + '</b></p><hr style="height:2px;border-width:0;color:black;background-color:gray">'
                     + '<p style = "font-size: 15px">' + 'Reflectivity: <b>' + this.point.value + '</b> dBZ</p>'
                  //   + '<p style = "font-size: 15px">' + 'Recorded between <b>' + secondsTimeSpanToMS((this.point.x * 10 - 10)) + '</b> and <b>' + secondsTimeSpanToMS(this.point.x * 10) + '</b></p>'
                     + '<p style = "font-size: 15px">' + 'Altitude: <b>' + this.point.y*200 + '</b> meters</p>';
