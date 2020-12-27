@@ -49,7 +49,7 @@ D'autres commandes sont disponibles pour afficher les logs, supprimer les images
 
 Ajouter le nouveau fichier html de la nouvelle page (sentinelX.html) dans */templates/instrumentation/*. Ça peut être de simplement créer une copie de */templates/instrumentation/sentinel_template.html*. Ajouter les fichiers css et les scripts au besoin. **JQuery et bootstrap sont déjà inclus dans les templates de base ROOT_DIR/templates/layouts/**
 
-##### Ajouter du contenu se trouvant dans ROOT_DIR/média
+##### Ajouter du contenu se trouvant dans ROOT_DIR/media
 Les fichiers ressources (données des stations, image, pdf etc) sont accessibles directement dans le code HTML par **{{ MEDIA_URL }}** qui se traduit actuellement par **/media/**.
 
 exemple: `<img class="img-fluid" src="{{ MEDIA_URL }}images/anemometer.jpeg" alt="Station UQAM">`
@@ -66,3 +66,15 @@ exemple: ` path('sentinelXYZ', views.SentinelXYZView.as_view(), name='sentinelXY
 **Dans ROOT_DIR/templates/components/navigation.html**, ajouter dans le dropdown (ligne 22 présentement) *Instrumentation* un hyperlien vers la nouvelle page créée à partir du nom d'URL défini précédement.
 
 exemple: `<a class="dropdown-item" href={% url "sentinelXYZ_instrumentation" %}>Sentinel XYZ</a>` 
+
+### Gestion des stations dans l'onglet *stations*
+Tout se passe dans le fichier **/database/sql_scripts/eos_website.sql**
+
+Ligne 44 il y a une commande *INSERT INTO* qui ajoute les stations avec, dans l'ordre, leur nom, le nom de leur dossier dédié dans **/media/data/** et les différentes sous-pages à leur associer. Ces sous-pages (meteograms, radar, disdrometer, ceilometer) sont activables ou désactivables par des booléens. 
+
+ie: 1 1 1 1 signifie que l'ensemble *meteograms, radar, disdrometer, ceilometer* est associé à la station.
+
+ie: 1 0 1 0 signifie que l'ensemble *meteograms, disdrometer* est associé à la station.
+
+Pour faire des changements, il faut modifier les insertions et relancer le stack dev ou prod. Malheureusement en dev, les mises à jour de ce fichier ne provoque pas automatiquement une mise à jour instantanée du site car ça concerne le container docker de la base de donnée et non pas celui du serveur Django.
+
