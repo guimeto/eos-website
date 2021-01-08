@@ -42,13 +42,13 @@ CREATE TABLE `station` (
 --
 
 INSERT INTO `station` (`id`, `name`, `dir_name`, `meteograms`, `radar`, `disdrometer`, `ceilometer`) VALUES
-(1, 'Sentinel 1', 'sentinel_1', 1, 1, 1, 1),
-(2, 'Sentinel 2', 'sentinel_2', 1, 1, 1, 0),
-(3, 'Sentinel 3', 'sentinel_3', 0, 1, 0, 0),
-(4, 'Sentinel 4', 'sentinel_4', 1, 1, 1, 0),
-(5, 'Sentinel 5', 'sentinel_5', 0, 1, 1, 1),
-(6, 'Sentinel 6', 'sentinel_6', 1, 1, 0, 0),
-(7, 'Sentinel 7', 'sentinel_7', 1, 0, 1, 1);
+(1, 'Sentinel Gault', 'sentinel_1', 1, 1, 1, 1),
+(2, 'Sentinel 2', 'sentinel_2', 0, 0, 0, 0),
+(3, 'Sentinel 3', 'sentinel_3', 0, 0, 0, 0),
+(4, 'Sentinel 4', 'sentinel_4', 0, 0, 0, 0),
+(5, 'Sentinel 5', 'sentinel_5', 0, 0, 0, 0),
+(6, 'Sentinel 6', 'sentinel_6', 0, 0, 0, 0),
+(7, 'Sentinel 7', 'sentinel_7', 1, 0, 0, 0);
 
 --
 -- Indexes for dumped tables
