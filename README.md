@@ -76,5 +76,5 @@ ie: 1 1 1 1 signifie que l'ensemble *meteograms, radar, disdrometer, ceilometer*
 
 ie: 1 0 1 0 signifie que l'ensemble *meteograms, disdrometer* est associé à la station.
 
-Pour faire des changements, il faut modifier les insertions et relancer le stack dev ou prod. Malheureusement en dev, les mises à jour de ce fichier ne provoque pas automatiquement une mise à jour instantanée du site car ça concerne le container docker de la base de donnée et non pas celui du serveur Django.
+Pour faire des changements, il faut modifier les insertions et relancer le stack dev ou prod. En effet, les modifications de ce fichier ne provoquent pas automatiquement une mise à jour instantanée du site car ça concerne le container docker de la base de donnée et non pas celui du serveur Django.
 
