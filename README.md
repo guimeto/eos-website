@@ -78,3 +78,6 @@ ie: 1 0 1 0 signifie que l'ensemble *meteograms, disdrometer* est associé à la
 
 Pour faire des changements, il faut modifier les insertions et relancer le stack dev ou prod. Malheureusement en dev, les mises à jour de ce fichier ne provoque pas automatiquement une mise à jour instantanée du site car ça concerne le container docker de la base de donnée et non pas celui du serveur Django.
 
+make rm-dev
+make dev
+
