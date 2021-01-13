@@ -76,8 +76,13 @@ ie: 1 1 1 1 signifie que l'ensemble *meteograms, radar, disdrometer, ceilometer*
 
 ie: 1 0 1 0 signifie que l'ensemble *meteograms, disdrometer* est associé à la station.
 
-Pour faire des changements, il faut modifier les insertions et relancer le stack dev ou prod. En effet, les modifications de ce fichier ne provoquent pas automatiquement une mise à jour instantanée du site car ça concerne le container docker de la base de donnée et non pas celui du serveur Django.
+Pour appliquer les changements si le stack est déjà lancé, simplement utiliser une de ces deux commandes:
 
-make rm-dev
-make dev
+<code>sudo make rebuild-db-dev</code>
+<code>sudo make rebuild-db-prod</code>
 
+Ces commandes exécutent la séquence:
+1. Arrêter le container de la base de données
+2. Supprimer le container
+3. Reconstruire le container à partir des informations du docker-compose.yml
+4. Redémarrer le container du site web pour qu'il se reconnecte à la nouvelle base de données et recrée les tables administratives de Django
