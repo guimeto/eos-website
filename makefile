@@ -12,6 +12,19 @@ help: ## Output available commands
 # 	if [!"$(docker network ls -q -f name=riisq)"]; then
 # 		@docker network create riisq --driver bridge --subnet 172.23.0.0/16
 # 	fi
+
+rebuild-db-dev: ## Rebuild dev database and restart website
+	@docker stop eos-db-dev
+	@docker rm eos-db-dev
+	@docker-compose -f docker/development/docker-compose.yml up --build -d --force-recreate database
+	@docker restart eos-website-dev
+
+rebuild-db-prod: ## Rebuild prod database and restart website
+	@docker stop eos-db-prod
+	@docker rm eos-db-prod
+	@docker-compose -f docker/production/docker-compose.yml up --build -d --force-recreate database
+	@docker restart eos-website-prod
+
 bash-dev: ## Open a bash console into the dev container
 	@docker exec -ti eos-website-dev bash
 

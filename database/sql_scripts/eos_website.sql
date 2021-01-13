@@ -26,7 +26,6 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `station`
 --
-
 CREATE TABLE `station` (
   `id` int(11) NOT NULL,
   `name` tinytext NOT NULL,
@@ -43,12 +42,12 @@ CREATE TABLE `station` (
 
 INSERT INTO `station` (`id`, `name`, `dir_name`, `meteograms`, `radar`, `disdrometer`, `ceilometer`) VALUES
 (1, 'Sentinel Gault', 'sentinel_1', 1, 1, 1, 1),
-(2, 'Sentinel 2', 'sentinel_2', 0, 0, 0, 0),
-(3, 'Sentinel 3', 'sentinel_3', 0, 0, 0, 0),
-(4, 'Sentinel 4', 'sentinel_4', 0, 0, 0, 0),
-(5, 'Sentinel 5', 'sentinel_5', 0, 0, 0, 0),
-(6, 'Sentinel 6', 'sentinel_6', 0, 0, 0, 0),
-(7, 'Sentinel 7', 'sentinel_7', 1, 0, 0, 0);
+(2, 'Sentinel coucou', 'sentinel_2', 1, 0, 1, 0),
+(3, 'Sentinel c moi lol', 'sentinel_3', 0, 1, 0, 0),
+(4, 'Sentinel encore moi lolilol', 'sentinel_4', 1, 1, 1, 0),
+(5, 'Sentinel ptin trop dhumour la', 'sentinel_5', 0, 1, 1, 1),
+(6, 'Arrete jpp de tes blagues', 'sentinel_6', 1, 1, 0, 0),
+(7, 'Sentinel 7', 'sentinel_7', 1, 0, 1, 1);
 
 --
 -- Indexes for dumped tables
