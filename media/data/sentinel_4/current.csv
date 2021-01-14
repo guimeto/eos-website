@@ -1,2 +1,2 @@
-,Tendance,humidite,pression,short_desc,temperature,temperature_rosee,vent,visibilite
-0,À la baisse,43%,"103,1 kPa",Nuageux,"2,4°C","-9,0°C",SE 15 km/h,48 km
+,Condition,pressure,trend,temperature,dew_point,humidity,wind,visibility
+0,NaN,-999 kPa,,-999 °C,-999 °C,-999 %,NaN ,-999

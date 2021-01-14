@@ -103,7 +103,7 @@ function displayStationCurrentData(data) {
     addRow(table.insertRow(), "Anemometer wind speed", `${data.WS_ms} m/s`);
     addRow(table.insertRow(), "Anemometer wind direction", `${data.Mean_WindDir} deg`);
     addRow(table.insertRow(), "SDMS40 Snow Depth", `${data.SDMS40_Depth_Avg} mm`);
-    addRow(table.insertRow(), "SR50A  Snow Depth", `${data.SR50A_SnowDepth} mm`);
+    addRow(table.insertRow(), "SR50A  Snow Depth", `${data.SR50A_SnowDepth} m`);
     addRow(table.insertRow(), "SR50A quality", `${data.SR50A_QualityVal} nb`);
     addRow(table.insertRow(), "Ice accumulation (LF1)", `${data.LF1_Ice_Output} nb`);
     addRow(table.insertRow(), "Ice accumulation (LF1)", `${data.Ice_mm} mm`);
