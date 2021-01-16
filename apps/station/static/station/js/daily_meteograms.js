@@ -1187,6 +1187,150 @@ var options7 = {
      //   }
   // }
 };
+
+///Panneau sur les snow depths
+var options8 = {
+
+    chart: {
+        plotAreaWidth: 10,
+        plotAreaHeight: 50,
+        renderTo: 'graphdiv8',
+        zoomType: 'xy'
+    },
+    title: {
+        text: 'Snow depth measured by SRA50A and SDMS40',
+        style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'20px'
+            }
+    },
+    subtitle: {
+        text: ' '
+    },
+    credits: {
+        enabled: false
+    }
+    ,
+    xAxis:{
+    gridLineWidth: 1,
+    title: {
+        text: 'UTC',
+         style: {
+                     color: Highcharts.getOptions().colors[1],
+                     fontSize:'15px'
+                 }
+       },
+      type: 'datetime',
+      //categories: c,
+     //categories: []
+     //reversed: true
+         crosshair: true,
+                 labels: {
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
+            }
+        },
+       },
+         yAxis: [{
+     gridLineWidth: 1,
+     // Primary yAxis
+        labels: {
+            format: '{value}',
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
+            }
+        },
+        //max: 600,
+        //min: 200,
+        title: {
+            text: '[mm]',
+            style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize: '15px'
+            }
+        },
+        crosshair: true
+    }
+    ,{
+                linkedTo:0,
+                opposite:true,
+                labels: {
+                format: '{value}',
+                style: {
+                color: Highcharts.getOptions().colors[1],
+                fontSize:'15px'
+                       }
+                 },
+                title: {
+                    text: '[mm]',
+                style: {
+                     color: Highcharts.getOptions().colors[1],
+                     fontSize: '15px'
+                 }
+                }
+            }
+    ],
+    tooltip: {xDateFormat: '%e %b - %H:%M',
+        shared: true,
+        useHTML: true,
+        style: {fontSize: '15px'},
+        headerFormat: '<strong>{point.key}</strong><table style="border-spacing: 5px 10px;"><br><hr style="height:2px;border-width:0;color:black;background-color:gray">',
+        pointFormat: '<tr><td style="color: {series.color}">{series.name}: </td>' +
+            '<td style="text-align: right"><b>{point.y}</b></td></tr>',
+        footerFormat: '</table>',
+        valueDecimals: 2
+    },
+    plotOptions: {
+        spline: {
+            marker: {
+                enabled: false
+            }
+        }
+    }
+    ,
+    legend: {
+        layout: 'horizontal',
+        align: 'center',
+        floating: false,
+        backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+        shadow: true
+    },
+    series: [{
+        name: 'SR50A',
+        type: 'spline',
+        data: [],
+        tooltip: {
+            valueSuffix: ' mm'
+        },
+            color: '#FF0000'
+
+    },{
+        name: 'SDMS40',
+        type: 'spline',
+        data: [],
+        tooltip: {
+            valueSuffix: ' mm'
+        },
+            color: '#0000FF'
+    }
+        ],
+    exporting: {
+    csv: {
+      itemDelimiter: ';'
+    },
+    filename: 'Snow_depth'
+  },
+    //disable the nav export button
+    //navigation: {
+     //   buttonOptions: {
+    //       enabled: false
+     //   }
+  // }
+};
+
+
 jQuery.get(`${media_url}data/${dir_name}/station_Metdata.csv`, function (data) {
     // Split the lines
     var lines = data.split('\n');
@@ -1281,6 +1425,30 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata.csv`, function (data) {
 
     // Create the chart
     chart = new Highcharts.Chart(options3);
+
+     for (var i = 1; i < lines.length-1; i++) {
+        //var cat = lines[i].split(",")[0]
+        var Col = lines[i].split(",")[39];
+        var tab_date = lines[i].split(",")[0]
+        var firCol = lines[i].split(",")[23];
+        var secCol = lines[i].split(",")[22];
+        var y = tab_date.split(' ')[0].split('-')[0]
+        var m = tab_date.split(' ')[0].split('-')[1]
+        var d = tab_date.split(' ')[0].split('-')[2]
+        var hh = tab_date.split(' ')[1].split(':')[0]
+        var mm = tab_date.split(' ')[1].split(':')[1]
+        var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d), parseInt(hh),parseInt(mm))
+
+        options8.series[0].data.push([date_utc,parseFloat(firCol)*1000])
+        options8.series[1].data.push([date_utc,parseFloat(secCol)])
+        //c.push(cat)
+       //console.log(Col)
+    }
+
+    // Create the chart
+    chart = new Highcharts.Chart(options8);
+
+
 });
 
 jQuery.get(`${media_url}data/${dir_name}/station_flux_data.csv`, function (data) {
