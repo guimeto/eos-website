@@ -86,3 +86,24 @@ Ces commandes exécutent la séquence:
 2. Supprimer le container
 3. Reconstruire le container à partir des informations du docker-compose.yml
 4. Redémarrer le container du site web pour qu'il se reconnecte à la nouvelle base de données et recrée les tables administratives de Django
+
+
+
+
+
+----------------------------------
+1. Vérifie que t'es sur la branche develop git branch 
+2. Récupère les dernier changements de origin develop git pull
+3. Fais tes modifs
+4. Quand t'as fini et que tout marche aussi sur le stack prod ajoute tes derniers changements dans le prochain commit git add . à partir de la racine du projet ou git add :/ de n'importe quel sous dossier, emplacement dans le répertoire git
+5. Crée ton commit git commit -m"tonmessagelolol"
+6. Pousse ton commit sur le répertoire distant git push
+Maintenant tu veux mettre ces changements sur master pour des raisons de bonnes pratiques :p
+7. Place toi sur la branche master git checkout master
+8. Récupère les derniers changements de origin master git pull
+9. Récupère les changements sur develop que tu veux merger sur master git pull origin develop
+10. Pousse ton nouveau merge sur origin master git push
+ouvre une session ssh sur mesonet
+11. Vérifie que t'es sur la branche master git branch 
+12. Récupère les dernier changements de origin master git pull
+13. Mets à jour le stack prod make prod
