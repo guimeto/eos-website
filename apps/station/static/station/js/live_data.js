@@ -67,7 +67,7 @@ function displayStationCurrentDataS(data) {
     addRow(table.insertRow(), "Wind gust speed", `${data.WS_ms_Max} m/s`);
     addRow(table.insertRow(), "Wind gust direction", `${data.WindDir_Max} deg`);
     addRow(table.insertRow(), "WindDir_SD", `${data.WindDir_SD} deg`);
-    addRow(table.insertRow(), "Hotplate pressure", `${data.TPS_Baro_Press_mbar_Corrected} mbar`);
+    addRow(table.insertRow(), "IRGASON corrected pressure", `${data.IRGASON_PA} mbar`);
     div.appendChild(table);
 }
 
@@ -126,7 +126,7 @@ function displayStationCurrentData(data) {
     addRow(table.insertRow(), "Wind gust maximum speed", `${data.WS_ms_Max} m/s`);
     addRow(table.insertRow(), "Wind gust maximum direction", `${data.WindDir_Max} deg`);
     addRow(table.insertRow(), "Wind gust standard deviation", `${data.WindDir_SD} deg`);
-    addRow(table.insertRow(), "Hotplate pressure", `${data.TPS_Baro_Press_mbar_Corrected} mbar`);
+    addRow(table.insertRow(), "IRGASON corrected pressure", `${data.IRGASON_PA} mbar`);
     div.appendChild(table);
 
 
