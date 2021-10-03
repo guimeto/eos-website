@@ -233,7 +233,7 @@ var options2 = {
         zoomType: 'xy'
     },
     title: {
-        text: '15 minutes humidity time serie',
+        text: '15 minutes humidity time series',
           style: {
                 color: Highcharts.getOptions().colors[1],
                 fontSize:'20px'
@@ -458,7 +458,7 @@ var options3 = {
         zoomType: 'xy'
     },
     title: {
-        text: '15 minutes pressure time serie',
+        text: '15 minutes pressure time series',
           style: {
                 color: Highcharts.getOptions().colors[1],
                 fontSize:'20px'
@@ -1054,7 +1054,7 @@ var options7 = {
         zoomType: 'xy'
     },
     title: {
-        text: 'Latente and heat flux are measured by an IRGASON',
+        text: 'Latent and sensible heat fluxes are measured by an IRGASON',
         style: {
                 color: Highcharts.getOptions().colors[1],
                 fontSize:'20px'
@@ -1190,7 +1190,6 @@ var options7 = {
 
 ///Panneau sur les snow depths
 var options8 = {
-
     chart: {
         plotAreaWidth: 10,
         plotAreaHeight: 50,
@@ -1547,7 +1546,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_flux_data.csv`, function (data)
         var hh = tab_date.split(' ')[1].split(':')[0]
         var mm = tab_date.split(' ')[1].split(':')[1]
         var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d), parseInt(hh),parseInt(mm))
-        var firCol = lines[i].split(",")[17]; // LE Latente Heat Flux
+        var firCol = lines[i].split(",")[17]; // LE Latent Heat Flux
         var secCol = lines[i].split(",")[18]; //  H Sensible Heat Flux
 
         options7.series[0].data.push([date_utc,parseFloat(firCol)])
