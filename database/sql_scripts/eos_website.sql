@@ -47,7 +47,7 @@ INSERT INTO `station` (`id`, `name`, `dir_name`, `meteograms`, `radar`, `disdrom
 (4, 'Sentinel 4', 'sentinel_4', 0, 0, 0, 0),
 (5, 'Sentinel 5', 'sentinel_5', 0, 0, 0, 0),
 (6, 'Sentinel 6', 'sentinel_6', 0, 0, 0, 0),
-(7, 'Sentinel 7', 'sentinel_7', 0, 0, 0, 0);
+(7, 'Sentinel test', 'sentinel_7', 0, 0, 0, 0);
 --
 -- Indexes for dumped tables
 --
