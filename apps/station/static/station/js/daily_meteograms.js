@@ -1419,7 +1419,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata.csv`, function (data) {
 
         options3.series[0].data.push([date_utc,parseFloat(Col)])
         //c.push(cat)
-       //console.log(Col)
+       console.log(Col)
     }
 
     // Create the chart
