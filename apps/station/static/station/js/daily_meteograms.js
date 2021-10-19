@@ -1417,7 +1417,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata.csv`, function (data) {
         var mm = tab_date.split(' ')[1].split(':')[1]
         var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d), parseInt(hh),parseInt(mm))
 
-        options3.series[0].data.push([date_utc,parseFloat(Col)])
+        options3.series[0].data.push([date_utc,parseFloat(Col)*10])
         //c.push(cat)
        console.log(Col)
     }
