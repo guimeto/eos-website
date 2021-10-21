@@ -45,7 +45,7 @@ function displayStationCurrentDataS(data) {
     let table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
-    addRow(table.insertRow(), "Temperature (1m)", `${data.Temp1_Avg} °C`);
+    addRow(table.insertRow(), "Temperature (2m)", `${data.Temp2_Avg} °C`);
     addRow(table.insertRow(), "Humidity (1m)", `${data.RH1} %`);
 
     div.appendChild(table);
