@@ -67,7 +67,7 @@ function displayStationCurrentDataS(data) {
     addRow(table.insertRow(), "Wind gust speed", `${data.WS_ms_Max} m/s`);
     addRow(table.insertRow(), "Wind gust direction", `${data.WindDir_Max} deg`);
     addRow(table.insertRow(), "WindDir_SD", `${data.WindDir_SD} deg`);
-    addRow(table.insertRow(), "IRGASON corrected pressure", `${data.IRGASON_PA} mbar`);
+    addRow(table.insertRow(), "Sea level pressure", `${data.IRGASON_PA} mbar`);
     div.appendChild(table);
 }
 
