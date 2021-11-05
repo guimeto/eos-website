@@ -77,7 +77,7 @@ function displayStationCurrentData(data) {
     let table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
-    addRow(table.insertRow(), "Temperature",  `${data.Temp1_Avg} °C`);
+    addRow(table.insertRow(), "Temperature" `${data.Temp1_Avg} °C`,  `${data.Temp1_Avg} °C`);
     addRow(table.insertRow(), "Temperature (1.50 m)", `${data.Temp2_Avg} °C`);
     addRow(table.insertRow(), "Temperature (2.00 m)", `${data.Temp3_Avg} °C`);
     addRow(table.insertRow(), "Temperature (3.50 m)", `${data.Temp4_Avg} °C`);
