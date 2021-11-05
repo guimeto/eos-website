@@ -85,14 +85,14 @@ function displayStationCurrentData(data) {
     addRow(table.insertRow(), `Temperature (${data.elev6})`, `${data.Temp6_Avg} °C`);
     addRow(table.insertRow(), `Temperature (${data.elev7})`, `${data.Temp7_Avg} °C`);
     addRow(table.insertRow(), `Temperature (${data.elev8})`, `${data.Temp8_Avg} °C`);
-    addRow(table.insertRow(), `Relative humidity (${data.elev1})`, `${data.RH1} %`);
-    addRow(table.insertRow(), `Relative humidity (${data.elev2})`, `${data.RH2} %`);
-    addRow(table.insertRow(), `Relative humidity (${data.elev3})`, `${data.RH3} %`);
-    addRow(table.insertRow(), `Relative humidity (${data.elev4})`, `${data.RH4} %`);
-    addRow(table.insertRow(), `Relative humidity (${data.elev5})`, `${data.RH5} %`);
-    addRow(table.insertRow(), `Relative humidity (${data.elev6})`, `${data.RH6} %`);
-    addRow(table.insertRow(), `Relative humidity (${data.elev7})`, `${data.RH7} %`);
-    addRow(table.insertRow(), `Relative humidity (${data.elev8})`, `${data.RH8} %`);
+    addRow(table.insertRow(), `Relative humidity (${data.helev1})`, `${data.RH1} %`);
+    addRow(table.insertRow(), `Relative humidity (${data.helev2})`, `${data.RH2} %`);
+    addRow(table.insertRow(), `Relative humidity (${data.helev3})`, `${data.RH3} %`);
+    addRow(table.insertRow(), `Relative humidity (${data.helev4})`, `${data.RH4} %`);
+    addRow(table.insertRow(), `Relative humidity (${data.helev5})`, `${data.RH5} %`);
+    addRow(table.insertRow(), `Relative humidity (${data.helev6})`, `${data.RH6} %`);
+    addRow(table.insertRow(), `Relative humidity (${data.helev7})`, `${data.RH7} %`);
+    addRow(table.insertRow(), `Relative humidity (${data.helev8})`, `${data.RH8} %`);
     div.appendChild(table);
 
     table = document.createElement("TABLE");
