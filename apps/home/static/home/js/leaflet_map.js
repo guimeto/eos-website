@@ -1,5 +1,5 @@
 var currentDate = new Date()
-var day = currentDate.getDate()
+var day = currentDate.getDay()
 var month = currentDate.getMonth() + 1
 var year = currentDate.getFullYear()
 var hour = currentDate.getHours()
@@ -15,7 +15,7 @@ function zeroFill(num, size) {
 var hour = zeroFill(0, 2);
 var day = zeroFill(0, 2);
 
-var full_Date = year.toString()+'-'+month.toString()+'-'+day.toString()+'-'+hour.toString()
+var full_Date = year.toString()+'/'+month.toString()+'/'+day.toString()+':'+hour.toString()+'H'
 
 
 var map = L.map( 'map', {
