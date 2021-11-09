@@ -1,12 +1,13 @@
 var currentDate = new Date()
-var day = currentDate.getDay()
-var month = currentDate.getMonth() + 1
+var day = String(today.getDate()).padStart(2, '0');
+var month = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 var year = currentDate.getFullYear()
 var hour = currentDate.getHours()
 var minutes = currentDate.getMinutes()
 var globalVariable
-var todayDate = new Date().getDate();
 
+
+today = mm + '/' + dd + '/' + yyyy;
 function zeroFill(num, size) {
   let s = num + '';
   while (s.length < size) s = `0${s}`;
@@ -16,7 +17,7 @@ function zeroFill(num, size) {
 var hour = zeroFill(hour, 2);
 var minutes = zeroFill(minutes, 2);
 
-var full_Date = year.toString()+'/'+month.toString()+'/'+day.toString()+'  '+hour.toString()+':'+minutes.toString()
+var full_Date = year.toString()+'/'+month+'/'+day+'  '+hour.toString()+':'+minutes.toString()
 
 
 var map = L.map( 'map', {
