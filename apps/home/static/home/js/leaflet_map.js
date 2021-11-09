@@ -1,6 +1,6 @@
 var currentDate = new Date()
-var day = String(today.getDate()).padStart(2, '0');
-var month = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var day = String(currentDate.getDate()).padStart(2, '0');
+var month = String(currentDate.getMonth() + 1).padStart(2, '0'); //January is 0!
 var year = currentDate.getFullYear()
 var hour = currentDate.getHours()
 var minutes = currentDate.getMinutes()
