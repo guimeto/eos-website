@@ -14,7 +14,6 @@ function zeroFill(num, size) {
 }
 
 var hour = zeroFill(hour, 2);
-var day = zeroFill(day, 2);
 var minutes = zeroFill(minutes, 2);
 
 var full_Date = year.toString()+'/'+month.toString()+'/'+day.toString()+'  '+hour.toString()+':'+minutes.toString()
