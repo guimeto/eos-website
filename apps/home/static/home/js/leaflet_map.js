@@ -6,8 +6,6 @@ var hour = currentDate.getHours()
 var minutes = currentDate.getMinutes()
 var globalVariable
 
-
-today = mm + '/' + dd + '/' + yyyy;
 function zeroFill(num, size) {
   let s = num + '';
   while (s.length < size) s = `0${s}`;
