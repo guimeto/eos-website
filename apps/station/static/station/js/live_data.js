@@ -115,7 +115,7 @@ function displayStationCurrentData(data) {
     addRow(table.insertRow(), "Leaflet Wet", `${data.LWMWet_Tot} min`);
     addRow(table.insertRow(), "Leaflet Contaminated", `${data.LWMCon_Tot} min`);
     // addRow(table.insertRow(), "Visibility (CS120A)", `${data.Visibilitystr}`);
-    addRow(table.insertRow(),`${data.Visi1}` , `${data.Visibilitystr}`);
+   //  addRow(table.insertRow(),`${data.Visi1}` , `${data.Visibilitystr}`);
     
     div.appendChild(table);
 
