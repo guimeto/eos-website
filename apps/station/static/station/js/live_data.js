@@ -118,9 +118,9 @@ function displayStationCurrentData(data) {
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
 
-    addRow(table.insertRow(), "Hotplate precipitation 1minAvg", `${data.TPS_Raw_Precip_Rate_1minAvg_mmHr} mm/h`);
-    addRow(table.insertRow(), "Hotplate precipitation 5minAvg", `${data.TPS_Raw_Precip_Rate_5minAvg_mmHr} mm/h`);
-    addRow(table.insertRow(), "Hotplate total accumulation", `${data.Precip_Accum_24_Hours} mm`);
+    // addRow(table.insertRow(), "Hotplate precipitation 1minAvg", `${data.TPS_Raw_Precip_Rate_1minAvg_mmHr} mm/h`);
+    // addRow(table.insertRow(), "Hotplate precipitation 5minAvg", `${data.TPS_Raw_Precip_Rate_5minAvg_mmHr} mm/h`);
+    addRow(table.insertRow(), "Hotplate 24h total accumulation", `${data.Precip_Accum_24_Hours} mm`);
     addRow(table.insertRow(), "Hotplate power sensor", `${data.Sensor_Plate_Power} W`);
     addRow(table.insertRow(), "Hotplate power reference", `${data.Sensor_Ref_Plate_Power} W`);
     addRow(table.insertRow(), "Wind gust maximum speed", `${data.WS_ms_Max} m/s`);
