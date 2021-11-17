@@ -53,8 +53,8 @@ function displayStationCurrentDataS(data) {
     table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
-    addRow(table.insertRow(), "Hotplate temperature", `${data.TPS_Air_Temp_C} °C`);
-    addRow(table.insertRow(), "Hotplate wind speed", `${data.TPS_Wind_Spd_ms} m/s`);
+    addRow(table.insertRow(), "Hotplate temperature", `${data.Ambient_Temp} °C`);
+    addRow(table.insertRow(), "Hotplate wind speed", `${data.Wind_Speed} m/s`);
     addRow(table.insertRow(), "Anemometer wind speed", `${data.WS_ms} m/s`);
     addRow(table.insertRow(), "Anemometer wind direction", `${data.Mean_WindDir} deg`);
     div.appendChild(table);
@@ -63,7 +63,7 @@ function displayStationCurrentDataS(data) {
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
 
-    addRow(table.insertRow(), "Hotplate total accumulation", `${data.TPS_Total_Accum_mm} mm`);
+    addRow(table.insertRow(), "Hotplate total accumulation", `${data.Precip_Accum_24_Hours} mm`);
     addRow(table.insertRow(), "Wind gust speed", `${data.WS_ms_Max} m/s`);
     addRow(table.insertRow(), "Wind gust direction", `${data.WindDir_Max} deg`);
     addRow(table.insertRow(), "WindDir_SD", `${data.WindDir_SD} deg`);
@@ -98,8 +98,8 @@ function displayStationCurrentData(data) {
     table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
-    addRow(table.insertRow(), "Hotplate temperature", `${data.TPS_Air_Temp_C} °C`);
-    addRow(table.insertRow(), "Hotplate wind speed", `${data.TPS_Wind_Spd_ms} m/s`);
+    addRow(table.insertRow(), "Hotplate temperature", `${data.Ambient_Temp} °C`);
+    addRow(table.insertRow(), "Hotplate wind speed", `${data.Wind_Speed} m/s`);
     addRow(table.insertRow(), "Anemometer wind speed", `${data.WS_ms} m/s`);
     addRow(table.insertRow(), "Anemometer wind direction", `${data.Mean_WindDir} deg`);
     addRow(table.insertRow(), "SDMS40 Snow Depth", `${data.SDMS40_Depth_Avg} mm`);
@@ -120,9 +120,9 @@ function displayStationCurrentData(data) {
 
     addRow(table.insertRow(), "Hotplate precipitation 1minAvg", `${data.TPS_Raw_Precip_Rate_1minAvg_mmHr} mm/h`);
     addRow(table.insertRow(), "Hotplate precipitation 5minAvg", `${data.TPS_Raw_Precip_Rate_5minAvg_mmHr} mm/h`);
-    addRow(table.insertRow(), "Hotplate total accumulation", `${data.TPS_Total_Accum_mm} mm`);
-    addRow(table.insertRow(), "Hotplate power sensor", `${data.TPS_Pwr_Sensor_W} W`);
-    addRow(table.insertRow(), "Hotplate power reference", `${data.TPS_Pwr_Ref_W} W`);
+    addRow(table.insertRow(), "Hotplate total accumulation", `${data.Precip_Accum_24_Hours} mm`);
+    addRow(table.insertRow(), "Hotplate power sensor", `${data.Sensor_Plate_Power} W`);
+    addRow(table.insertRow(), "Hotplate power reference", `${data.Sensor_Ref_Plate_Power} W`);
     addRow(table.insertRow(), "Wind gust maximum speed", `${data.WS_ms_Max} m/s`);
     addRow(table.insertRow(), "Wind gust maximum direction", `${data.WindDir_Max} deg`);
     addRow(table.insertRow(), "Wind gust standard deviation", `${data.WindDir_SD} deg`);
