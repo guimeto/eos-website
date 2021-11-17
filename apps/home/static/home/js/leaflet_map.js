@@ -39,7 +39,7 @@ for ( var i = 0; i < stations.length; ++i )
     + '<br><b>Humidity:       </b>'+stations[i].RH1 + ' %'
     + '<br><b>Wind direction:       </b>'+stations[i].Mean_WindDir + ' Deg '
     + '<br><b>Wind speed:       </b>'+stations[i].WS_ms + ' m/s'
-    + '<br><b>Pressure:       </b>'+stations[i].IRGASON_PA + ' mbar'
+    + '<br><b>Pressure:       </b>'+stations[i].IRGASON_PA.toFixed(1) + ' mbar'
     + `<img id='container' src='${media_url}images/sentinel${j}.jpg' width='250' height='250'/><br>` 
     + '</a>'
     + '<div>'
