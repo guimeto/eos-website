@@ -103,15 +103,20 @@ function displayStationCurrentData(data) {
     addRow(table.insertRow(), "Anemometer wind speed", `${data.WS_ms} m/s`);
     addRow(table.insertRow(), "Anemometer wind direction", `${data.Mean_WindDir} deg`);
     addRow(table.insertRow(), "SDMS40 Snow Depth", `${data.SDMS40_Depth_Avg} mm`);
-    addRow(table.insertRow(), "SR50A  Snow Depth", `${data.SR50A_SnowDepth} m`);
-    addRow(table.insertRow(), "SR50A quality", `${data.SR50A_QualityVal} nb`);
+    // addRow(table.insertRow(), "SR50A  Snow Depth", `${data.SR50A_SnowDepth} m`);
+    // addRow(table.insertRow(), "SR50A quality", `${data.SR50A_QualityVal} nb`);
+    addRow(table.insertRow(), `${data.SR50A_S1}`, `${data.SR50A_SnowDepth} m`);
+    addRow(table.insertRow(), `${data.SR50A_S2}`, `${data.SR50A_QualityVal} m`);
+    
     addRow(table.insertRow(), "Ice accumulation (LF1)", `${data.LF1_Ice_Output} nb`);
     addRow(table.insertRow(), "Ice accumulation (LF1)", `${data.Ice_mm} mm`);
     addRow(table.insertRow(), "Ice accumulation (LF1)", `${data.Ice_Inch} inches`);
     addRow(table.insertRow(), "Leaflet Dry", `${data.LWMDry_Tot} min`);
     addRow(table.insertRow(), "Leaflet Wet", `${data.LWMWet_Tot} min`);
     addRow(table.insertRow(), "Leaflet Contaminated", `${data.LWMCon_Tot} min`);
-    addRow(table.insertRow(), "Visibility (CS120A)", `${data.Visibilitystr}`);
+    // addRow(table.insertRow(), "Visibility (CS120A)", `${data.Visibilitystr}`);
+    addRow(table.insertRow(),`${data.Visi1}` , `${data.Visibilitystr}`);
+    
     div.appendChild(table);
 
     table = document.createElement("TABLE");
