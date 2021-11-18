@@ -105,8 +105,8 @@ function displayStationCurrentData(data) {
     addRow(table.insertRow(), "SDMS40 Snow Depth", `${data.SDMS40_Depth_Avg} mm`);
     // addRow(table.insertRow(), "SR50A  Snow Depth", `${data.SR50A_SnowDepth} m`);
     // addRow(table.insertRow(), "SR50A quality", `${data.SR50A_QualityVal} nb`);
-    addRow(table.insertRow(), `${data.SR50A_S1}`, `${data.SR50A_SnowDepth}` `${data.unit1}`);
-    addRow(table.insertRow(), `${data.SR50A_S2}`, `${data.SR50A_QualityVal}` `${data.unit2}`);
+    addRow(table.insertRow(), `${data.SR50A_S1}`, `${data.SR50A_SnowDepth}`);
+    addRow(table.insertRow(), `${data.SR50A_S2}`, `${data.SR50A_QualityVal}`);
     
     addRow(table.insertRow(), "Ice accumulation (LF1)", `${data.LF1_Ice_Output} nb`);
     addRow(table.insertRow(), "Ice accumulation (LF1)", `${data.Ice_mm} mm`);
