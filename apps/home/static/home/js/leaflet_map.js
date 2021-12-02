@@ -20,7 +20,7 @@ var hour2 = zeroFill(hour, 2);
 var minutes2 = zeroFill(minutes, 2);
 
 var full_Date2 = year.toString()+'/'+month+'/'+day+'  '+hour.toString()+':'+minutes.toString()
-var full_Date = day +' '+ month2 +  ' ' year.toString()+' ; '+hour+minutes+' UTC'
+var full_Date = day +' '+ month2 +  ' ' year+' ; '+hour+minutes+' UTC'
 
 
 
