@@ -1,10 +1,14 @@
 var currentDate = new Date()
-var day = String(currentDate.getDate()).padStart(2, '0');
-var month = String(currentDate.getMonth() + 1).padStart(2, '0'); //January is 0!
-var year = currentDate.getFullYear()
-var hour = currentDate.getHours()
-var minutes = currentDate.getMinutes()
+var day = String(currentDate.getUTCDate()).padStart(2, '0');
+var month = String(currentDate.getUTCMonth() + 1).padStart(2, '0'); //January is 0!
+var year = currentDate.getUTCFullYear()
+var hour = currentDate.getUTCHours()
+var minutes = currentDate.getUTCMinutes()
 var globalVariable
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+var month2 = monthNames[currentDate.getMonth()];
 
 function zeroFill(num, size) {
   let s = num + '';
@@ -16,7 +20,9 @@ var hour = zeroFill(hour, 2);
 var minutes = zeroFill(minutes, 2);
 
 var full_Date2 = year.toString()+'/'+month+'/'+day+'  '+hour.toString()+':'+minutes.toString()
-var full_Date = new Date().toUTCString()
+var full_Date = day +' '+ month2 +  ' ' year.toString()+' ; '+hour.toString()+minutes.toString()+' UTC'
+
+
 
 var map = L.map( 'map', {
   center: [46, -73.0],
@@ -33,7 +39,7 @@ var markerClusters = L.markerClusterGroup();
 for ( var i = 0; i < stations.length; ++i )
   { 
     var j = i+1
-    var popup = '<div class="stileone" id="ori_date"><p>'+full_Date+'</p></div>' 
+    var popup = '<div class="stileone" id="ori_date"><h4>'+full_Date+'</h4></div>' 
     + '<br><b>Station:        </b>'+stations[i].name 
     + '<br><b>Temperature:    </b>'+stations[i].Temp1_Avg + ' °C'
     + '<br><b>Humidity:       </b>'+stations[i].RH1 + ' %'
