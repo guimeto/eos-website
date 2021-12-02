@@ -33,7 +33,7 @@ var markerClusters = L.markerClusterGroup();
 for ( var i = 0; i < stations.length; ++i )
   { 
     var j = i+1
-    var popup = '<div class="stileone" id="ori_date"><h4>'+full_Date+'</h4></div>' 
+    var popup = '<div class="stileone" id="ori_date"><p>'+full_Date+'</p></div>' 
     + '<br><b>Station:        </b>'+stations[i].name 
     + '<br><b>Temperature:    </b>'+stations[i].Temp1_Avg + ' °C'
     + '<br><b>Humidity:       </b>'+stations[i].RH1 + ' %'
