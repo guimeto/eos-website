@@ -16,8 +16,8 @@ var hour = zeroFill(hour, 2);
 var minutes = zeroFill(minutes, 2);
 
 var full_Date = year.toString()+'/'+month+'/'+day+'  '+hour.toString()+':'+minutes.toString()
-
-
+var test = new Date().toLocaleDateString('en-us', { weekday:"numeric", month:"long", year:"numeric", hour:"numeric", minute:"numeric" UTC}) 
+console.log(test)
 var map = L.map( 'map', {
   center: [46, -73.0],
   minZoom: 6,
@@ -39,7 +39,7 @@ for ( var i = 0; i < stations.length; ++i )
     + '<br><b>Humidity:       </b>'+stations[i].RH1 + ' %'
     + '<br><b>Wind direction:       </b>'+stations[i].Mean_WindDir + ' Deg '
     + '<br><b>Wind speed:       </b>'+stations[i].WS_ms + ' m/s'
-    + '<br><b>Pressure:       </b>'+stations[i].IRGASON_PA.toFixed(1) + ' mbar'
+    + '<br><b>Pressure:       </b>'+stations[i].IRGASON_PA.toFixed(1) + ' hPa'
     + `<img id='container' src='${media_url}images/sentinel${j}.jpg' width='250' height='250'/><br>` 
     + '</a>'
     + '<div>'
