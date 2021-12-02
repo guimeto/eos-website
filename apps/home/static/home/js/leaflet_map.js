@@ -15,9 +15,9 @@ function zeroFill(num, size) {
 var hour = zeroFill(hour, 2);
 var minutes = zeroFill(minutes, 2);
 
-var full_Date = year.toString()+'/'+month+'/'+day+'  '+hour.toString()+':'+minutes.toString()
-var test = new Date().toLocaleDateString('en-us', { weekday:"numeric", month:"long", year:"numeric", hour:"numeric", minute:"numeric" UTC}) 
-console.log(test)
+var full_Date2 = year.toString()+'/'+month+'/'+day+'  '+hour.toString()+':'+minutes.toString()
+var full_Date = new Date().toUTCString()
+
 var map = L.map( 'map', {
   center: [46, -73.0],
   minZoom: 6,
