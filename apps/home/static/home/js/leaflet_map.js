@@ -5,8 +5,7 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 ];
 var month = monthNames[currentDate.getMonth()];
 var year = currentDate.getUTCFullYear()
-
-var hour = currentDate.getUTCHours()
+var hour = ('0'+currentDate.getUTCHours()).substr(-2)
 
 function zeroFill(num, size) {
   let s = num + '';
@@ -19,7 +18,7 @@ var day2 = zeroFill(day, 2).toString();
 var minutes = currentDate.getUTCMinutes()
 var globalVariable
 
-full_Date = day2 +' '+ month +' '+ year + ' ; ' + hour2 + minutes + ' UTC'
+full_Date = day2 +' '+ month +' '+ year + ' ; ' + hour + minutes + ' UTC'
 
 var map = L.map( 'map', {
   center: [46, -73.0],
