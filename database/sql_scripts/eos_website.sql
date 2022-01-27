@@ -43,7 +43,7 @@ CREATE TABLE `station` (
 INSERT INTO `station` (`id`, `name`, `dir_name`, `meteograms`, `radar`, `disdrometer`, `ceilometer`) VALUES
 (1, 'Gault Sentinel', 'sentinel_1', 1, 1, 1, 1),
 (2, 'Arboretum', 'sentinel_2', 1, 1, 1, 0),
-(3, 'Sentinel 3', 'sentinel_3', 0, 0, 0, 0),
+(3, 'Forest Montmorency', 'sentinel_3', 1, 1, 1, 0),
 (4, 'Sentinel 4', 'sentinel_4', 0, 0, 0, 0),
 (5, 'Sentinel 5', 'sentinel_5', 0, 0, 0, 0),
 (6, 'Sentinel 6', 'sentinel_6', 0, 0, 0, 0),
