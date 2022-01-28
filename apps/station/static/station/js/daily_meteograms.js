@@ -1419,7 +1419,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata.csv`, function (data) {
 
         options3.series[0].data.push([date_utc,parseFloat(Col)*10])
         //c.push(cat)
-       console.log(Col)
+       //console.log(Col)
     }
 
     // Create the chart
@@ -1480,7 +1480,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_flux_data.csv`, function (data)
         options4.series[0].data.push([date_utc,  parseFloat(firCol), parseFloat(secCol)])
         options4.series[1].data.push([date_utc,  parseFloat(firCol), parseFloat(secCol)])
       //  c2.push(cat)
-     //   console.log([parseFloat(firCol), parseFloat(secCol)])
+        console.log([parseFloat(firCol), parseFloat(secCol)])
     }
 
     // Create the chart
