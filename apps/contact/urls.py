@@ -1,8 +1,8 @@
 from django.urls import path
 
 from . import views
-from .views import ContactView
+from .views import WebcamView
 
 urlpatterns = [
-    path('', webcamView.as_view(), name='webcam'),
+    path('', WebcamView.as_view(), name='webcam'),
 ]
