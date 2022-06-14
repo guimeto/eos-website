@@ -4,5 +4,5 @@ from . import views
 from .views import ContactView
 
 urlpatterns = [
-    path('', ContactView.as_view(), name='contact'),
+    path('', ContactView.as_view(), name='webcam'),
 ]
