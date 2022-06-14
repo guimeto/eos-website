@@ -4,6 +4,6 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 
 
-class ContactView(TemplateView):
+class WebcamView(TemplateView):
     template_name = "webcam/webcam.html"
 
