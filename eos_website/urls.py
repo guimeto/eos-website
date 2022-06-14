@@ -24,7 +24,7 @@ urlpatterns = [
     path('', include('home.urls'), name="home"),
     path('stations/', include('station.urls')),
     path('about/', include('about.urls')),
-    path('contact/', include('contact.urls')),
+    path('webcam/', include('webcam.urls')),
     path('instrumentation/', include('instrumentation.urls')),
 ]
 
