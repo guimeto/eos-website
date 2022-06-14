@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'station.apps.StationConfig',
     'about.apps.AboutConfig',
-    'contact.apps.ContactConfig',
+    'webcam.apps.WebcamConfig',
     'instrumentation.apps.InstrumentationConfig',
 
 ]
