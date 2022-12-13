@@ -75,3 +75,11 @@ class LABSView(TemplateView):
         context['stations'] = Station.objects.all().values('id', 'name')
         return context
 
+class MustView(TemplateView):
+    template_name = "instrumentation/must.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Sentinel 3 titre a garder comme tu veux'
+        context['stations'] = Station.objects.all().values('id', 'name')
+        return context
