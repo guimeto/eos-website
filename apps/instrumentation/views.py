@@ -67,7 +67,7 @@ class AERIView(TemplateView):
         return context
 
 class LABSView(TemplateView):
-    template_name = "instrumentation/mobile_lab.html"
+    template_name = "instrumentation/mobile_labs.html"
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
