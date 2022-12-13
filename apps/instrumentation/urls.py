@@ -8,5 +8,6 @@ urlpatterns = [
     path('sentinel3', views.Sentinel3View.as_view(), name='sentinel3_instrumentation'),
     path('Scanning_Doppler', views.ScanningView.as_view(), name='scanning_doppler_instrumentation'),
     path('AERI', views.AERIView.as_view(), name='aeri'),
+    path('mobile_labs', views.AERIView.as_view(), name='mobile_labs'),
 
     ]
