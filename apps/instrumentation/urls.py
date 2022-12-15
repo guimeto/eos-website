@@ -10,5 +10,6 @@ urlpatterns = [
     path('AERI', views.AERIView.as_view(), name='aeri'),
     path('mobile_labs', views.LABSView.as_view(), name='mobile_labs'),
     path('must', views.MustView.as_view(), name='must'),
+    path('eosBuild', views.EOS_BuildingView.as_view(), name='eosBuild'),
 
     ]
