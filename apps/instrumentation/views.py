@@ -83,3 +83,12 @@ class MustView(TemplateView):
         context['title'] = 'Sentinel 3 titre a garder comme tu veux'
         context['stations'] = Station.objects.all().values('id', 'name')
         return context
+
+class EOS_BuildingView(TemplateView):
+    template_name = "instrumentation/eosBuild.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Sentinel 3 titre a garder comme tu veux'
+        context['stations'] = Station.objects.all().values('id', 'name')
+        return context
