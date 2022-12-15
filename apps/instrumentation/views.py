@@ -104,7 +104,7 @@ class BiologyView(TemplateView):
 
 
 class PhenotypingView(TemplateView):
-    template_name = "instrumentation/biology.html"
+    template_name = "instrumentation/Phenotyping.html"
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -120,5 +120,12 @@ class mobileView(TemplateView):
         context['title'] = 'Sentinel 3 titre a garder comme tu veux'
         context['stations'] = Station.objects.all().values('id', 'name')
         return context
-      
 
+class MetBoxesView(TemplateView):
+    template_name = "instrumentation/MetBoxes.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Sentinel 3 titre a garder comme tu veux'
+        context['stations'] = Station.objects.all().values('id', 'name')
+        return context
