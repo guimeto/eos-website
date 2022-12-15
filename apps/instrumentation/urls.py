@@ -15,5 +15,6 @@ urlpatterns = [
     path('Phenotyping', views.PhenotypingView.as_view(), name='Phenotyping'),
     path('mobile_climate', views.mobileView.as_view(), name='mobile_climate'),
     path('MetBoxes', views.MetBoxesView.as_view(), name='MetBoxes'),
+    path('computer', views.computerView.as_view(), name='computer'),
 
     ]
