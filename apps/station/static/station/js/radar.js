@@ -121,6 +121,8 @@ $(function () {
             ],
             //min: [],
             //max: [],
+            min:0,
+            max:30,
             startOnTick: true,
             endOnTick: true,
             labels: {
