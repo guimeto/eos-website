@@ -122,7 +122,7 @@ $(function () {
             //min: [],
             //max: [],
             min:0,
-            max:30,
+            max:10,
             startOnTick: true,
             endOnTick: true,
             labels: {
