@@ -138,6 +138,7 @@ $(function () {
             nullColor: '#EFEFEF',
             data: [],
             borderWidth: 0,
+            boostThreshold: 1,
             turboThreshold: 10000,
             colsize: 3e5 // 5minutes
         }]
