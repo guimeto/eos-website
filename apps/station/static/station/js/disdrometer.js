@@ -267,7 +267,8 @@ $(function () {
                 [0.9, '#ed4d21'],
                 [1, '#c4463a']
             ],
-            min: [],
+            //min: [],
+            min:0,
             max: [],
             startOnTick: true,
             endOnTick: true,
@@ -306,14 +307,11 @@ $(function () {
     var lines = data.split('\n');
     var fourCol = lines[1].split(",")[4];
     var fifCol = lines[1].split(",")[5];
-    console.log(fourCol)
-    console.log(parseInt(fourCol))
-    console.log(parseFloat(fourCol))
     console.log(fifCol)
     console.log(parseInt(fifCol))
     console.log(parseFloat(fifCol))
     
-    options2.colorAxis.min.push([parseInt(fourCol)])
+    //options2.colorAxis.min.push([parseInt(fourCol)])
     options2.colorAxis.max.push([parseInt(fifCol)])
 
     // Push column data into data list
