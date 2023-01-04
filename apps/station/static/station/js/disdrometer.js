@@ -269,7 +269,7 @@ $(function () {
             ],
             //min: [],
             min:0,
-            max: [],
+            max:1000,
             startOnTick: true,
             endOnTick: true,
             labels: {
