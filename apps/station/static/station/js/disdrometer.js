@@ -307,12 +307,12 @@ $(function () {
     var lines = data.split('\n');
     var fourCol = lines[1].split(",")[4];
     var fifCol = lines[1].split(",")[5];
-    console.log(fifCol)
-    console.log(parseInt(fifCol))
-    console.log(parseFloat(fifCol))
+    //console.log(fifCol)
+    //console.log(parseInt(fifCol))
+    //console.log(parseFloat(fifCol))
     
     //options2.colorAxis.min.push([parseInt(fourCol)])
-    options2.colorAxis.max.push([parseInt(fifCol)])
+    //options2.colorAxis.max.push([parseInt(fifCol)])
 
     // Push column data into data list
     for (var i = 1; i < lines.length - 1; i++) {
