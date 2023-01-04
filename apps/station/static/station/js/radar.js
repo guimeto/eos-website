@@ -287,8 +287,10 @@ $(function () {
                 [0.9, '#ed4d21'],
                 [1, '#c4463a']
             ],
-            min: [],
-            max: [],
+            //min: [],
+            //max: [],
+            min:0,
+            max:10,
             startOnTick: true,
             endOnTick: true,
             labels: {
@@ -328,8 +330,8 @@ $(function () {
         var lines = data.split('\n');
         var fourCol = lines[1].split(",")[4];
         var fifCol = lines[1].split(",")[5];
-        options2.colorAxis.min.push([parseFloat(fourCol)]);
-        options2.colorAxis.max.push([parseFloat(fifCol)]);
+        //options2.colorAxis.min.push([parseFloat(fourCol)]);
+        //options2.colorAxis.max.push([parseFloat(fifCol)]);
 
         // Push column data into data list
         for (var i = 1; i < lines.length - 1; i++) {
@@ -454,8 +456,10 @@ $(function () {
                 [0.9, '#ed4d21'],
                 [1, '#c4463a']
             ],
-            min: [],
-            max: [],
+            //min: [],
+            //max: [],
+            min:0,
+            max:10,
             startOnTick: true,
             endOnTick: true,
             labels: {
@@ -495,8 +499,8 @@ $(function () {
         var lines = data.split('\n');
         var fourCol = lines[1].split(",")[4];
         var fifCol = lines[1].split(",")[5];
-        options3.colorAxis.min.push([parseFloat(fourCol)]);
-        options3.colorAxis.max.push([parseFloat(fifCol)]);
+        //options3.colorAxis.min.push([parseFloat(fourCol)]);
+        //options3.colorAxis.max.push([parseFloat(fifCol)]);
 
         // Push column data into data list
         for (var i = 1; i < lines.length - 1; i++) {
@@ -617,8 +621,10 @@ $(function () {
                 [0.9, '#ed4d21'],
                 [1, '#c4463a']
             ],
-            min: [],
-            max: [],
+            //min: [],
+            //max: [],
+            min:0,
+            max:10,
             startOnTick: true,
             endOnTick: true,
             labels: {
@@ -656,8 +662,8 @@ $(function () {
         var lines = data.split('\n');
         var fourCol = lines[1].split(",")[4];
         var fifCol = lines[1].split(",")[5];
-        options4.colorAxis.min.push([parseFloat(fourCol)]);
-        options4.colorAxis.max.push([parseFloat(fifCol)]);
+        //options4.colorAxis.min.push([parseFloat(fourCol)]);
+        //options4.colorAxis.max.push([parseFloat(fifCol)]);
 
         // Push column data into data list
         for (var i = 1; i < lines.length - 1; i++) {
