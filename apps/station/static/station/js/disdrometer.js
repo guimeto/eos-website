@@ -269,10 +269,8 @@ $(function () {
                 [0.9, '#ed4d21'],
                 [1, '#c4463a']
             ],
-            //min: [],
-            //max: [],
-            min:0,
-            max:1000,
+            min: [],
+            max: [],
             startOnTick: true,
             endOnTick: true,
             labels: {
