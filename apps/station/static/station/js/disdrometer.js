@@ -111,8 +111,10 @@ $(function () {
                 [0.9, '#ed4d21'],
                 [1, '#c4463a']
             ],
-            min: [],
-            max: [],
+            //min: [],
+            //max: [],
+            min:0,
+            max:1000,
             startOnTick: true,
             endOnTick: true,
             labels: {
@@ -149,8 +151,8 @@ $(function () {
     var lines = data.split('\n');
     var fourCol = lines[1].split(",")[4];
     var fifCol = lines[1].split(",")[5];
-    options1.colorAxis.min.push([parseFloat(fourCol)])
-    options1.colorAxis.max.push([parseFloat(fifCol)])
+    //options1.colorAxis.min.push([parseFloat(fourCol)])
+    //options1.colorAxis.max.push([parseFloat(fifCol)])
 
     // Push column data into data list
     for (var i = 1; i < lines.length - 1; i++) {
@@ -265,8 +267,10 @@ $(function () {
                 [0.9, '#ed4d21'],
                 [1, '#c4463a']
             ],
-            min: [],
-            max: [],
+            //min: [],
+            //max: [],
+            min:0,
+            max:1000,
             startOnTick: true,
             endOnTick: true,
             labels: {
@@ -304,6 +308,8 @@ $(function () {
     var lines = data.split('\n');
     var fourCol = lines[1].split(",")[4];
     var fifCol = lines[1].split(",")[5];
+    console.log(fourCol,parseFloat(fourCol))
+    console.log(fifCol,parseFloat(fifCol))
     options2.colorAxis.min.push([parseFloat(fourCol)])
     options2.colorAxis.max.push([parseFloat(fifCol)])
 
