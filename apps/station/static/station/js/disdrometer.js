@@ -154,7 +154,9 @@ $(function () {
     //options1.colorAxis.min.push([parseFloat(fourCol)])
     //options1.colorAxis.max.push([parseFloat(fifCol)])
     console.log(fourCol)
+    console.log(parseFloat(fourCol))
     console.log(fifCol)
+    console.log(parseFloat(fifCol))
     
     // Push column data into data list
     for (var i = 1; i < lines.length - 1; i++) {
