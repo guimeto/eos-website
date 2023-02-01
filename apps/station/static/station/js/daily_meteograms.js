@@ -228,7 +228,7 @@ var options2 = {
 
     chart: {
         plotAreaWidth: 10,
-        plotAreaHeight: 100,
+        plotAreaHeight: 105,
         renderTo: 'graphdiv2',
         zoomType: 'xy'
     },
@@ -277,7 +277,7 @@ var options2 = {
                 fontSize:'15px'
             }
         },
-        max: 100,
+        max: 105,
         min: 0,
         tickInterval: 5,
         title: {
