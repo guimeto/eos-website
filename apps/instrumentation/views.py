@@ -12,7 +12,7 @@ class SentinelGaultView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Le titre dans l\'onglet de la page'
+        context['title'] = 'Gault'
         context['stations'] = Station.objects.all().values('id', 'name')
         return context
 
@@ -33,7 +33,7 @@ class Sentinel2View(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Sentinel 2 titre de la page dans longlet a changer'
+        context['title'] = 'Climate sentinels'
         context['stations'] = Station.objects.all().values('id', 'name')
         return context
 
@@ -43,7 +43,7 @@ class Sentinel3View(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Sentinel 3 titre a garder comme tu veux'
+        context['title'] = 'Forest Montmorency'
         context['stations'] = Station.objects.all().values('id', 'name')
         return context
     
@@ -52,7 +52,7 @@ class ScanningView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Sentinel 3 titre a garder comme tu veux'
+        context['title'] = 'Scanning Doppler'
         context['stations'] = Station.objects.all().values('id', 'name')
         return context
     
@@ -62,7 +62,7 @@ class AERIView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Sentinel 3 titre a garder comme tu veux'
+        context['title'] = 'AERI'
         context['stations'] = Station.objects.all().values('id', 'name')
         return context
 
@@ -71,7 +71,7 @@ class LABSView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Sentinel 3 titre a garder comme tu veux'
+        context['title'] = 'Mobile labs'
         context['stations'] = Station.objects.all().values('id', 'name')
         return context
 
@@ -80,7 +80,7 @@ class MustView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Sentinel 3 titre a garder comme tu veux'
+        context['title'] = 'MUST'
         context['stations'] = Station.objects.all().values('id', 'name')
         return context
 
@@ -89,7 +89,7 @@ class EOS_BuildingView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Sentinel 3 titre a garder comme tu veux'
+        context['title'] = 'EOS Building'
         context['stations'] = Station.objects.all().values('id', 'name')
         return context
     
@@ -98,7 +98,7 @@ class BiologyView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Sentinel 3 titre a garder comme tu veux'
+        context['title'] = 'Biology'
         context['stations'] = Station.objects.all().values('id', 'name')
         return context
 
@@ -108,7 +108,7 @@ class PhenotypingView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Sentinel 3 titre a garder comme tu veux'
+        context['title'] = 'Phenotyping'
         context['stations'] = Station.objects.all().values('id', 'name')
         return context
     
@@ -117,7 +117,7 @@ class mobileView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Sentinel 3 titre a garder comme tu veux'
+        context['title'] = 'Mobile Lab'
         context['stations'] = Station.objects.all().values('id', 'name')
         return context
 
@@ -126,7 +126,7 @@ class MetBoxesView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Sentinel 3 titre a garder comme tu veux'
+        context['title'] = 'MetBoxes'
         context['stations'] = Station.objects.all().values('id', 'name')
         return context
 
@@ -135,7 +135,7 @@ class computerView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Sentinel 3 titre a garder comme tu veux'
+        context['title'] = 'Computer'
         context['stations'] = Station.objects.all().values('id', 'name')
         return context
     
@@ -144,6 +144,6 @@ class pickupView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Sentinel 3 titre a garder comme tu veux'
+        context['title'] = 'Pickup'
         context['stations'] = Station.objects.all().values('id', 'name')
         return context
