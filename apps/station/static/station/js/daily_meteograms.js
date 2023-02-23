@@ -214,6 +214,7 @@ var options1 = {
         enabled: false
     },
     exporting: {
+    enabled: false,
     csv: {
       itemDelimiter: ';'
     },
@@ -441,6 +442,7 @@ var options2 = {
         ],
 
         exporting: {
+    enabled: false,
     csv: {
       itemDelimiter: ';'
     },
@@ -582,6 +584,7 @@ var options3 = {
     }
     ],
     exporting: {
+    enabled: false,
     csv: {
       itemDelimiter: ';'
     },
@@ -696,6 +699,7 @@ var options4 = {
        }
     }],
     exporting: {
+    enabled: false,
     csv: {
       itemDelimiter: ';'
     },
@@ -872,6 +876,7 @@ var options5 = {
 
         ],
         exporting: {
+    enabled: false,
     csv: {
       itemDelimiter: ';'
     },
@@ -1032,6 +1037,7 @@ var options6 = {
         ],
 
         exporting: {
+    enabled: false,
     csv: {
       itemDelimiter: ';'
     },
@@ -1175,6 +1181,7 @@ var options7 = {
     }
         ],
     exporting: {
+    enabled: false,
     csv: {
       itemDelimiter: ';'
     },
@@ -1316,6 +1323,7 @@ var options8 = {
     }
         ],
     exporting: {
+    enabled: false,
     csv: {
       itemDelimiter: ';'
     },
