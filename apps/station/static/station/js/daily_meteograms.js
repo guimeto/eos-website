@@ -1483,8 +1483,8 @@ jQuery.get(`${media_url}data/${dir_name}/station_flux_data_new.csv`, function (d
         var mm = tab_date.split(' ')[1].split(':')[1]
         var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d), parseInt(hh),parseInt(mm))
 
-        var firCol = lines[i].split(",")[0];                                                 // wind speed WS
-        var secCol = lines[i].split(",")[1];                                                // wind direction WD 
+        var firCol = lines[i].split(",")[1];                                                 // wind speed WS
+        var secCol = lines[i].split(",")[2];                                                // wind direction WD 
         options4.series[0].data.push([date_utc,  parseFloat(firCol), parseFloat(secCol)])
         options4.series[1].data.push([date_utc,  parseFloat(firCol), parseFloat(secCol)])
       //  c2.push(cat)
@@ -1504,11 +1504,11 @@ jQuery.get(`${media_url}data/${dir_name}/station_flux_data_new.csv`, function (d
         var mm = tab_date.split(' ')[1].split(':')[1]
         var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d), parseInt(hh),parseInt(mm))
 
-        var firCol = lines[i].split(",")[2];                  // SW_IN
-        var secCol = lines[i].split(",")[3];                  //  SW_OUT
-        var fourCol = lines[i].split(",")[4];                 // LW_IN
-        var fifCol = lines[i].split(",")[5];                  //  LW_OUT
-        var sixCol = lines[i].split(",")[6];                 //  NETRAD
+        var firCol = lines[i].split(",")[3];                  // SW_IN
+        var secCol = lines[i].split(",")[4];                  //  SW_OUT
+        var fourCol = lines[i].split(",")[5];                 // LW_IN
+        var fifCol = lines[i].split(",")[6];                  //  LW_OUT
+        var sixCol = lines[i].split(",")[7];                 //  NETRAD
         options5.series[0].data.push([date_utc,parseFloat(firCol)])
         options5.series[1].data.push([date_utc,parseFloat(secCol)])
         options5.series[2].data.push([date_utc,parseFloat(fourCol)])
@@ -1530,9 +1530,9 @@ jQuery.get(`${media_url}data/${dir_name}/station_flux_data_new.csv`, function (d
         var mm = tab_date.split(' ')[1].split(':')[1]
         var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d), parseInt(hh),parseInt(mm))
 
-        var firCol = lines[i].split(",")[7];                        // TS_1_1_1
-        var secCol = lines[i].split(",")[8];                        //  TS_2_1_1
-        var thirdCol = lines[i].split(",")[9];                      // SWC_1_1_1
+        var firCol = lines[i].split(",")[8];                        // TS_1_1_1
+        var secCol = lines[i].split(",")[9];                        //  TS_2_1_1
+        var thirdCol = lines[i].split(",")[10];                      // SWC_1_1_1
 
         options6.series[0].data.push([date_utc,parseFloat(firCol)])
         options6.series[1].data.push([date_utc,parseFloat(secCol)])
@@ -1554,8 +1554,8 @@ jQuery.get(`${media_url}data/${dir_name}/station_flux_data_new.csv`, function (d
         var hh = tab_date.split(' ')[1].split(':')[0]
         var mm = tab_date.split(' ')[1].split(':')[1]
         var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d), parseInt(hh),parseInt(mm))
-        var firCol = lines[i].split(",")[10];                                                     // LE Latent Heat Flux
-        var secCol = lines[i].split(",")[11];                                                     //  H Sensible Heat Flux
+        var firCol = lines[i].split(",")[11];                                                     // LE Latent Heat Flux
+        var secCol = lines[i].split(",")[12];                                                     //  H Sensible Heat Flux
 
         options7.series[0].data.push([date_utc,parseFloat(firCol)])
         options7.series[1].data.push([date_utc,parseFloat(secCol)])
