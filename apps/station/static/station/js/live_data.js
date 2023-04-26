@@ -45,29 +45,29 @@ function displayStationCurrentDataS(data) {
     let table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
-    addRow(table.insertRow(), "Temperature (2m)", `${data.Temp3_Avg} °C`);
-    addRow(table.insertRow(), "Humidity (1m)", `${data.RH1} %`);
+    addRow(table.insertRow(), "Temperature (2m)", `${data.temp} °C`);
+    addRow(table.insertRow(), "Humidity (1m)", `${data.humidity} %`);
 
     div.appendChild(table);
 
     table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
-    addRow(table.insertRow(), "Hotplate temperature", `${data.Ambient_Temp} °C`);
-    addRow(table.insertRow(), "Hotplate wind speed", `${data.Wind_Speed} m/s`);
-    addRow(table.insertRow(), "Anemometer wind speed", `${data.WS_ms} m/s`);
-    addRow(table.insertRow(), "Anemometer wind direction", `${data.Mean_WindDir} deg`);
+    addRow(table.insertRow(), "Hotplate temperature", `${data.hot_temp} °C`);
+    addRow(table.insertRow(), "Hotplate wind speed", `${data.hot_wind} m/s`);
+    addRow(table.insertRow(), "Anemometer wind speed", `${data.anem_wind} m/s`);
+    addRow(table.insertRow(), "Anemometer wind direction", `${data.anem_dir} deg`);
     div.appendChild(table);
 
     table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
 
-    addRow(table.insertRow(), "Hotplate total accumulation", `${data.Precip_Accum_24_Hours} mm`);
-    addRow(table.insertRow(), "Wind gust speed", `${data.WS_ms_Max} m/s`);
-    addRow(table.insertRow(), "Wind gust direction", `${data.WindDir_Max} deg`);
-    addRow(table.insertRow(), "WindDir_SD", `${data.WindDir_SD} deg`);
-    addRow(table.insertRow(), "Sea level pressure", `${data.IRGASON_PA} mbar`);
+    addRow(table.insertRow(), "Hotplate total accumulation", `${data.hot_precip} mm`);
+    addRow(table.insertRow(), "Wind gust speed", `${data.gust} m/s`);
+    addRow(table.insertRow(), "Wind gust direction", `${data.gust_dir} deg`);
+    addRow(table.insertRow(), "WindDir_SD", `${data.SD} deg`);
+    addRow(table.insertRow(), "Sea level pressure", `${data.pressure} mbar`);
     div.appendChild(table);
 }
 
@@ -77,61 +77,65 @@ function displayStationCurrentData(data) {
     let table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
-    addRow(table.insertRow(), `Temperature (${data.elev1})`,  `${data.Temp1_Avg} °C`);
-    addRow(table.insertRow(), `Temperature (${data.elev2})`, `${data.Temp2_Avg} °C`);
-    addRow(table.insertRow(), `Temperature (${data.elev3})`, `${data.Temp3_Avg} °C`);
-    addRow(table.insertRow(), `Temperature (${data.elev4})`, `${data.Temp4_Avg} °C`);
-    addRow(table.insertRow(), `Temperature (${data.elev5})`, `${data.Temp5_Avg} °C`);
-    addRow(table.insertRow(), `Temperature (${data.elev6})`, `${data.Temp6_Avg} °C`);
-    addRow(table.insertRow(), `Temperature (${data.elev7})`, `${data.Temp7_Avg} °C`);
-    addRow(table.insertRow(), `Temperature (${data.elev8})`, `${data.Temp8_Avg} °C`);
-    addRow(table.insertRow(), `Relative humidity (${data.helev1})`, `${data.RH1} %`);
-    addRow(table.insertRow(), `Relative humidity (${data.helev2})`, `${data.RH2} %`);
-    addRow(table.insertRow(), `Relative humidity (${data.helev3})`, `${data.RH3} %`);
-    addRow(table.insertRow(), `Relative humidity (${data.helev4})`, `${data.RH4} %`);
-    addRow(table.insertRow(), `Relative humidity (${data.helev5})`, `${data.RH5} %`);
-    addRow(table.insertRow(), `Relative humidity (${data.helev6})`, `${data.RH6} %`);
-    addRow(table.insertRow(), `Relative humidity (${data.helev7})`, `${data.RH7} %`);
-    addRow(table.insertRow(), `Relative humidity (${data.helev8})`, `${data.RH8} %`);
-    div.appendChild(table);
-
-    table = document.createElement("TABLE");
-    table.classList.add("col-lg-4");
-    table.classList.add("col-md-12");
-    addRow(table.insertRow(), "Hotplate temperature", `${data.Ambient_Temp} °C`);
-    addRow(table.insertRow(), "Hotplate wind speed", `${data.Wind_Speed} m/s`);
-    addRow(table.insertRow(), "Anemometer wind speed", `${data.WS_ms} m/s`);
-    addRow(table.insertRow(), "Anemometer wind direction", `${data.Mean_WindDir} deg`);
-    addRow(table.insertRow(), "SDMS40 Snow Depth", `${data.SDMS40_Depth_Avg} mm`);
-    // addRow(table.insertRow(), "SR50A  Snow Depth", `${data.SR50A_SnowDepth} m`);
-    // addRow(table.insertRow(), "SR50A quality", `${data.SR50A_QualityVal} nb`);
-    addRow(table.insertRow(), `${data.SR50A_S1}`, `${data.SR50A_SnowDepth}`);
-    addRow(table.insertRow(), `${data.SR50A_S2}`, `${data.SR50A_QualityVal}`);
-    
-    addRow(table.insertRow(), "Ice accumulation (LF1)", `${data.LF1_Ice_Output} nb`);
-    addRow(table.insertRow(), "Ice accumulation (LF1)", `${data.Ice_mm} mm`);
-    addRow(table.insertRow(), "Ice accumulation (LF1)", `${data.Ice_Inch} inches`);
-    addRow(table.insertRow(), "Leaflet Dry", `${data.LWMDry_Tot} min`);
-    addRow(table.insertRow(), "Leaflet Wet", `${data.LWMWet_Tot} min`);
-    addRow(table.insertRow(), "Leaflet Contaminated", `${data.LWMCon_Tot} min`);
-    // addRow(table.insertRow(), "Visibility (CS120A)", `${data.Visibilitystr}`);
-    addRow(table.insertRow(),`${data.Visi1}` , `${data.Visibilitystr} m`);
+    addRow(table.insertRow(), `${data.name1}`,  `${data.Var1} ${data.unit1}`);
+    addRow(table.insertRow(), `${data.name2}`,  `${data.Var2} ${data.unit2}`);
+    addRow(table.insertRow(), `${data.name3}`,  `${data.Var3} ${data.unit3}`);
+    addRow(table.insertRow(), `${data.name4}`,  `${data.Var4} ${data.unit4}`);
+    addRow(table.insertRow(), `${data.name5}`,  `${data.Var5} ${data.unit5}`);
+    addRow(table.insertRow(), `${data.name6}`,  `${data.Var6} ${data.unit6}`);
+    addRow(table.insertRow(), `${data.name7}`,  `${data.Var7} ${data.unit7}`);
+    addRow(table.insertRow(), `${data.name8}`,  `${data.Var8} ${data.unit8}`);
+    addRow(table.insertRow(), `${data.name9}`,  `${data.Var9} ${data.unit9}`);
+    addRow(table.insertRow(), `${data.name10}`,  `${data.Var10} ${data.unit10}`);
+    addRow(table.insertRow(), `${data.name11}`,  `${data.Var11} ${data.unit11}`);
+    addRow(table.insertRow(), `${data.name12}`,  `${data.Var12} ${data.unit12}`);
+    addRow(table.insertRow(), `${data.name13}`,  `${data.Var13} ${data.unit13}`);
+    addRow(table.insertRow(), `${data.name14}`,  `${data.Var14} ${data.unit14}`);
+    addRow(table.insertRow(), `${data.name15}`,  `${data.Var15} ${data.unit15}`);
+    addRow(table.insertRow(), `${data.name16}`,  `${data.Var16} ${data.unit16}`);
     
     div.appendChild(table);
 
     table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
+    addRow(table.insertRow(), `${data.name17}`,  `${data.Var17} ${data.unit17}`);
+    addRow(table.insertRow(), `${data.name18}`,  `${data.Var18} ${data.unit18}`);
+    addRow(table.insertRow(), `${data.name19}`,  `${data.Var19} ${data.unit19}`);
+    addRow(table.insertRow(), `${data.name20}`,  `${data.Var20} ${data.unit20}`);
+    addRow(table.insertRow(), `${data.name21}`,  `${data.Var21} ${data.unit21}`);
+    addRow(table.insertRow(), `${data.name22}`,  `${data.Var22} ${data.unit22}`);
+    addRow(table.insertRow(), `${data.name23}`,  `${data.Var23} ${data.unit23}`);
+    addRow(table.insertRow(), `${data.name24}`,  `${data.Var24} ${data.unit24}`);
+    addRow(table.insertRow(), `${data.name25}`,  `${data.Var25} ${data.unit25}`);
+    addRow(table.insertRow(), `${data.name26}`,  `${data.Var26} ${data.unit26}`);
+    addRow(table.insertRow(), `${data.name27}`,  `${data.Var27} ${data.unit27}`);
+    addRow(table.insertRow(), `${data.name28}`,  `${data.Var28} ${data.unit28}`);
+    addRow(table.insertRow(), `${data.name29}`,  `${data.Var29} ${data.unit29}`);
+    addRow(table.insertRow(), `${data.name30}`,  `${data.Var30} ${data.unit30}`);
+    addRow(table.insertRow(), `${data.name31}`,  `${data.Var31} ${data.unit31}`);
+    addRow(table.insertRow(), `${data.name32}`,  `${data.Var32} ${data.unit32}`);
+    
+    div.appendChild(table);
 
-    // addRow(table.insertRow(), "Hotplate precipitation 1minAvg", `${data.TPS_Raw_Precip_Rate_1minAvg_mmHr} mm/h`);
-    // addRow(table.insertRow(), "Hotplate precipitation 5minAvg", `${data.TPS_Raw_Precip_Rate_5minAvg_mmHr} mm/h`);
-    addRow(table.insertRow(), "Hotplate 24h total accumulation", `${data.Precip_Accum_24_Hours} mm`);
-    addRow(table.insertRow(), "Hotplate power sensor", `${data.Sensor_Plate_Power} W`);
-    addRow(table.insertRow(), "Hotplate power reference", `${data.Sensor_Ref_Plate_Power} W`);
-    addRow(table.insertRow(), "Wind gust maximum speed", `${data.WS_ms_Max} m/s`);
-    addRow(table.insertRow(), "Wind gust maximum direction", `${data.WindDir_Max} deg`);
-    addRow(table.insertRow(), "Wind gust standard deviation", `${data.WindDir_SD} deg`);
-    addRow(table.insertRow(), "Corrected pressure", `${data.IRGASON_PA} mbar`);
+    table = document.createElement("TABLE");
+    table.classList.add("col-lg-4");
+    table.classList.add("col-md-12");
+
+    addRow(table.insertRow(), `${data.name33}`,  `${data.Var33} ${data.unit33}`);
+    addRow(table.insertRow(), `${data.name34}`,  `${data.Var34} ${data.unit34}`);
+    addRow(table.insertRow(), `${data.name35}`,  `${data.Var35} ${data.unit35}`);
+    addRow(table.insertRow(), `${data.name36}`,  `${data.Var36} ${data.unit36}`);
+    addRow(table.insertRow(), `${data.name37}`,  `${data.Var37} ${data.unit37}`);
+    addRow(table.insertRow(), `${data.name38}`,  `${data.Var38} ${data.unit38}`);
+    addRow(table.insertRow(), `${data.name39}`,  `${data.Var39} ${data.unit39}`);
+    addRow(table.insertRow(), `${data.name40}`,  `${data.Var40} ${data.unit40}`);
+    addRow(table.insertRow(), `${data.name41}`,  `${data.Var41} ${data.unit41}`);
+    addRow(table.insertRow(), `${data.name42}`,  `${data.Var42} ${data.unit42}`);
+    addRow(table.insertRow(), `${data.name43}`,  `${data.Var43} ${data.unit43}`);
+    addRow(table.insertRow(), `${data.name44}`,  `${data.Var44} ${data.unit44}`);
+    addRow(table.insertRow(), `${data.name45}`,  `${data.Var45} ${data.unit45}`);
+    addRow(table.insertRow(), `${data.name46}`,  `${data.Var46} ${data.unit46}`);
     div.appendChild(table);
 
 
@@ -215,13 +219,13 @@ Papa.parse(`${media_url}data/${dir_name}/current.csv`, {
     complete: (result) => displayEcCurrentData(result.data[0])
 });
 
-Papa.parse(`${media_url}data/${dir_name}/station_last_Metdata.csv`, {
+Papa.parse(`${media_url}data/${dir_name}/station_last_Metdata_new.csv`, {
     download: true,
     header: true,
     complete: (result) => displayStationCurrentData(result.data[0])
 });
 
-Papa.parse(`${media_url}data/${dir_name}/station_last_MetdataSmall.csv`, {
+Papa.parse(`${media_url}data/${dir_name}/station_last_MetdataSmall_new.csv`, {
     download: true,
     header: true,
     complete: (result) => displayStationCurrentDataS(result.data[0])
