@@ -1458,7 +1458,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
 
 });
 
-jQuery.get(`${media_url}data/${dir_name}/station_flux_data.csv`, function (data) {
+jQuery.get(`${media_url}data/${dir_name}/station_flux_data_new.csv`, function (data) {
     // Split the lines
     var lines = data.split('\n');
     var tab_date = lines[1].split(',')[0]
@@ -1483,8 +1483,8 @@ jQuery.get(`${media_url}data/${dir_name}/station_flux_data.csv`, function (data)
         var mm = tab_date.split(' ')[1].split(':')[1]
         var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d), parseInt(hh),parseInt(mm))
 
-        var firCol = lines[i].split(",")[5];                                                 // wind speed WS
-        var secCol = lines[i].split(",")[6];                                                // wind direction WD 
+        var firCol = lines[i].split(",")[0];                                                 // wind speed WS
+        var secCol = lines[i].split(",")[1];                                                // wind direction WD 
         options4.series[0].data.push([date_utc,  parseFloat(firCol), parseFloat(secCol)])
         options4.series[1].data.push([date_utc,  parseFloat(firCol), parseFloat(secCol)])
       //  c2.push(cat)
@@ -1504,11 +1504,11 @@ jQuery.get(`${media_url}data/${dir_name}/station_flux_data.csv`, function (data)
         var mm = tab_date.split(' ')[1].split(':')[1]
         var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d), parseInt(hh),parseInt(mm))
 
-        var firCol = lines[i].split(",")[1];                  // SW_IN
-        var secCol = lines[i].split(",")[2];                  //  SW_OUT
-        var fourCol = lines[i].split(",")[3];                 // LW_IN
-        var fifCol = lines[i].split(",")[4];                  //  LW_OUT
-        var sixCol = lines[i].split(",")[11];                 //  NETRAD
+        var firCol = lines[i].split(",")[2];                  // SW_IN
+        var secCol = lines[i].split(",")[3];                  //  SW_OUT
+        var fourCol = lines[i].split(",")[4];                 // LW_IN
+        var fifCol = lines[i].split(",")[5];                  //  LW_OUT
+        var sixCol = lines[i].split(",")[6];                 //  NETRAD
         options5.series[0].data.push([date_utc,parseFloat(firCol)])
         options5.series[1].data.push([date_utc,parseFloat(secCol)])
         options5.series[2].data.push([date_utc,parseFloat(fourCol)])
@@ -1554,8 +1554,8 @@ jQuery.get(`${media_url}data/${dir_name}/station_flux_data.csv`, function (data)
         var hh = tab_date.split(' ')[1].split(':')[0]
         var mm = tab_date.split(' ')[1].split(':')[1]
         var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d), parseInt(hh),parseInt(mm))
-        var firCol = lines[i].split(",")[17];                                                     // LE Latent Heat Flux
-        var secCol = lines[i].split(",")[18];                                                     //  H Sensible Heat Flux
+        var firCol = lines[i].split(",")[10];                                                     // LE Latent Heat Flux
+        var secCol = lines[i].split(",")[11];                                                     //  H Sensible Heat Flux
 
         options7.series[0].data.push([date_utc,parseFloat(firCol)])
         options7.series[1].data.push([date_utc,parseFloat(secCol)])
