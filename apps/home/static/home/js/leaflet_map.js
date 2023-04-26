@@ -23,7 +23,7 @@ full_Date = day2 +' '+ month +' '+ year + ' ; ' + hour + minutes + ' UTC'
 var map = L.map( 'map', {
   center: [46, -73.0],
   minZoom: 6,
-  zoom: 8
+  zoom: 7
 });
 
 L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -37,11 +37,11 @@ for ( var i = 0; i < stations.length; ++i )
     var j = i+1
     var popup = '<div  id="ori_date"><h5>'+full_Date+'</h5></div>' 
     + '<br><b>Station:        </b>'+stations[i].name 
-    + '<br><b>Temperature:    </b>'+stations[i].Temp1_Avg + ' °C'
-    + '<br><b>Humidity:       </b>'+stations[i].RH1 + ' %'
-    + '<br><b>Wind direction:       </b>'+stations[i].Mean_WindDir + ' Deg '
-    + '<br><b>Wind speed:       </b>'+stations[i].WS_ms + ' m/s'
-    + '<br><b>Pressure:       </b>'+stations[i].IRGASON_PA.toFixed(1) + ' hPa'
+    + '<br><b>Temperature:    </b>'+stations[i].Temp + ' °C'
+    + '<br><b>Humidity:       </b>'+stations[i].Humidity + ' %'
+    + '<br><b>Wind direction:       </b>'+stations[i].Dir + ' Deg '
+    + '<br><b>Wind speed:       </b>'+stations[i].Speed + ' m/s'
+    + '<br><b>Pressure:       </b>'+stations[i].Pressure.toFixed(1) + ' hPa'
     + `<img id='container' src='${media_url}images/sentinel${j}.jpg' width='250' height='250'/><br>` 
     + '</a>'
     + '<div>'
