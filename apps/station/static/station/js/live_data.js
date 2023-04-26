@@ -136,6 +136,8 @@ function displayStationCurrentData(data) {
     addRow(table.insertRow(), `${data.name44}`,  `${data.Var44} ${data.unit44}`);
     addRow(table.insertRow(), `${data.name45}`,  `${data.Var45} ${data.unit45}`);
     addRow(table.insertRow(), `${data.name46}`,  `${data.Var46} ${data.unit46}`);
+    addRow(table.insertRow(), `${data.name47}`,  `${data.Var45} ${data.unit47}`);
+    addRow(table.insertRow(), `${data.name48}`,  `${data.Var46} ${data.unit48}`);
     div.appendChild(table);
 
 
