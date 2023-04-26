@@ -23,7 +23,7 @@ full_Date = day2 +' '+ month +' '+ year + ' ; ' + hour + minutes + ' UTC'
 var map = L.map( 'map', {
   center: [46, -73.0],
   minZoom: 6,
-  zoom: 7
+  zoom: 9
 });
 
 L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
