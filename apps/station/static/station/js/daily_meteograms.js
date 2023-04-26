@@ -600,7 +600,7 @@ var options4 = {
         zoomType: 'xy'
     },
     title: {
-        text: '30 minutes wind module and direction',
+        text: '30 minutes wind module and direction (Anemometer)',
           style: {
                 color: Highcharts.getOptions().colors[1],
                 fontSize:'20px'
@@ -1458,21 +1458,14 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
 
 });
 
-jQuery.get(`${media_url}data/${dir_name}/station_flux_data_new.csv`, function (data) {
+jQuery.get(`${media_url}data/${dir_name}/station_anemometer.csv`, function (data) {
     // Split the lines
     var lines = data.split('\n');
     var tab_date = lines[1].split(',')[0]
     var y = tab_date.split(' ')[0].split('-')[0]
     var m = tab_date.split(' ')[0].split('-')[1]
     var d = tab_date.split(' ')[0].split('-')[2]
-
-   // console.log(tab_date)
-
-
-   // var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d))
-
-    // var date_utc = Date.UTC(parseInt(tab_date.split(' ')[0].split('-')[0]), parseInt(tab_date.split(' ')[0].split('-')[1])-1,parseInt(tab_date.split(' ')[0].split('-')[2]))
-
+    
     // Push column data into data list
     for (var i = 1; i < lines.length-1; i++) {
         var tab_date = lines[i].split(",")[0]
@@ -1490,10 +1483,21 @@ jQuery.get(`${media_url}data/${dir_name}/station_flux_data_new.csv`, function (d
       //  c2.push(cat)
         console.log([parseFloat(firCol), parseFloat(secCol)])
     }
-
     // Create the chart
     chart = new Highcharts.Chart(options4);
+});
 
+
+
+
+jQuery.get(`${media_url}data/${dir_name}/station_flux_data_new.csv`, function (data) {
+    // Split the lines
+    var lines = data.split('\n');
+    var tab_date = lines[1].split(',')[0]
+    var y = tab_date.split(' ')[0].split('-')[0]
+    var m = tab_date.split(' ')[0].split('-')[1]
+    var d = tab_date.split(' ')[0].split('-')[2]
+    
     // Push column data into data list
     for (var i = 1; i < lines.length-1; i++) {
         var tab_date = lines[i].split(",")[0]
