@@ -1338,21 +1338,21 @@ var options8 = {
 };
 
 
-jQuery.get(`${media_url}data/${dir_name}/station_Metdata.csv`, function (data) {
+jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (data) {
     // Split the lines
     var lines = data.split('\n');
 
     // Push column data into data list
     for (var i = 1; i < lines.length-1; i++) {
         //var cat = lines[i].split(",")[0]
-        var firCol = lines[i].split(",")[2];
-        var secCol = lines[i].split(",")[3];
-        var thirdCol = lines[i].split(",")[4];
-        var fourCol = lines[i].split(",")[5];
-        var fifCol = lines[i].split(",")[6];
-        var sixCol = lines[i].split(",")[7];
-        var sevCol = lines[i].split(",")[8];
-        var eigCol = lines[i].split(",")[9];
+        var firCol = lines[i].split(",")[1];
+        var secCol = lines[i].split(",")[2];
+        var thirdCol = lines[i].split(",")[3];
+        var fourCol = lines[i].split(",")[4];
+        var fifCol = lines[i].split(",")[5];
+        var sixCol = lines[i].split(",")[6];
+        var sevCol = lines[i].split(",")[7];
+        var eigCol = lines[i].split(",")[8];
 
         var tab_date = lines[i].split(",")[0]
         var y = tab_date.split(' ')[0].split('-')[0]
@@ -1381,7 +1381,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata.csv`, function (data) {
     // Push column data into data list
     for (var i = 1; i < lines.length-1; i++) {
       //  var cat = lines[i].split(",")[0]
-        var firCol = lines[i].split(",")[41];             // Rain_mm_tot 
+        var firCol = lines[i].split(",")[9];             // Rain_mm_tot 
         var secCol = lines[i].split(",")[10];             // RH1
         var thirdCol = lines[i].split(",")[11];           // RH2
         var fourCol = lines[i].split(",")[12];            // RH3
@@ -1416,7 +1416,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata.csv`, function (data) {
 
     for (var i = 1; i < lines.length-1; i++) {
         //var cat = lines[i].split(",")[0]
-        var Col = lines[i].split(",")[40];         // IRGASON_PA
+        var Col = lines[i].split(",")[18];         // IRGASON_PA
         var tab_date = lines[i].split(",")[0]
         var y = tab_date.split(' ')[0].split('-')[0]
         var m = tab_date.split(' ')[0].split('-')[1]
@@ -1437,8 +1437,8 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata.csv`, function (data) {
         //var cat = lines[i].split(",")[0]
         var Col = lines[i].split(",")[39];
         var tab_date = lines[i].split(",")[0]
-        var firCol = lines[i].split(",")[23];   // SR50A_SnowDepth
-        var secCol = lines[i].split(",")[22];   // SDMS40_Depth_Avg
+        var firCol = lines[i].split(",")[19];   // SR50A_SnowDepth
+        var secCol = lines[i].split(",")[20];   // SDMS40_Depth_Avg
         var y = tab_date.split(' ')[0].split('-')[0]
         var m = tab_date.split(' ')[0].split('-')[1]
         var d = tab_date.split(' ')[0].split('-')[2]
