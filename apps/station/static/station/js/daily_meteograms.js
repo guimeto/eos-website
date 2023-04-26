@@ -1481,7 +1481,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_anemometer.csv`, function (data
         options4.series[0].data.push([date_utc,  parseFloat(firCol), parseFloat(secCol)])
         options4.series[1].data.push([date_utc,  parseFloat(firCol), parseFloat(secCol)])
       //  c2.push(cat)
-        console.log([parseFloat(firCol), parseFloat(secCol)])
+      //  console.log([parseFloat(firCol), parseFloat(secCol)])
     }
     // Create the chart
     chart = new Highcharts.Chart(options4);
