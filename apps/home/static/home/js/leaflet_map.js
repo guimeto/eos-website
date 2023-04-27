@@ -21,7 +21,7 @@ var globalVariable
 full_Date = day2 +' '+ month +' '+ year + ' ; ' + hour + minutes + ' UTC'
 
 var map = L.map( 'map', {
-  center: [45,5, -73.6],
+  center: [45.5, -73.6],
   minZoom: 6,
   zoom: 9
 });
