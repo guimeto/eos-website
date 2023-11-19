@@ -1204,7 +1204,7 @@ var options8 = {
         zoomType: 'xy'
     },
     title: {
-        text: 'Snow depth measured by SR50A and SDMS40',
+        text: '15 minutes snow depth',
         style: {
                 color: Highcharts.getOptions().colors[1],
                 fontSize:'20px'
