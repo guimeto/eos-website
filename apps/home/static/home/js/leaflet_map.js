@@ -23,9 +23,9 @@ full_Date = day2 +' '+ month +' '+ year + ' ; ' + hour + minutes + ' UTC'
 var torontoCoords = [43.70, -79.42]; // Coordinates for Toronto
 var saguenayCoords = [48.42, -71.07]; // Coordinates for Saguenay
 var map = L.map( 'map', {
-  center: [45.5, -73.6],
+  center: [46.37, -72.5],
   minZoom: 6,
-  zoom: 9
+  zoom: 6
 });
 
 L.tileLayer( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
