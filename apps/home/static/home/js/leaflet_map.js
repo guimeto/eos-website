@@ -20,10 +20,16 @@ var globalVariable
 
 full_Date = day2 +' '+ month +' '+ year + ' ; ' + hour + minutes + ' UTC'
 
-var map = L.map( 'map', {
-  center: [45.5, -73.6],
-  minZoom: 6,
-  zoom: 9
+var torontoCoords = [43.70, -79.42]; // Coordinates for Toronto
+var saguenayCoords = [48.42, -71.07]; // Coordinates for Saguenay
+
+// Calculate the bounds that cover both Toronto and Saguenay
+var bounds = L.latLngBounds(torontoCoords, saguenayCoords);
+
+// Set the map to the center and zoom level that covers the calculated bounds
+var map = L.map('map', {
+  center: bounds.getCenter(),
+  zoom: map.getBoundsZoom(bounds)
 });
 
 L.tileLayer( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
