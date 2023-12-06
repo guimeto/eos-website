@@ -22,15 +22,16 @@ full_Date = day2 +' '+ month +' '+ year + ' ; ' + hour + minutes + ' UTC'
 
 var torontoCoords = [43.70, -79.42]; // Coordinates for Toronto
 var saguenayCoords = [48.42, -71.07]; // Coordinates for Saguenay
-var map = L.map('map');
+var map = L.map( 'map', {
+  center: [45.5, -73.6],
+  minZoom: 6,
+  zoom: 9
+});
 
 L.tileLayer( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
  subdomains: ['a','b','c']
-}).addTo(map).on('load', function () {
-  var bounds = L.latLngBounds(torontoCoords, saguenayCoords);
-  map.fitBounds(bounds);
-});
+}).addTo( map );
 
 var markerClusters = L.markerClusterGroup();
 for ( var i = 0; i < stations.length; ++i )
