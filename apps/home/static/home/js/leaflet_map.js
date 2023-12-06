@@ -49,11 +49,9 @@ for ( var i = 0; i < stations.length; ++i )
     var m = L.marker( [stations[i].lat, stations[i].lon] )
     .bindPopup( popup );
 
-    markerClusters.addLayer( m );
+    map.addLayer(m);
   }
 
-
-map.addLayer( markerClusters );
 map.on('popupopen', function(){
   var cont = document.getElementsByClassName('leaflet-popup-content')[0];    
   var lst = cont.getElementsByTagName('script');
