@@ -1310,8 +1310,7 @@ var options8 = {
         tooltip: {
             valueSuffix: ' mm'
         },
-            color: '#FF0000',
-            showInLegend: checkDataAvailability('SR50A') // Call a function to check data availability
+            color: '#FF0000'
 
     },{
         name: 'SDMS40',
@@ -1338,19 +1337,6 @@ var options8 = {
   // }
 };
 
-// Function to check data availability for a series
-function checkDataAvailability(seriesName) {
-    // Check if options8.series is defined and is an array
-    if (Array.isArray(options8.series)) {
-        // You need to implement logic to check if data is available for the specified series
-        // For example, you can check if the data array for the series is not empty
-        // Modify this based on how you determine data availability
-        return options8.series.find(series => series.name === seriesName)?.data?.length > 0;
-    }
-
-    // If options8.series is not an array or undefined, return false
-    return false;
-};
 jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (data) {
     // Split the lines
     var lines = data.split('\n');
