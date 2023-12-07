@@ -1431,7 +1431,10 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
 
     // Create the chart
     chart = new Highcharts.Chart(options3);
-
+   // Initialize flags to check if each series has at least one non-null value
+     var hasSR50AValues = false;
+     var hasSDMS40Values = false;
+    
      for (var i = 1; i < lines.length-1; i++) {
         //var cat = lines[i].split(",")[0]
         var Col = lines[i].split(",")[39];
@@ -1444,13 +1447,21 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
         var hh = tab_date.split(' ')[1].split(':')[0]
         var mm = tab_date.split(' ')[1].split(':')[1]
         var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d), parseInt(hh),parseInt(mm))
-
+        // Check if the values are not null
+        if (!isNaN(parseFloat(firCol))) {
+            hasSR50AValues = true;
+        if (!isNaN(parseFloat(secCol))) {
+            hasSDMS40Values = true;
+        }
+        
         options8.series[0].data.push([date_utc,parseFloat(firCol)*1000])
         options8.series[1].data.push([date_utc,parseFloat(secCol)])
         //c.push(cat)
        //console.log(Col)
     }
-
+    // Set showInLegend property based on whether the series has non-null values
+    options8.series[0].showInLegend = hasSR50AValues;
+    options8.series[1].showInLegend = hasSDMS40Values;
     // Create the chart
     chart = new Highcharts.Chart(options8);
 
