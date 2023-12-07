@@ -1450,6 +1450,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
         // Check if the values are not null
         if (!isNaN(parseFloat(firCol))) {
             hasSR50AValues = true;
+         }
         if (!isNaN(parseFloat(secCol))) {
             hasSDMS40Values = true;
         }
