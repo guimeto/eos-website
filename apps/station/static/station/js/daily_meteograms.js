@@ -1424,14 +1424,19 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
    // chart = new Highcharts.StockChart(options1);
     chart = new Highcharts.Chart(options1);
     jQuery.get(`${media_url}data/${dir_name}/temp_series_names.csv`, function (updatedNameData) {
-            var updatedNameLines = updatedNameData.split('\n');
-            
-            for (var l = 1; l < updatedNameLines.length - 1; l++) {
-                var updatedSeriesName = updatedNameLines[l].trim();
-                 chart.series[l -1 ].update({
-                        name: updatedSeriesName,
-            });
-        });
+    var updatedNameLines = updatedNameData.split('\n');
+    
+    for (var l = 1; l < updatedNameLines.length - 1; l++) {
+        var updatedSeriesName = updatedNameLines[l].trim();
+
+        // Update the series name in the options object
+        options1.series[l - 1].name = updatedSeriesName;
+    }
+
+    // Recreate the chart with the updated options
+    chart.destroy(); // Destroy the existing chart
+    chart = new Highcharts.Chart(options1); // Recreate the chart
+});
 
     // Push column data into data list
     for (var i = 1; i < lines.length-1; i++) {
