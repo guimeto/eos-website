@@ -1336,7 +1336,7 @@ var options8 = {
      //   }
   // }
 };
-
+  
 jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (data) {
     // Split the lines
     var lines = data.split('\n');
@@ -1422,7 +1422,19 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
     
     // Create the chart
    // chart = new Highcharts.StockChart(options1);
+    // Update series names dynamically
+    for (var j = 0; j < seriesNames.length; j++) {
+        options1.series[j].name = seriesNames[j];
+    }
     chart = new Highcharts.Chart(options1);
+    jQuery.get(`${media_url}data/${dir_name}/temp_series_names.csv`, function (updatedNameData) {
+            var updatedNameLines = updatedNameData.split('\n');
+            
+            for (var l = 1; l < updatedNameLines.length - 1; l++) {
+                var updatedSeriesName = updatedNameLines[l].trim();
+                options1.series[l - 1].update({ name: updatedSeriesName });
+            }
+        });
 
     // Push column data into data list
     for (var i = 1; i < lines.length-1; i++) {
@@ -1512,7 +1524,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
     options8.series[1].showInLegend = hasSDMS40Values;
     // Create the chart
     chart = new Highcharts.Chart(options8);
-});
+});   
 
 jQuery.get(`${media_url}data/${dir_name}/station_anemometer.csv`, function (data) {
     // Split the lines
