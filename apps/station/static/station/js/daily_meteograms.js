@@ -127,7 +127,89 @@ var options1 = {
         shadow: true
     },
 
-    series: [],
+    series: [{
+        name: '1 m',
+        type: 'spline',
+        data: [],
+        tooltip: {
+            valueSuffix: ' °C'
+        },
+        color: '#000075'
+    },
+        {
+            name: '1.5 m',
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' °C'
+            },
+        },
+        {
+            name: '2 m',
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' °C'
+            },
+            color: '#ffe119'
+
+        }
+        ,
+        {
+            name: '3.5 m',
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' °C'
+            },
+            color: '#f58231'
+
+        }
+        ,
+        {
+            name: '4.35 m',
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' °C'
+            },
+            color: '#e6194B'
+
+        }
+        ,
+        {
+            name: '5 m',
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' °C'
+            },
+            color: '#911eb4'
+
+        }
+        ,
+        {
+            name: '7.1 m',
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' °C'
+            },
+            color: '#f032e6'
+
+        }
+         ,
+        {
+            name: '10 m',
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' °C'
+            },
+            color: '#f032e6'
+
+        }
+    ],
     credits: {
         enabled: false
     },
@@ -1255,27 +1337,6 @@ var options8 = {
   // }
 };
 
-var seriesNames = [];
-jQuery.get(`${media_url}data/${dir_name}/temp_series_names.csv`, function (nameData) {
-    // Split the lines
-    var nameLines = nameData.split('\n');
-    // Extract series names
-    for (var k = 1; k < nameLines.length - 1; k++) {
-        var seriesName = nameLines[k].trim(); // Assuming names are in the first column, adjust as needed
-        seriesNames.push(seriesName);
-    }
-    // Update series names dynamically
-    for (var j = 0; j < seriesNames.length; j++) {
-            options1.series.push({
-            name: seriesNames[j],
-            type: 'spline',
-            data: [],
-            tooltip: {
-                valueSuffix: ' °C'
-            },
-            // Add other series options as needed
-        });
-    }
 jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (data) {
     // Split the lines
     var lines = data.split('\n');
@@ -1362,16 +1423,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
     // Create the chart
    // chart = new Highcharts.StockChart(options1);
     chart = new Highcharts.Chart(options1);
-    // Initialize flags to check if each series has at least one non-null value
-     var hasPRValues = false;
-     var hasHR1Values = false;
-     var hasHR2Values = false;
-     var hasHR3Values = false;
-     var hasHR4Values = false;
-     var hasHR5Values = false;
-     var hasHR6Values = false;
-     var hasHR7Values = false;
-     var hasHR8Values = false;
+
     // Push column data into data list
     for (var i = 1; i < lines.length-1; i++) {
       //  var cat = lines[i].split(",")[0]
@@ -1391,34 +1443,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
         var hh = tab_date.split(' ')[1].split(':')[0]
         var mm = tab_date.split(' ')[1].split(':')[1]
         var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d), parseInt(hh),parseInt(mm))
-          // Check if the values are not null
-        if (!isNaN(parseFloat(firCol))) {
-            hasPRValues = true;
-         }
-        if (!isNaN(parseFloat(secCol))) {
-            hasHR1Values = true;
-        }
-        if (!isNaN(parseFloat(thirdCol))) {
-            hasHR2Values = true;
-         }
-        if (!isNaN(parseFloat(fourCol))) {
-            hasHR3Values = true;
-        }
-        if (!isNaN(parseFloat(fifCol))) {
-            hasHR4Values = true;
-         }
-        if (!isNaN(parseFloat(sixCol))) {
-            hasHR5Values = true;
-        }
-        if (!isNaN(parseFloat(sevCol))) {
-            hasHR6Values = true;
-         }
-        if (!isNaN(parseFloat(heiCol))) {
-            hasHR7Values = true;
-        }
-        if (!isNaN(parseFloat(nineCol))) {
-            hasHR8Values = true;
-        }
+
        // c.push(cat)
         options2.series[0].data.push([date_utc,parseFloat(firCol)])
         options2.series[1].data.push([date_utc,parseFloat(secCol)])
@@ -1430,16 +1455,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
         options2.series[7].data.push([date_utc,parseFloat(heiCol)])
         options2.series[8].data.push([date_utc,parseFloat(nineCol)])
     }
-     // Set showInLegend property based on whether the series has non-null values
-    options2.series[0].showInLegend = hasPRValues;
-    options2.series[1].showInLegend = hasHR1Values;
-    options2.series[2].showInLegend = hasHR2Values;
-    options2.series[3].showInLegend = hasHR3Values;
-    options2.series[4].showInLegend = hasHR4Values;
-    options2.series[5].showInLegend = hasHR5Values;
-    options2.series[6].showInLegend = hasHR6Values;
-    options2.series[7].showInLegend = hasHR7Values;
-    options2.series[8].showInLegend = hasHR8Values;
+
     // Create the chart
     chart = new Highcharts.Chart(options2);
 
@@ -1496,7 +1512,6 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
     options8.series[1].showInLegend = hasSDMS40Values;
     // Create the chart
     chart = new Highcharts.Chart(options8);
-});
 });
 
 jQuery.get(`${media_url}data/${dir_name}/station_anemometer.csv`, function (data) {
@@ -1626,4 +1641,3 @@ var inputValue = $(this).attr("value");
         $("." + inputValue).hide();
     }
 });
-
