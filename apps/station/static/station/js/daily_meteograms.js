@@ -1416,7 +1416,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
     jQuery.get(`${media_url}data/${dir_name}/temp_series_names.csv`, function (updatedNameData) {
     var updatedNameLines = updatedNameData.split('\n');
     
-    for (var l = 1; l < updatedNameLines.length - 1; l++) {
+    for (var l = 0; l < updatedNameLines.length; l++) {
         var updatedSeriesName = updatedNameLines[l].trim();
         console.log(updatedSeriesName)
         // Update the series name in the options object
@@ -1511,7 +1511,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
         jQuery.get(`${media_url}data/${dir_name}/hr_series_names.csv`, function (updatedNameData) {
     var updatedNameLines = updatedNameData.split('\n');
     
-    for (var l = 1; l < updatedNameLines.length - 1; l++) {
+    for (var l = 0; l < updatedNameLines.length; l++) {
         var updatedSeriesName = updatedNameLines[l].trim();
 
         // Update the series name in the options object
