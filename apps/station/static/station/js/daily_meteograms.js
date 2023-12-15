@@ -128,7 +128,7 @@ var options1 = {
     },
 
     series: [{
-        name: '1 m',
+        name: [],
         type: 'spline',
         data: [],
         tooltip: {
@@ -137,7 +137,7 @@ var options1 = {
         color: '#000075'
     },
         {
-            name: '1.5 m',
+            name: [],
             type: 'spline',
             data: [],
             tooltip: {
@@ -145,7 +145,7 @@ var options1 = {
             },
         },
         {
-            name: '2 m',
+            name: [],
             type: 'spline',
             data: [],
             tooltip: {
@@ -156,7 +156,7 @@ var options1 = {
         }
         ,
         {
-            name: '3.5 m',
+            name: [],
             type: 'spline',
             data: [],
             tooltip: {
@@ -167,7 +167,7 @@ var options1 = {
         }
         ,
         {
-            name: '4.35 m',
+            name: [],
             type: 'spline',
             data: [],
             tooltip: {
@@ -178,7 +178,7 @@ var options1 = {
         }
         ,
         {
-            name: '5 m',
+            name: [],
             type: 'spline',
             data: [],
             tooltip: {
@@ -189,7 +189,7 @@ var options1 = {
         }
         ,
         {
-            name: '7.1 m',
+            name: [],
             type: 'spline',
             data: [],
             tooltip: {
@@ -200,7 +200,7 @@ var options1 = {
         }
          ,
         {
-            name: '10 m',
+            name: '[],
             type: 'spline',
             data: [],
             tooltip: {
@@ -1337,6 +1337,22 @@ var options8 = {
   // }
 };
 
+var seriesNames = [];
+jQuery.get(`${media_url}data/${dir_name}/temp_series_names.csv`, function (nameData) {
+    // Split the lines
+    var nameLines = nameData.split('\n');
+    // Extract series names
+    for (var k = 1; k < nameLines.length - 1; k++) {
+        var seriesName = nameLines[k].trim(); // Assuming names are in the first column, adjust as needed
+        seriesNames.push(seriesName);
+    }
+    // Update series names dynamically
+    for (var j = 0; j < seriesNames.length; j++) {
+        options1.series.push({
+            name: seriesNames[j],
+            // Add other series options as needed
+        });
+    }
 jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (data) {
     // Split the lines
     var lines = data.split('\n');
@@ -1557,6 +1573,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
     options8.series[1].showInLegend = hasSDMS40Values;
     // Create the chart
     chart = new Highcharts.Chart(options8);
+});
 });
 
 jQuery.get(`${media_url}data/${dir_name}/station_anemometer.csv`, function (data) {
