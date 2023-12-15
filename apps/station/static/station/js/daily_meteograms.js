@@ -1418,11 +1418,8 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
     
     for (var l = 0; l < updatedNameLines.length && l < options1.series.length; l++) {
         var updatedSeriesName = updatedNameLines[l].trim();
-        console.log(updatedSeriesName)
         // Update the series name in the options object
-        console.log(options1.series[l].name)
         options1.series[l].name = updatedSeriesName;
-        console.log(options1.series[l].name)
     }
     // Set showInLegend property based on whether the series has non-null values
     options1.series[0].showInLegend = hasTmp1Values;
