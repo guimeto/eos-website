@@ -1472,7 +1472,20 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
 
     // Create the chart
     chart = new Highcharts.Chart(options2);
+        jQuery.get(`${media_url}data/${dir_name}/hr_series_names.csv`, function (updatedNameData) {
+    var updatedNameLines = updatedNameData.split('\n');
+    
+    for (var l = 1; l < updatedNameLines.length - 1; l++) {
+        var updatedSeriesName = updatedNameLines[l].trim();
 
+        // Update the series name in the options object
+        options2.series[l - 1].name = updatedSeriesName;
+    }
+
+    // Recreate the chart with the updated options
+    chart.destroy(); // Destroy the existing chart
+    chart = new Highcharts.Chart(options1); // Recreate the chart
+});
 
     for (var i = 1; i < lines.length-1; i++) {
         //var cat = lines[i].split(",")[0]
