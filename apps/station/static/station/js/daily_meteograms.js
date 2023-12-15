@@ -1340,7 +1340,16 @@ var options8 = {
 jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (data) {
     // Split the lines
     var lines = data.split('\n');
-
+    // Initialize flags to check if each series has at least one non-null value
+     var hasTmp1Values = false;
+     var hasTmp2Values = false;
+     var hasTmp3Values = false;
+     var hasTmp4Values = false;
+     var hasTmp5Values = false;
+     var hasTmp6Values = false;
+     var hasTmp7Values = false;
+     var hasTmp8Values = false;
+    
     // Push column data into data list
     for (var i = 1; i < lines.length-1; i++) {
         //var cat = lines[i].split(",")[0]
@@ -1388,6 +1397,15 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
         }
         //c.push(cat)
        //console.log(Col)
+        options1.series[0].data.push([date_utc,parseFloat(firCol)])     // Temp1_Avg
+        options1.series[1].data.push([date_utc,parseFloat(secCol)])     // Temp2_Avg
+        options1.series[2].data.push([date_utc,parseFloat(thirdCol)])   // Temp3_Avg
+        options1.series[3].data.push([date_utc,parseFloat(fourCol)])    // Temp4_Avg
+        options1.series[4].data.push([date_utc,parseFloat(fifCol)])     // Temp5_Avg
+        options1.series[5].data.push([date_utc,parseFloat(sixCol)])     // Temp6_Avg
+        options1.series[6].data.push([date_utc,parseFloat(sevCol)])     // Temp7_Avg
+        options1.series[7].data.push([date_utc,parseFloat(eigCol)])     // Temp8_Avg
+        
     }
     // Set showInLegend property based on whether the series has non-null values
     options1.series[0].showInLegend = hasTmp1Values;
@@ -1401,25 +1419,6 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
     
        // console.log(tab_date)
         //c.push(cat)
-
-        options1.series[0].data.push([date_utc,parseFloat(firCol)])     // Temp1_Avg
-        options1.series[1].data.push([date_utc,parseFloat(secCol)])     // Temp2_Avg
-        options1.series[2].data.push([date_utc,parseFloat(thirdCol)])   // Temp3_Avg
-        options1.series[3].data.push([date_utc,parseFloat(fourCol)])    // Temp4_Avg
-        options1.series[4].data.push([date_utc,parseFloat(fifCol)])     // Temp5_Avg
-        options1.series[5].data.push([date_utc,parseFloat(sixCol)])     // Temp6_Avg
-        options1.series[6].data.push([date_utc,parseFloat(sevCol)])     // Temp7_Avg
-        options1.series[7].data.push([date_utc,parseFloat(eigCol)])     // Temp8_Avg
-    }
-    // Set showInLegend property based on whether the series has non-null values
-    options1.series[0].showInLegend = hasTmp1Values;
-    options1.series[1].showInLegend = hasTmp2Values;
-    options1.series[2].showInLegend = hasTmp3Values;
-    options1.series[3].showInLegend = hasTmp4Values;
-    options1.series[4].showInLegend = hasTmp5Values;
-    options1.series[5].showInLegend = hasTmp6Values;
-    options1.series[6].showInLegend = hasTmp7Values;
-    options1.series[7].showInLegend = hasTmp8Values;
     
     // Create the chart
    // chart = new Highcharts.StockChart(options1);
@@ -1513,8 +1512,6 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
     options8.series[1].showInLegend = hasSDMS40Values;
     // Create the chart
     chart = new Highcharts.Chart(options8);
-
-
 });
 
 jQuery.get(`${media_url}data/${dir_name}/station_anemometer.csv`, function (data) {
