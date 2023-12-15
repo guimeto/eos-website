@@ -1422,10 +1422,6 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
     
     // Create the chart
    // chart = new Highcharts.StockChart(options1);
-    // Update series names dynamically
-    for (var j = 0; j < seriesNames.length; j++) {
-        options1.series[j].name = seriesNames[j];
-    }
     chart = new Highcharts.Chart(options1);
     jQuery.get(`${media_url}data/${dir_name}/temp_series_names.csv`, function (updatedNameData) {
             var updatedNameLines = updatedNameData.split('\n');
