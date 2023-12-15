@@ -1420,6 +1420,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
         var updatedSeriesName = updatedNameLines[l].trim();
         console.log(updatedSeriesName)
         // Update the series name in the options object
+        console.log(options1.series[l].name)
         options1.series[l].name = updatedSeriesName;
     }
     // Set showInLegend property based on whether the series has non-null values
