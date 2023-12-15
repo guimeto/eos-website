@@ -1484,7 +1484,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
 
     // Recreate the chart with the updated options
     chart.destroy(); // Destroy the existing chart
-    chart = new Highcharts.Chart(options1); // Recreate the chart
+    chart = new Highcharts.Chart(options2); // Recreate the chart
 });
 
     for (var i = 1; i < lines.length-1; i++) {
