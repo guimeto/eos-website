@@ -1412,7 +1412,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
     
     // Create the chart
    // chart = new Highcharts.StockChart(options1);
-    chart = new Highcharts.Chart(options1);
+    chart1 = new Highcharts.Chart(options1);
     jQuery.get(`${media_url}data/${dir_name}/temp_series_names.csv`, function (updatedNameData) {
     var updatedNameLines = updatedNameData.split('\n');
     
@@ -1432,8 +1432,8 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
     options1.series[7].showInLegend = hasTmp8Values;    
 
     // Recreate the chart with the updated options
-    chart.destroy(); // Destroy the existing chart
-    chart = new Highcharts.Chart(options1); // Recreate the chart
+    chart1.destroy(); // Destroy the existing chart
+    chart1 = new Highcharts.Chart(options1); // Recreate the chart
 });
     // Initialize flags to check if each series has at least one non-null value
      var hasPRValues = false;
@@ -1550,7 +1550,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
     }
 
     // Create the chart
-    chart = new Highcharts.Chart(options3);
+    chart3 = new Highcharts.Chart(options3);
    // Initialize flags to check if each series has at least one non-null value
      var hasSR50AValues = false;
      var hasSDMS40Values = false;
@@ -1584,7 +1584,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
     options8.series[0].showInLegend = hasSR50AValues;
     options8.series[1].showInLegend = hasSDMS40Values;
     // Create the chart
-    chart = new Highcharts.Chart(options8);
+    chart3 = new Highcharts.Chart(options8);
 });   
 
 jQuery.get(`${media_url}data/${dir_name}/station_anemometer.csv`, function (data) {
@@ -1613,7 +1613,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_anemometer.csv`, function (data
       //  console.log([parseFloat(firCol), parseFloat(secCol)])
     }
     // Create the chart
-    chart = new Highcharts.Chart(options4);
+    chart4 = new Highcharts.Chart(options4);
 });
 
 
@@ -1652,7 +1652,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_flux_data_new.csv`, function (d
 
     }
     // Create the chart
-    chart = new Highcharts.Chart(options5);
+    chart5 = new Highcharts.Chart(options5);
  // Push column data into data list
     for (var i = 1; i < lines.length-1; i++) {
         var tab_date = lines[i].split(",")[0]
@@ -1676,7 +1676,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_flux_data_new.csv`, function (d
     }
 
     // Create the chart
-    chart = new Highcharts.Chart(options6);
+    chart6 = new Highcharts.Chart(options6);
 // Push column data into data list
     for (var i = 1; i < lines.length-1; i++) {
 
@@ -1702,7 +1702,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_flux_data_new.csv`, function (d
     }
    // options7.series[0].pointStart.push(date_utc)
     // Create the chart
-    chart = new Highcharts.Chart(options7);
+    chart7 = new Highcharts.Chart(options7);
 });
 
 
