@@ -1428,8 +1428,9 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
             
             for (var l = 1; l < updatedNameLines.length - 1; l++) {
                 var updatedSeriesName = updatedNameLines[l].trim();
-                options1.series[l - 1].update({ name: updatedSeriesName });
-            }
+                 chart.series[l -1 ].update({
+                        name: updatedSeriesName,
+            });
         });
 
     // Push column data into data list
