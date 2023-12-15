@@ -127,89 +127,7 @@ var options1 = {
         shadow: true
     },
 
-    series: [{
-        name: [],
-        type: 'spline',
-        data: [],
-        tooltip: {
-            valueSuffix: ' °C'
-        },
-        color: '#000075'
-    },
-        {
-            name: [],
-            type: 'spline',
-            data: [],
-            tooltip: {
-                valueSuffix: ' °C'
-            },
-        },
-        {
-            name: [],
-            type: 'spline',
-            data: [],
-            tooltip: {
-                valueSuffix: ' °C'
-            },
-            color: '#ffe119'
-
-        }
-        ,
-        {
-            name: [],
-            type: 'spline',
-            data: [],
-            tooltip: {
-                valueSuffix: ' °C'
-            },
-            color: '#f58231'
-
-        }
-        ,
-        {
-            name: [],
-            type: 'spline',
-            data: [],
-            tooltip: {
-                valueSuffix: ' °C'
-            },
-            color: '#e6194B'
-
-        }
-        ,
-        {
-            name: [],
-            type: 'spline',
-            data: [],
-            tooltip: {
-                valueSuffix: ' °C'
-            },
-            color: '#911eb4'
-
-        }
-        ,
-        {
-            name: [],
-            type: 'spline',
-            data: [],
-            tooltip: {
-                valueSuffix: ' °C'
-            },
-            color: '#f032e6'
-
-        }
-         ,
-        {
-            name: '[],
-            type: 'spline',
-            data: [],
-            tooltip: {
-                valueSuffix: ' °C'
-            },
-            color: '#f032e6'
-
-        }
-    ],
+    series: [],
     credits: {
         enabled: false
     },
@@ -1348,8 +1266,13 @@ jQuery.get(`${media_url}data/${dir_name}/temp_series_names.csv`, function (nameD
     }
     // Update series names dynamically
     for (var j = 0; j < seriesNames.length; j++) {
-        options1.series.push({
+            options1.series.push({
             name: seriesNames[j],
+            type: 'spline',
+            data: [],
+            tooltip: {
+                valueSuffix: ' °C'
+            },
             // Add other series options as needed
         });
     }
