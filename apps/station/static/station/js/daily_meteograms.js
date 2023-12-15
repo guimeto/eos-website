@@ -1360,6 +1360,45 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
         var hh = tab_date.split(' ')[1].split(':')[0]
         var mm = tab_date.split(' ')[1].split(':')[1]
         var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d), parseInt(hh),parseInt(mm))
+
+         // Check if the values are not null
+        if (!isNaN(parseFloat(firCol))) {
+            hasTmp1Values = true;
+         }
+        if (!isNaN(parseFloat(secCol))) {
+            hasTmp2Values = true;
+        }
+        if (!isNaN(parseFloat(thirdCol))) {
+            hasTmp3Values = true;
+         }
+        if (!isNaN(parseFloat(fourCol))) {
+            hasTmp4Values = true;
+        }
+        if (!isNaN(parseFloat(fifCol))) {
+            hasTmp5Values = true;
+         }
+        if (!isNaN(parseFloat(sixCol))) {
+            hasTmp6Values = true;
+        }
+        if (!isNaN(parseFloat(sevCol))) {
+            hasTmp7Values = true;
+         }
+        if (!isNaN(parseFloat(eigCol))) {
+            hasTmp8Values = true;
+        }
+        //c.push(cat)
+       //console.log(Col)
+    }
+    // Set showInLegend property based on whether the series has non-null values
+    options1.series[0].showInLegend = hasTmp1Values;
+    options1.series[1].showInLegend = hasTmp2Values;
+    options1.series[2].showInLegend = hasTmp3Values;
+    options1.series[3].showInLegend = hasTmp4Values;
+    options1.series[4].showInLegend = hasTmp5Values;
+    options1.series[5].showInLegend = hasTmp6Values;
+    options1.series[6].showInLegend = hasTmp7Values;
+    options1.series[7].showInLegend = hasTmp8Values;
+    
        // console.log(tab_date)
         //c.push(cat)
 
@@ -1372,7 +1411,16 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
         options1.series[6].data.push([date_utc,parseFloat(sevCol)])     // Temp7_Avg
         options1.series[7].data.push([date_utc,parseFloat(eigCol)])     // Temp8_Avg
     }
-
+    // Set showInLegend property based on whether the series has non-null values
+    options1.series[0].showInLegend = hasTmp1Values;
+    options1.series[1].showInLegend = hasTmp2Values;
+    options1.series[2].showInLegend = hasTmp3Values;
+    options1.series[3].showInLegend = hasTmp4Values;
+    options1.series[4].showInLegend = hasTmp5Values;
+    options1.series[5].showInLegend = hasTmp6Values;
+    options1.series[6].showInLegend = hasTmp7Values;
+    options1.series[7].showInLegend = hasTmp8Values;
+    
     // Create the chart
    // chart = new Highcharts.StockChart(options1);
     chart = new Highcharts.Chart(options1);
