@@ -1513,7 +1513,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
         jQuery.get(`${media_url}data/${dir_name}/hr_series_names.csv`, function (updatedNameData) {
     var updatedNameLines = updatedNameData.split('\n');
     
-    for (var l = 0; l < updatedNameLines.length; l++) {
+    for (var l = 0; l < updatedNameLines.length && l < options1.series.length; l++) {
         var updatedSeriesName = updatedNameLines[l].trim();
 
         // Update the series name in the options object
