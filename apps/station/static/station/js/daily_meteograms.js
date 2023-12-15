@@ -1406,17 +1406,7 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
         options1.series[6].data.push([date_utc,parseFloat(sevCol)])     // Temp7_Avg
         options1.series[7].data.push([date_utc,parseFloat(eigCol)])     // Temp8_Avg
         
-    }
-    // Set showInLegend property based on whether the series has non-null values
-    options1.series[0].showInLegend = hasTmp1Values;
-    options1.series[1].showInLegend = hasTmp2Values;
-    options1.series[2].showInLegend = hasTmp3Values;
-    options1.series[3].showInLegend = hasTmp4Values;
-    options1.series[4].showInLegend = hasTmp5Values;
-    options1.series[5].showInLegend = hasTmp6Values;
-    options1.series[6].showInLegend = hasTmp7Values;
-    options1.series[7].showInLegend = hasTmp8Values;
-    
+    }    
        // console.log(tab_date)
         //c.push(cat)
     
@@ -1428,16 +1418,35 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
     
     for (var l = 1; l < updatedNameLines.length - 1; l++) {
         var updatedSeriesName = updatedNameLines[l].trim();
-
+        console.log(updatedSeriesName)
         // Update the series name in the options object
-        options1.series[l - 1].name = updatedSeriesName;
+        options1.series[l].name = updatedSeriesName;
     }
+    // Set showInLegend property based on whether the series has non-null values
+    options1.series[0].showInLegend = hasTmp1Values;
+    options1.series[1].showInLegend = hasTmp2Values;
+    options1.series[2].showInLegend = hasTmp3Values;
+    options1.series[3].showInLegend = hasTmp4Values;
+    options1.series[4].showInLegend = hasTmp5Values;
+    options1.series[5].showInLegend = hasTmp6Values;
+    options1.series[6].showInLegend = hasTmp7Values;
+    options1.series[7].showInLegend = hasTmp8Values;    
 
     // Recreate the chart with the updated options
     chart.destroy(); // Destroy the existing chart
     chart = new Highcharts.Chart(options1); // Recreate the chart
 });
-
+    // Initialize flags to check if each series has at least one non-null value
+     var hasPRValues = false;
+     var hasRH1Values = false;
+     var hasRH2Values = false;
+     var hasRH3Values = false;
+     var hasRH4Values = false;
+     var hasRH5Values = false;
+     var hasRH6Values = false;
+     var hasRH7Values = false;
+     var hasRH8Values = false;
+    
     // Push column data into data list
     for (var i = 1; i < lines.length-1; i++) {
       //  var cat = lines[i].split(",")[0]
@@ -1457,7 +1466,34 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
         var hh = tab_date.split(' ')[1].split(':')[0]
         var mm = tab_date.split(' ')[1].split(':')[1]
         var date_utc = Date.UTC(parseInt(y), parseInt(m)-1,parseInt(d), parseInt(hh),parseInt(mm))
-
+        // Check if the values are not null
+        if (!isNaN(parseFloat(firCol))) {
+            hasPRValues = true;
+         }
+        if (!isNaN(parseFloat(secCol))) {
+            hasRH1Values = true;
+        }
+        if (!isNaN(parseFloat(thirdCol))) {
+            hasRH2Values = true;
+         }
+        if (!isNaN(parseFloat(fourCol))) {
+            hasRH3Values = true;
+        }
+        if (!isNaN(parseFloat(fifCol))) {
+            hasRH4Values = true;
+         }
+        if (!isNaN(parseFloat(sixCol))) {
+            hasRH5Values = true;
+        }
+        if (!isNaN(parseFloat(sevCol))) {
+            hasRH6Values = true;
+         }
+        if (!isNaN(parseFloat(heiCol))) {
+            hasRH7Values = true;
+        }
+        if (!isNaN(parseFloat(nineCol))) {
+            hasRH8Values = true;
+        }
        // c.push(cat)
         options2.series[0].data.push([date_utc,parseFloat(firCol)])
         options2.series[1].data.push([date_utc,parseFloat(secCol)])
@@ -1479,8 +1515,19 @@ jQuery.get(`${media_url}data/${dir_name}/station_Metdata_new.csv`, function (dat
         var updatedSeriesName = updatedNameLines[l].trim();
 
         // Update the series name in the options object
-        options2.series[l - 1].name = updatedSeriesName;
+        options2.series[l].name = updatedSeriesName;
     }
+    // Set showInLegend property based on whether the series has non-null values
+    options2.series[0].showInLegend = hasPRValues;
+    options2.series[1].showInLegend = hasRH1Values;
+    options2.series[2].showInLegend = hasRH2Values;
+    options2.series[3].showInLegend = hasRH3Values;
+    options2.series[4].showInLegend = hasRH4Values;
+    options2.series[5].showInLegend = hasRH5Values;
+    options2.series[6].showInLegend = hasRH6Values;
+    options2.series[7].showInLegend = hasRH7Values;
+    options2.series[8].showInLegend = hasRH8Values;
+            
 
     // Recreate the chart with the updated options
     chart.destroy(); // Destroy the existing chart
