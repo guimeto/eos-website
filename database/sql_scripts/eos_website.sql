@@ -45,7 +45,7 @@ INSERT INTO `station` (`id`, `name`, `dir_name`, `meteograms`, `radar`, `disdrom
 (2, 'Arboretum', 'sentinel_2', 1, 1, 1, 0),
 (3, 'Forest Montmorency', 'sentinel_3', 1, 0, 1, 0),
 (4, 'UQAM', 'sentinel_4', 1, 1, 1, 1),
-(5, 'Trois-Rivieres', 'sentinel_5', 0, 0, 0, 0),
+(5, 'Trois-Rivieres', 'sentinel_5', 1, 0, 0, 0),
 (6, 'Sherbrooke', 'sentinel_6', 0, 0, 0, 0),
 (7, 'Ottawa', 'sentinel_7', 0, 0, 0, 0);
 --
