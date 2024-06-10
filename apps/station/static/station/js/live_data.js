@@ -148,18 +148,6 @@ function displayStationFluxData(data) {
     let table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
-    addRow(table.insertRow(), "Short Wave In", `${data.SW_IN} W/m2`);
-    addRow(table.insertRow(), "Short Wave Out", `${data.SW_OUT} W/m2`);
-    addRow(table.insertRow(), "Long Wave In", `${data.LW_IN} W/m2`);
-    addRow(table.insertRow(), "Long Wave Out", `${data.LW_OUT} W/m2`);
-    addRow(table.insertRow(), "Sonic wind speed", `${data.WS} m/s`);
-    addRow(table.insertRow(), "Sonic wind direction", `${data.WD} deg`);
-    addRow(table.insertRow(), "TS_1_1_1", `${data.TS_1_1_1} °C`);
-    div.appendChild(table);
-
-    table = document.createElement("TABLE");
-    table.classList.add("col-lg-4");
-    table.classList.add("col-md-12");
     addRow(table.insertRow(), `${data.name1}`,  `${data.Var1} ${data.unit1}`);
     addRow(table.insertRow(), `${data.name2}`,  `${data.Var2} ${data.unit2}`);
     addRow(table.insertRow(), `${data.name3}`,  `${data.Var3} ${data.unit3}`);
@@ -177,6 +165,21 @@ function displayStationFluxData(data) {
     addRow(table.insertRow(), `${data.name10}`,  `${data.Var10} ${data.unit10}`);
     addRow(table.insertRow(), `${data.name11}`,  `${data.Var11} ${data.unit11}`);
     addRow(table.insertRow(), `${data.name12}`,  `${data.Var12} ${data.unit12}`);
+    addRow(table.insertRow(), `${data.name13}`,  `${data.Var13} ${data.unit13}`);
+    addRow(table.insertRow(), `${data.name14}`,  `${data.Var14} ${data.unit14}`);
+    div.appendChild(table);
+    addRow(table.insertRow(), `${data.name15}`,  `${data.Var15} ${data.unit15}`);
+    addRow(table.insertRow(), `${data.name16}`,  `${data.Var16} ${data.unit16}`);
+    addRow(table.insertRow(), `${data.name17}`,  `${data.Var17} ${data.unit17}`);
+    addRow(table.insertRow(), `${data.name18}`,  `${data.Var18} ${data.unit18}`);
+    addRow(table.insertRow(), `${data.name19}`,  `${data.Var19} ${data.unit19}`);
+    addRow(table.insertRow(), `${data.name20}`,  `${data.Var20} ${data.unit20}`);
+    addRow(table.insertRow(), `${data.name21}`,  `${data.Var21} ${data.unit21}`);
+    table = document.createElement("TABLE");
+    table.classList.add("col-lg-4");
+    table.classList.add("col-md-12");
+
+    
     div.appendChild(table);
 
 }
