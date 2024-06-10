@@ -160,25 +160,24 @@ function displayStationFluxData(data) {
     table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
-    addRow(table.insertRow(), "Soil temperature", `${data.TS_2_1_1} °C`);
-    addRow(table.insertRow(), "Soil water content", `${data.SWC_1_1_1} %`);
-    addRow(table.insertRow(), "Pressure", `${data.PA} kPa`);
-    addRow(table.insertRow(), "Net radiation", `${data.NETRAD} W/m2`);
-    addRow(table.insertRow(), "Albedo ", `${data.ALB} %`);
-    addRow(table.insertRow(), "CO2 Flux (Irgason)", `${data.FC} umolCO2/m2.s`);
-    addRow(table.insertRow(), "Ground heat flux (G)", `${data.G} W/m2`);
+    addRow(table.insertRow(), `${data.name1}`,  `${data.Var1} ${data.unit1}`);
+    addRow(table.insertRow(), `${data.name2}`,  `${data.Var2} ${data.unit2}`);
+    addRow(table.insertRow(), `${data.name3}`,  `${data.Var3} ${data.unit3}`);
+    addRow(table.insertRow(), `${data.name4}`,  `${data.Var4} ${data.unit4}`);
+    addRow(table.insertRow(), `${data.name5}`,  `${data.Var5} ${data.unit5}`);
+    addRow(table.insertRow(), `${data.name6}`,  `${data.Var6} ${data.unit6}`);
+    addRow(table.insertRow(), `${data.name7}`,  `${data.Var7} ${data.unit7}`);
     div.appendChild(table);
 
     table = document.createElement("TABLE");
     table.classList.add("col-lg-4");
     table.classList.add("col-md-12");
-    addRow(table.insertRow(), "Soil heat storage flux", `${data.SG} W/m2`);
-    addRow(table.insertRow(), "Evapotranspiration", `${data.ET} mm/hr`);
-    addRow(table.insertRow(), "Latent heat flux", `${data.LE} W/m2`);
-    addRow(table.insertRow(), "Sensible heat flux", `${data.H} W/m2`);
-    addRow(table.insertRow(), "Max flux fetch distance", `${data.FETCH_MAX} m`);
+    addRow(table.insertRow(), `${data.name8}`,  `${data.Var8} ${data.unit8}`);
+    addRow(table.insertRow(), `${data.name9}`,  `${data.Var9} ${data.unit9}`);
+    addRow(table.insertRow(), `${data.name10}`,  `${data.Var10} ${data.unit10}`);
+    addRow(table.insertRow(), `${data.name11}`,  `${data.Var11} ${data.unit11}`);
+    addRow(table.insertRow(), `${data.name12}`,  `${data.Var12} ${data.unit12}`);
     div.appendChild(table);
-
 
 }
 function displayStationSWEData(data) {
